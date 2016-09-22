@@ -61,25 +61,67 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-testssss" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-github-hexo-如何从已有的github仓库进行配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/09/22/testssss/" class="article-date">
-  <time datetime="2016-09-22T13:06:48.039Z" itemprop="datePublished">2016-09-22</time>
+    <a href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" class="article-date">
+  <time datetime="2016-09-22T13:11:36.000Z" itemprop="datePublished">2016-09-22</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Configuration/">Configuration</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/">github+hexo: 如何从已有的github仓库进行配置</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="如何从已有的github仓库进行配置继续生成hexo静态网页"><a href="#如何从已有的github仓库进行配置继续生成hexo静态网页" class="headerlink" title="如何从已有的github仓库进行配置继续生成hexo静态网页"></a>如何从已有的github仓库进行配置继续生成hexo静态网页</h1><h2 id="出处"><a href="#出处" class="headerlink" title="出处"></a>出处</h2><ul>
+<li>作者：CrazyMilk</li>
+<li><a href="https://www.zhihu.com/question/21193762/answer/79109280" target="_blank" rel="external">链接</a></li>
+<li>来源：知乎</li>
+<li>著作权归作者所有。</li>
+</ul>
+<p><strong>本人对原作做了一些简化和修改，并附上了简单的初始化和日常更新脚本。</strong></p>
+<h2 id="搭建和使用过程"><a href="#搭建和使用过程" class="headerlink" title="搭建和使用过程"></a>搭建和使用过程</h2><h3 id="关于搭建的流程"><a href="#关于搭建的流程" class="headerlink" title="关于搭建的流程"></a>关于搭建的流程</h3><ol>
+<li>创建仓库，<a href="http://CrazyMilk.github.io；" target="_blank" rel="external">http://CrazyMilk.github.io；</a></li>
+<li>创建两个分支：master 与 hexo；</li>
+<li>设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；</li>
+<li>使用git clone git@github.com:CrazyMilk/CrazyMilk.github.io.git拷贝仓库；</li>
+<li>在本地<a href="http://CrazyMilk.github.io" target="_blank" rel="external">http://CrazyMilk.github.io</a> 文件夹下通过Git bash依次执行npm install hexo、<del>hexo init、</del>npm install 和 npm install hexo-deployer-git（此时当前分支应显示为hexo）;</li>
+<li>修改_config.yml中的deploy参数，分支应为master；</li>
+<li>依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；</li>
+<li>执行hexo g -d生成网站并部署到GitHub上。</li>
+</ol>
+<p>这样一来，在GitHub上的<a href="http://CrazyMilk.github.io" target="_blank" rel="external">http://CrazyMilk.github.io</a> 仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。完美( •̀ ω •́ )y！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">echo &quot;npm install hexo --save&quot;</div><div class="line">npm install hexo --save</div><div class="line">echo &quot;npm install&quot;</div><div class="line">npm install</div><div class="line">echo &quot;npm install hexo-deployer-git --save&quot;</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<h3 id="关于日常的改动流程"><a href="#关于日常的改动流程" class="headerlink" title="关于日常的改动流程"></a>关于日常的改动流程</h3><p>在本地对博客进行修改（添加新博文、修改样式等等）后，通过下面的流程进行管理。</p>
+<ol>
+<li>依次执行git add .、git commit -m “…”、git push origin hexo指令将改动推送到GitHub（此时当前分支应为hexo）；</li>
+<li>然后才执行hexo g -d发布网站到master分支上。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">echo &quot;git add .&quot;</div><div class="line">git add .</div><div class="line">echo &quot;git commit&quot;</div><div class="line">git commit -m &quot;Add articles&quot;</div><div class="line">echo &quot;git push origin hexo&quot;</div><div class="line">git push origin hexo</div><div class="line"></div><div class="line">echo &quot;hexo g -d&quot;</div><div class="line">hexo g -d</div></pre></td></tr></table></figure>
+<p><del>虽然两个过程顺序调转一般不会有问题，不过逻辑上这样的顺序是绝对没问题的（例如突然死机要重装了，悲催….的情况，调转顺序就有问题了）。</del></p>
+<p><strong>郑重说明：两个过程的顺序绝对不能调换！调换将导致仅将hexo g新生成的css等文件push至master分支并删去原有的index.html等文件，导致页面无法显示。</strong></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/testssss/" data-id="citecstqb0000aia7wepedqfu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="citedjeuf00018la7pknazhaz" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/configuration-github-hexo/">configuration github hexo</a></li></ul>
+
     </footer>
   </div>
   
@@ -163,7 +205,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citecnzn200021ma71mjrtfbm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citedjeun00048la76lopgje2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihoCoder/">hihoCoder</a></li></ul>
@@ -226,7 +268,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051: 补提交卡/" data-id="citecnzmy00011ma7nplpbsxv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051: 补提交卡/" data-id="citedjeu900008la7rzxkr1rp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihoCoder/">hihoCoder</a></li></ul>
@@ -247,7 +289,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a></li></ul>
     </div>
   </div>
 
@@ -257,7 +299,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hihoCoder/">hihoCoder</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/configuration-github-hexo/">configuration github hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hihoCoder/">hihoCoder</a></li></ul>
     </div>
   </div>
 
@@ -267,7 +309,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hihoCoder/" style="font-size: 20px;">hihoCoder</a>
+      <a href="/tags/configuration-github-hexo/" style="font-size: 10px;">configuration github hexo</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hihoCoder/" style="font-size: 20px;">hihoCoder</a>
     </div>
   </div>
 
@@ -289,7 +331,7 @@ FuncD 00:00:01
       <ul>
         
           <li>
-            <a href="/2016/09/22/testssss/">(no title)</a>
+            <a href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/">github+hexo: 如何从已有的github仓库进行配置</a>
           </li>
         
           <li>
