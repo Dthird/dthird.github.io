@@ -10,5 +10,5 @@ echo "git add ."
 git add .
 echo "git commit"
 git commit -m "Add articles"
-echo "git push origin master"
-git push origin master
+echo "git push origin hexo"
+git push origin hexo
