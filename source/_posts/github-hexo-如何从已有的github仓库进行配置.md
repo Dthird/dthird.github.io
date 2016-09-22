@@ -2,7 +2,7 @@
 title: 'github+hexo: 如何从已有的github仓库进行配置'
 date: 2016-09-22 21:11:36
 categories: Configuration
-tags: configuration github hexo
+tags: [configuration, github, hexo]
 ---
 
 # 如何从已有的github仓库进行配置继续生成hexo静态网页
