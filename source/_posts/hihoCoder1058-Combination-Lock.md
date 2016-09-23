@@ -2,7 +2,7 @@
 title: 'hihoCoder1058: Combination Lock'
 date: 2016-09-23 09:42:28
 categories: Programming
-tags: [OJ, string]
+tags: [OJ, string, tree]
 ---
 
 # 1. Question
@@ -70,6 +70,8 @@ One line of N characters, showing the final status of the lock.
 
 # 2. Analysis
 Just need to implement four CMD functions.
+
+Use segment tree can reduce time complexity. [Segment tree implementation](http://blog.csdn.net/playwfun/article/details/48102015)
 # 3. Solution(s)
 ```python
 def CMD1(lock, i, j, X):
