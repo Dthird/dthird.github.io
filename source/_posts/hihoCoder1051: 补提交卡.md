@@ -2,7 +2,7 @@
 title: 'hihoCoder1051: 补提交卡'
 date: 2016-09-21 15:44:17
 categories: Programming
-tags: [hihoCoder, greedy, enumeration]
+tags: [OJ, greedy, enumeration]
 ---
 
 # 1. Question

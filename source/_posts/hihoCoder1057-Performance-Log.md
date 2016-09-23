@@ -2,7 +2,7 @@
 title: 'hihoCoder1057: Performance Log'
 date: 2016-09-22 15:19:56
 categories: Programming
-tags: [hihoCoder, dfs]
+tags: [OJ, dfs]
 ---
 
 # 1.Question
