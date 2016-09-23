@@ -10,9 +10,6 @@ tags: [OJ, string]
 ## Description
 [Link](http://hihocoder.com/problemset/problem/1058?sid=877039)
 
-<img src="/home/jason/Pictures/14136954837870.png" width = "200" height = "200" alt="图片名称" align=center />
-<img src="/home/jason/Pictures/14136954928568.png" width = "200" height = "200" alt="图片名称" align=center />
-
 Finally, you come to the interview room. You know that a Microsoft interviewer is in the room though the door is locked. There is a combination lock on the door. There are N rotators on the lock, each consists of 26 alphabetic characters, namely, 'A'-'Z'. You need to unlock the door to meet the interviewer inside. There is a note besides the lock, which shows the steps to unlock it.
 
 Note: There are M steps totally; each step is one of the four kinds of operations shown below:
