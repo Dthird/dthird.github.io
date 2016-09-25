@@ -9,6 +9,8 @@ tags: [OJ, hash]
 ## Description:
 [Link](https://leetcode.com/problems/count-primes/)
 
+$$\sqrt(n)$$
+
 Count the number of prime numbers less than a non-negative number n.
 
 ## Credits:
@@ -17,6 +19,7 @@ Special thanks to [@mithmatt]() for adding this problem and creating all test ca
 Hint:
 
 1. Let's start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $O(n^{2})$. Could we do better?
+
 
 2. As we know the number must not be divisible by any number > n / 2, we can immediately cut the total iterations half by dividing only up to n / 2. Could we still do better?
 
