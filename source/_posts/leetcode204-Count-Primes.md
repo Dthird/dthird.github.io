@@ -9,14 +9,14 @@ tags: [OJ, hash]
 ## Description:
 [Link](https://leetcode.com/problems/count-primes/)
 
-Count the number of prime numbers less than a non-negative number, n.
+Count the number of prime numbers less than a non-negative number n.
 
 ## Credits:
 Special thanks to [@mithmatt]() for adding this problem and creating all test cases.
 # 2. Analysis
 Hint:
 
-1. Let's start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $$O(n^{2})$$. Could we do better?
+1. Let's start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $O(n^{2})$. Could we do better?
 
 2. As we know the number must not be divisible by any number > n / 2, we can immediately cut the total iterations half by dividing only up to n / 2. Could we still do better?
 
@@ -56,9 +56,9 @@ Hint:
 4. The Sieve of Eratosthenes is one of the most efficient ways to find all prime numbers up to n. But don't let that name scare you, I promise that the concept is surprisingly simple.
 
 
-    >![](/home/jason/Pictures/Sieve_of_Eratosthenes_animation.gif)
+>![](/home/jason/Pictures/Sieve_of_Eratosthenes_animation.gif)
 
-    >Sieve of Eratosthenes: algorithm steps for primes below 121. "Sieve of Eratosthenes Animation" by SKopp is licensed under CC BY 2.0.
+>Sieve of Eratosthenes: algorithm steps for primes below 121. "Sieve of Eratosthenes Animation" by SKopp is licensed under CC BY 2.0.
 
 
 5. 4 is not a prime because it is divisible by 2, which means all multiples of 4 must also be divisible by 2 and were already marked off. So we can skip 4 immediately and go to the next number, 5. Now, all multiples of 5 such as 5 × 2 = 10, 5 × 3 = 15, 5 × 4 = 20, 5 × 5 = 25, ... can be marked off. There is a slight optimization here, we do not need to start from 5 × 2 = 10. Where should we start marking off?
