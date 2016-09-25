@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>hihoCoder1128: 二分·二分查找 | Memory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. Question描述Link
+Nettle最近在玩《艦これ》，因此Nettle收集了很多很多的船(这里我们假设Nettle氪了很多金，开了无数个船位)。去除掉重复的船之后，还剩下N(1≤N≤1,000,000)种不同的船。每一艘船有一个稀有值，任意两艘船的稀有值都不相同，稀有值越小的船越稀有，价值也就越高。Nettle现在通过大建又造出了一艘船，他想知道这艘船是不是重复的。如果是重复的，那么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hihoCoder1128: 二分·二分查找">
+<meta property="og:url" content="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/index.html">
+<meta property="og:site_name" content="Memory">
+<meta property="og:description" content="1. Question描述Link
+Nettle最近在玩《艦これ》，因此Nettle收集了很多很多的船(这里我们假设Nettle氪了很多金，开了无数个船位)。去除掉重复的船之后，还剩下N(1≤N≤1,000,000)种不同的船。每一艘船有一个稀有值，任意两艘船的稀有值都不相同，稀有值越小的船越稀有，价值也就越高。Nettle现在通过大建又造出了一艘船，他想知道这艘船是不是重复的。如果是重复的，那么">
+<meta property="og:updated_time" content="2016-09-25T03:19:39.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hihoCoder1128: 二分·二分查找">
+<meta name="twitter:description" content="1. Question描述Link
+Nettle最近在玩《艦これ》，因此Nettle收集了很多很多的船(这里我们假设Nettle氪了很多金，开了无数个船位)。去除掉重复的船之后，还剩下N(1≤N≤1,000,000)种不同的船。每一艘船有一个稀有值，任意两艘船的稀有值都不相同，稀有值越小的船越稀有，价值也就越高。Nettle现在通过大建又造出了一艘船，他想知道这艘船是不是重复的。如果是重复的，那么">
+  
+    <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Memory</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hihoCoder1128-二分·二分查找" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/25/hihoCoder1128-二分·二分查找/" class="article-date">
+  <time datetime="2016-09-25T02:31:24.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hihoCoder1128: 二分·二分查找
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><a href="http://hihocoder.com/problemset/problem/1128" target="_blank" rel="external">Link</a></p>
+<p>Nettle最近在玩《艦これ》，因此Nettle收集了很多很多的船(这里我们假设Nettle氪了很多金，开了无数个船位)。去除掉重复的船之后，还剩下N(1≤N≤1,000,000)种不同的船。每一艘船有一个稀有值，任意两艘船的稀有值都不相同，稀有值越小的船越稀有，价值也就越高。<br>Nettle现在通过大建又造出了一艘船，他想知道这艘船是不是重复的。如果是重复的，那么这艘船在Nettle所有的船里面稀有值排多少位。</p>
+<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>Nettle已经先把自己所有船按照稀有值从小到大排列好了(a[1..N])，我们要做的是看看新得到的船(假设稀有值为K)是否在这个序列中，且有对应的a[i]=K时，i为多少？</p>
+<blockquote>
+<p>提示一：有序数组的二分查找</p>
+</blockquote>
+<h3 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h3><p>因为Nettle的船太多了，他不愿意去给所有船按照稀有值排序，而是直接告诉了我们每一艘船的稀有值。在这种情况下我们该如何解决这个问题呢？</p>
+<blockquote>
+<p>提示二：非有序数组的二分查找</p>
+</blockquote>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第1行：2个整数N,K。N表示数组长度，K表示需要查找的数；<br>第2行：N个整数，表示a[1..N]，保证不会出现重复的数，1≤a[i]≤2,000,000,000。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>第1行：一个整数t，表示K在数组中是第t小的数，若K不在数组中，输出-1。<br>Sample Input</p>
+<pre><code>10 5180
+2970 663 5480 4192 4949 1 1387 4428 5180 2761
+</code></pre><p>Sample Output</p>
+<pre><code>9
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>非有序数组的二分查找？可以仅遍历一遍记录小于Ｋ的元素的个数，时间复杂度为O(N),空间复杂度为in place。但这与二分查找就没有什么关系了啊…</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(N, K) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line">a = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">a.sort()  <span class="comment"># distinguish sort() from sorted(): return value and their advance functions</span></div><div class="line"></div><div class="line">low = <span class="number">0</span></div><div class="line">high = N - <span class="number">1</span></div><div class="line"><span class="keyword">while</span> low &lt;= high:</div><div class="line">    mid = (low + high) / <span class="number">2</span></div><div class="line">    <span class="keyword">if</span> a[mid] == K:</div><div class="line">        <span class="keyword">print</span> mid + <span class="number">1</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">elif</span> a[mid] &gt; K:</div><div class="line">        high = mid - <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        low = mid + <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> low &gt; high:</div><div class="line">    <span class="keyword">print</span> <span class="number">-1</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="citi2mbl5000btra7ls37kbq7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/25/leetcode204-Count-Primes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          leetcode204. Count Primes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/23/hihoCoder1086-Browser-Caching/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hihoCoder1086: Browser Caching</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 15px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/leetcode204-Count-Primes/">leetcode204. Count Primes</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/25/hihoCoder1128-二分·二分查找/">hihoCoder1128: 二分·二分查找</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/hihoCoder1086-Browser-Caching/">hihoCoder1086: Browser Caching</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/">hihoCoder1082: The Marshtomp has seen it all before</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/23/hihoCoder1058-Combination-Lock/">hihoCoder1058: Combination Lock</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Jason Dong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

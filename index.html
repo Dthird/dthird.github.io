@@ -61,6 +61,146 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-leetcode204-Count-Primes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/25/leetcode204-Count-Primes/" class="article-date">
+  <time datetime="2016-09-25T03:20:35.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/25/leetcode204-Count-Primes/">leetcode204. Count Primes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="external">Link</a></p>
+<p>Count the number of prime numbers less than a non-negative number, n.</p>
+<h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits:"></a>Credits:</h2><p>Special thanks to <a href="">@mithmatt</a> for adding this problem and creating all test cases.</p>
+<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Hint:</p>
+<ol>
+<li><p>Let’s start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $$O(n^{2})$$. Could we do better?</p>
+</li>
+<li><p>As we know the number must not be divisible by any number &gt; n / 2, we can immediately cut the total iterations half by dividing only up to n / 2. Could we still do better?</p>
+</li>
+<li><p>Let’s write down all of 12’s factors:</p>
+<blockquote>
+<p>2 × 6 = 12</p>
+<p>3 × 4 = 12</p>
+<p>4 × 3 = 12</p>
+<p>6 × 2 = 12</p>
+</blockquote>
+<p> As you can see, calculations of 4 × 3 and 6 × 2 are not necessary. Therefore, we only need to consider factors up to √n because, if n is divisible by some number p, then n = p × q and since p ≤ q, we could derive that p ≤ √n.</p>
+<p> Our total runtime has now improved to O(n1.5), which is slightly better. Is there a faster approach?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countPrimes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">   <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">      <span class="keyword">if</span> (isPrime(i)) count++;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> count;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">   <span class="comment">// Loop's ending condition is i * i &lt;= num instead of i &lt;= sqrt(num)</span></div><div class="line">   <span class="comment">// to avoid repeatedly calling an expensive function sqrt().</span></div><div class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= num; i++) &#123;</div><div class="line">      <span class="keyword">if</span> (num % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>The Sieve of Eratosthenes is one of the most efficient ways to find all prime numbers up to n. But don’t let that name scare you, I promise that the concept is surprisingly simple.</p>
+</li>
+</ol>
+<pre><code>&gt;![](/home/jason/Pictures/Sieve_of_Eratosthenes_animation.gif)
+
+&gt;Sieve of Eratosthenes: algorithm steps for primes below 121. &quot;Sieve of Eratosthenes Animation&quot; by SKopp is licensed under CC BY 2.0.
+</code></pre><ol>
+<li><p>4 is not a prime because it is divisible by 2, which means all multiples of 4 must also be divisible by 2 and were already marked off. So we can skip 4 immediately and go to the next number, 5. Now, all multiples of 5 such as 5 × 2 = 10, 5 × 3 = 15, 5 × 4 = 20, 5 × 5 = 25, … can be marked off. There is a slight optimization here, we do not need to start from 5 × 2 = 10. Where should we start marking off?</p>
+</li>
+<li><p>In fact, we can mark off multiples of 5 starting at 5 × 5 = 25, because 5 × 2 = 10 was already marked off by multiple of 2, similarly 5 × 3 = 15 was already marked off by multiple of 3. Therefore, if the current number is p, we can always mark off multiples of p starting at p2, then in increments of p: p2 + p, p2 + 2p, … Now what should be the terminating loop condition?</p>
+</li>
+<li><p>It is easy to say that the terminating loop condition is p &lt; n, which is certainly correct but not efficient. Do you still remember Hint #3?</p>
+</li>
+<li><p>Yes, the terminating loop condition can be p &lt; √n, as all non-primes ≥ √n must have already been marked off. When the loop terminates, all the numbers in the table that are non-marked are prime.</p>
+<p> The Sieve of Eratosthenes uses an extra O(n) memory and its runtime complexity is O(n log log n). For the more mathematically inclined readers, you can read more about its algorithm complexity on <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Algorithm_complexity" target="_blank" rel="external">Wikipedia</a>.</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">countPrimes</span><span class="params">(self, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type n: int</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> n &lt; <span class="number">2</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        isPrime = [<span class="keyword">True</span>] * n  <span class="comment"># hint 4. space complexity = O(n)</span></div><div class="line">        i = <span class="number">2</span></div><div class="line">        <span class="keyword">while</span> i*i &lt; n: <span class="comment"># hint 3</span></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> isPrime[i]: <span class="comment"># hint 4</span></div><div class="line">                i += <span class="number">1</span></div><div class="line">                <span class="keyword">continue</span></div><div class="line">            j = i*i</div><div class="line">            <span class="keyword">while</span> j &lt; n:</div><div class="line">                isPrime[j] = <span class="keyword">False</span></div><div class="line">                j += i</div><div class="line">            i += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> isPrime.count(<span class="keyword">True</span>) - <span class="number">2</span> <span class="comment"># remove the isPrime[0] and isPrime[1]</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="citi2mblc000etra7pn2d7vv7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hihoCoder1128-二分·二分查找" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/25/hihoCoder1128-二分·二分查找/" class="article-date">
+  <time datetime="2016-09-25T02:31:24.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/25/hihoCoder1128-二分·二分查找/">hihoCoder1128: 二分·二分查找</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><a href="http://hihocoder.com/problemset/problem/1128" target="_blank" rel="external">Link</a></p>
+<p>Nettle最近在玩《艦これ》，因此Nettle收集了很多很多的船(这里我们假设Nettle氪了很多金，开了无数个船位)。去除掉重复的船之后，还剩下N(1≤N≤1,000,000)种不同的船。每一艘船有一个稀有值，任意两艘船的稀有值都不相同，稀有值越小的船越稀有，价值也就越高。<br>Nettle现在通过大建又造出了一艘船，他想知道这艘船是不是重复的。如果是重复的，那么这艘船在Nettle所有的船里面稀有值排多少位。</p>
+<h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>Nettle已经先把自己所有船按照稀有值从小到大排列好了(a[1..N])，我们要做的是看看新得到的船(假设稀有值为K)是否在这个序列中，且有对应的a[i]=K时，i为多少？</p>
+<blockquote>
+<p>提示一：有序数组的二分查找</p>
+</blockquote>
+<h3 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h3><p>因为Nettle的船太多了，他不愿意去给所有船按照稀有值排序，而是直接告诉了我们每一艘船的稀有值。在这种情况下我们该如何解决这个问题呢？</p>
+<blockquote>
+<p>提示二：非有序数组的二分查找</p>
+</blockquote>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第1行：2个整数N,K。N表示数组长度，K表示需要查找的数；<br>第2行：N个整数，表示a[1..N]，保证不会出现重复的数，1≤a[i]≤2,000,000,000。</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>第1行：一个整数t，表示K在数组中是第t小的数，若K不在数组中，输出-1。<br>Sample Input</p>
+<pre><code>10 5180
+2970 663 5480 4192 4949 1 1387 4428 5180 2761
+</code></pre><p>Sample Output</p>
+<pre><code>9
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>非有序数组的二分查找？可以仅遍历一遍记录小于Ｋ的元素的个数，时间复杂度为O(N),空间复杂度为in place。但这与二分查找就没有什么关系了啊…</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(N, K) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line">a = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">a.sort()  <span class="comment"># distinguish sort() from sorted(): return value and their advance functions</span></div><div class="line"></div><div class="line">low = <span class="number">0</span></div><div class="line">high = N - <span class="number">1</span></div><div class="line"><span class="keyword">while</span> low &lt;= high:</div><div class="line">    mid = (low + high) / <span class="number">2</span></div><div class="line">    <span class="keyword">if</span> a[mid] == K:</div><div class="line">        <span class="keyword">print</span> mid + <span class="number">1</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">elif</span> a[mid] &gt; K:</div><div class="line">        high = mid - <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        low = mid + <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> low &gt; high:</div><div class="line">    <span class="keyword">print</span> <span class="number">-1</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="citi2mbl5000btra7ls37kbq7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hihoCoder1086-Browser-Caching" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/23/hihoCoder1086-Browser-Caching/" class="article-date">
@@ -114,7 +254,7 @@ Internet
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1086-Browser-Caching/" data-id="citfq8cxn0009p6a7s34cgzdm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1086-Browser-Caching/" data-id="citi2mbl40009tra7nw52vbdg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
@@ -171,7 +311,7 @@ AfjxmlhxB
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/" data-id="citfq8cxk0006p6a7iwfq8t25" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/" data-id="citi2mbl20006tra7q1rjeuek" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regular-expression/">regular_expression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
@@ -252,7 +392,7 @@ CMD 4 1 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1058-Combination-Lock/" data-id="citfq8cxf0005p6a7d1x5ey0f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1058-Combination-Lock/" data-id="citi2mbkv0005tra7vxtgov90" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
@@ -320,7 +460,7 @@ CMD 4 1 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="citfq8cx10000p6a7vqkyizxp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="citi2mbkg0000tra73ht6dr92" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -408,7 +548,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citfq8cxd0004p6a7u3k1eplw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citi2mbku0004tra7gwwp2cl8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
@@ -471,7 +611,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="citfq8cx60001p6a76phctfah" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="citi2mbkl0001tra7650a8bvb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
@@ -502,7 +642,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </div>
   </div>
 
@@ -512,7 +652,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 15px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a>
     </div>
   </div>
 
@@ -534,6 +674,14 @@ FuncD 00:00:01
       <ul>
         
           <li>
+            <a href="/2016/09/25/leetcode204-Count-Primes/">leetcode204. Count Primes</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/25/hihoCoder1128-二分·二分查找/">hihoCoder1128: 二分·二分查找</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/23/hihoCoder1086-Browser-Caching/">hihoCoder1086: Browser Caching</a>
           </li>
         
@@ -543,14 +691,6 @@ FuncD 00:00:01
         
           <li>
             <a href="/2016/09/23/hihoCoder1058-Combination-Lock/">hihoCoder1058: Combination Lock</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/">github+hexo: 如何从已有的github仓库进行配置</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/22/hihoCoder1057-Performance-Log/">hihoCoder1057: Performance Log</a>
           </li>
         
       </ul>
