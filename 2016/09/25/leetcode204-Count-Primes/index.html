@@ -6,25 +6,28 @@
   <title>leetcode204. Count Primes | Memory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. QuestionDescription:Link
+$$\sqrt(n)$$
 Count the number of prime numbers less than a non-negative number n.
 Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
-2. AnalysisHin">
+2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode204. Count Primes">
 <meta property="og:url" content="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/index.html">
 <meta property="og:site_name" content="Memory">
 <meta property="og:description" content="1. QuestionDescription:Link
+$$\sqrt(n)$$
 Count the number of prime numbers less than a non-negative number n.
 Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
-2. AnalysisHin">
+2">
 <meta property="og:image" content="http://yoursite.com/home/jason/Pictures/Sieve_of_Eratosthenes_animation.gif">
-<meta property="og:updated_time" content="2016-09-25T03:38:58.448Z">
+<meta property="og:updated_time" content="2016-09-25T03:46:01.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode204. Count Primes">
 <meta name="twitter:description" content="1. QuestionDescription:Link
+$$\sqrt(n)$$
 Count the number of prime numbers less than a non-negative number n.
 Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
-2. AnalysisHin">
+2">
 <meta name="twitter:image" content="http://yoursite.com/home/jason/Pictures/Sieve_of_Eratosthenes_animation.gif">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
@@ -101,12 +104,14 @@ Credits:Special thanks to @mithmatt for adding this problem and creating all tes
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="external">Link</a></p>
+<p>$$\sqrt(n)$$</p>
 <p>Count the number of prime numbers less than a non-negative number n.</p>
 <h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits:"></a>Credits:</h2><p>Special thanks to <a href="">@mithmatt</a> for adding this problem and creating all test cases.</p>
 <h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Hint:</p>
 <ol>
-<li><p>Let’s start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $O(n^{2})$. Could we do better?</p>
-</li>
+<li>Let’s start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $O(n^{2})$. Could we do better?</li>
+</ol>
+<ol>
 <li><p>As we know the number must not be divisible by any number &gt; n / 2, we can immediately cut the total iterations half by dividing only up to n / 2. Could we still do better?</p>
 </li>
 <li><p>Let’s write down all of 12’s factors:</p>
@@ -143,7 +148,7 @@ Credits:Special thanks to @mithmatt for adding this problem and creating all tes
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="citi2mblc000etra7pn2d7vv7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="citi329v6000ehba7f4dh9fqd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
