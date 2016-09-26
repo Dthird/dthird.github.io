@@ -5,33 +5,27 @@
   
   <title>hihoCoder1057: Performance Log | Memory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.QuestionDescription题目链接
+  <meta name="description" content="1.QuestionDescription&amp;#x9898;&amp;#x76EE;&amp;#x94FE;&amp;#x63A5;
 You are given a txt file, which is performance logs of a single-threaded program.Each line has three columns as follow:
 
-[Function Name] [TimeStamp] [Action]
-
-[FunctionName]">
+[Function Name] [TimeStam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hihoCoder1057: Performance Log">
 <meta property="og:url" content="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/index.html">
 <meta property="og:site_name" content="Memory">
-<meta property="og:description" content="1.QuestionDescription题目链接
+<meta property="og:description" content="1.QuestionDescription&amp;#x9898;&amp;#x76EE;&amp;#x94FE;&amp;#x63A5;
 You are given a txt file, which is performance logs of a single-threaded program.Each line has three columns as follow:
 
-[Function Name] [TimeStamp] [Action]
-
-[FunctionName]">
-<meta property="og:image" content="http://yoursite.com/home/jason/Pictures/14136920697494.png">
+[Function Name] [TimeStam">
+<meta property="og:image" content="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/home/jason/Pictures/14136920697494.png">
 <meta property="og:updated_time" content="2016-09-23T01:43:27.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hihoCoder1057: Performance Log">
-<meta name="twitter:description" content="1.QuestionDescription题目链接
+<meta name="twitter:description" content="1.QuestionDescription&amp;#x9898;&amp;#x76EE;&amp;#x94FE;&amp;#x63A5;
 You are given a txt file, which is performance logs of a single-threaded program.Each line has three columns as follow:
 
-[Function Name] [TimeStamp] [Action]
-
-[FunctionName]">
-<meta name="twitter:image" content="http://yoursite.com/home/jason/Pictures/14136920697494.png">
+[Function Name] [TimeStam">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/home/jason/Pictures/14136920697494.png">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -106,23 +100,23 @@ You are given a txt file, which is performance logs of a single-threaded program
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1.Question"></a>1.Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="">题目链接</a></p>
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1.Question"></a>1.Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="">&#x9898;&#x76EE;&#x94FE;&#x63A5;</a></p>
 <p>You are given a txt file, which is performance logs of a single-threaded program.Each line has three columns as follow:</p>
 <blockquote>
 <p>[Function Name] [TimeStamp] [Action]</p>
 <ul>
 <li>[FunctionName] is a string of length between 1~255</li>
 <li>[TimeStamp] format is hh:mm:ss</li>
-<li>Valid values for “Action” column are START or END, marking the start or end of a function call.</li>
+<li>Valid values for &#x201C;Action&#x201D; column are START or END, marking the start or end of a function call.</li>
 </ul>
 </blockquote>
 <p>Each function will only be called once.</p>
-<p>Output the depth-first traversal result of the call graph with the total time of each function call. However, sometimes the performance log isn’t correct and at that time you just need to output “Incorrect performance log”.</p>
+<p>Output the depth-first traversal result of the call graph with the total time of each function call. However, sometimes the performance log isn&#x2019;t correct and at that time you just need to output &#x201C;Incorrect performance log&#x201D;.</p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input only contains 1 case, first line is a positive number N representing the number of logs(1 &lt;= N &lt;= 20000), then there are N lines in next, each line is the log info containing [Function Name] [TimeStamp] [Action], [Function Name] is a string, you can assume the [Function Name] is distinct and the length between 1~255.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Output the depth-first traversal result of the call graph with the total time of each function call for the correct performance, or output “Incorrect performance log”.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Output the depth-first traversal result of the call graph with the total time of each function call for the correct performance, or output &#x201C;Incorrect performance log&#x201D;.</p>
 <p>A call graph is a directed graph that represents calling relationships between subroutines in a computer program.</p>
 <p>Call graph for the sample input is shown as below:</p>
-<p><img src="/home/jason/Pictures/14136920697494.png" alt=""></p>
+<p><img src="/2016/09/22/hihoCoder1057-Performance-Log/home/jason/Pictures/14136920697494.png" alt=""></p>
 <p>Another sample test case.<br>Sample Input</p>
 <pre><code>8
 FuncA 00:00:01 START
@@ -150,13 +144,13 @@ FuncA 00:00:08 END
 FuncB 00:00:03
 FuncC 00:00:01
 FuncD 00:00:01
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Use stack to implement dfs. Push when “START” and pop when “END”.(Dealing with the boundary conditions)</p>
-<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>优化输出格式即可AC。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">funStack = list()</div><div class="line">res = list()</div><div class="line">i = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> i &lt; N:</div><div class="line">    data = raw_input().split()</div><div class="line">    <span class="keyword">if</span> data[<span class="number">2</span>] == <span class="string">"START"</span>:</div><div class="line">        funStack.append(data)</div><div class="line">        i += <span class="number">1</span></div><div class="line">    <span class="keyword">elif</span> data[<span class="number">2</span>] == <span class="string">"END"</span>:</div><div class="line">        <span class="keyword">if</span> len(funStack) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            tmp = funStack.pop()</div><div class="line">            <span class="keyword">if</span> tmp[<span class="number">0</span>] != data[<span class="number">0</span>]:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                startData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> tmp[<span class="number">1</span>].split(<span class="string">":"</span>)]</div><div class="line">                startTime = startData[<span class="number">0</span>]*<span class="number">3600</span> + startData[<span class="number">1</span>]*<span class="number">60</span> + startData[<span class="number">2</span>]</div><div class="line">                endData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> data[<span class="number">1</span>].split(<span class="string">":"</span>)]</div><div class="line">                endTime = endData[<span class="number">0</span>]*<span class="number">3600</span> + endData[<span class="number">1</span>]*<span class="number">60</span> + endData[<span class="number">2</span>]</div><div class="line">                <span class="keyword">if</span> endTime &lt; startTime:</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    resTime = list()</div><div class="line">                    seconds = endTime - startTime</div><div class="line">                    resTime.append(str(seconds%<span class="number">60</span>))</div><div class="line">                    mins = seconds/<span class="number">60</span></div><div class="line">                    resTime.append(str(mins%<span class="number">60</span>))</div><div class="line">                    hours = mins/<span class="number">60</span></div><div class="line">                    resTime.append(str(hours))</div><div class="line">                    res.append([data[<span class="number">0</span>], resTime[<span class="number">2</span>]+<span class="string">":"</span>+resTime[<span class="number">1</span>]+<span class="string">":"</span>+resTime[<span class="number">0</span>]])</div><div class="line">                    i += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> i == N:</div><div class="line">    <span class="keyword">print</span> res</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Incorrect performance log"</span></div></pre></td></tr></table></figure></p>
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Use stack to implement dfs. Push when &#x201C;START&#x201D; and pop when &#x201C;END&#x201D;.(Dealing with the boundary conditions)</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>&#x4F18;&#x5316;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x5373;&#x53EF;AC&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">funStack = list()</div><div class="line">res = list()</div><div class="line">i = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> i &lt; N:</div><div class="line">    data = raw_input().split()</div><div class="line">    <span class="keyword">if</span> data[<span class="number">2</span>] == <span class="string">&quot;START&quot;</span>:</div><div class="line">        funStack.append(data)</div><div class="line">        i += <span class="number">1</span></div><div class="line">    <span class="keyword">elif</span> data[<span class="number">2</span>] == <span class="string">&quot;END&quot;</span>:</div><div class="line">        <span class="keyword">if</span> len(funStack) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            tmp = funStack.pop()</div><div class="line">            <span class="keyword">if</span> tmp[<span class="number">0</span>] != data[<span class="number">0</span>]:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                startData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> tmp[<span class="number">1</span>].split(<span class="string">&quot;:&quot;</span>)]</div><div class="line">                startTime = startData[<span class="number">0</span>]*<span class="number">3600</span> + startData[<span class="number">1</span>]*<span class="number">60</span> + startData[<span class="number">2</span>]</div><div class="line">                endData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> data[<span class="number">1</span>].split(<span class="string">&quot;:&quot;</span>)]</div><div class="line">                endTime = endData[<span class="number">0</span>]*<span class="number">3600</span> + endData[<span class="number">1</span>]*<span class="number">60</span> + endData[<span class="number">2</span>]</div><div class="line">                <span class="keyword">if</span> endTime &lt; startTime:</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    resTime = list()</div><div class="line">                    seconds = endTime - startTime</div><div class="line">                    resTime.append(str(seconds%<span class="number">60</span>))</div><div class="line">                    mins = seconds/<span class="number">60</span></div><div class="line">                    resTime.append(str(mins%<span class="number">60</span>))</div><div class="line">                    hours = mins/<span class="number">60</span></div><div class="line">                    resTime.append(str(hours))</div><div class="line">                    res.append([data[<span class="number">0</span>], resTime[<span class="number">2</span>]+<span class="string">&quot;:&quot;</span>+resTime[<span class="number">1</span>]+<span class="string">&quot;:&quot;</span>+resTime[<span class="number">0</span>]])</div><div class="line">                    i += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> i == N:</div><div class="line">    <span class="keyword">print</span> res</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">&quot;Incorrect performance log&quot;</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citjlz6710004vca7q50ahqaa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citjvv8me0005pza7yniog93d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
@@ -215,7 +209,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 15px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 15px;">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 15px;">hash</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 15px;">tree</a>
     </div>
   </div>
 
@@ -237,6 +231,10 @@ FuncD 00:00:01
       <ul>
         
           <li>
+            <a href="/2016/09/26/hexo-插入图片/">hexo: 插入图片</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/26/hohoCoder1014-Trie树/">hohoCoder1014: Trie树</a>
           </li>
         
@@ -250,10 +248,6 @@ FuncD 00:00:01
         
           <li>
             <a href="/2016/09/23/hihoCoder1086-Browser-Caching/">hihoCoder1086: Browser Caching</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/">hihoCoder1082: The Marshtomp has seen it all before</a>
           </li>
         
       </ul>
