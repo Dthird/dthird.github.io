@@ -10,7 +10,22 @@ mathjax: true
 ## Description:
 [Link](https://leetcode.com/problems/count-primes/)
 
-$$\sqrt(n)$$
+Simple inline $a = b + c$.
+
+$$\frac{\partial u}{\partial t}
+= h^2 \left( \frac{\partial^2 u}{\partial x^2} +
+\frac{\partial^2 u}{\partial y^2} +
+\frac{\partial^2 u}{\partial z^2}\right)$$
+
+This equation {&#37; math \cos 2\theta = \cos^2 \theta - \sin^2 \theta =  2 \cos^2 \theta - 1 %} is inline.
+
+{&#37; math_block %}
+\begin{aligned}
+\dot{x} & = \sigma(y-x) \\
+\dot{y} & = \rho x - y - xz \\
+\dot{z} & = -\beta z + xy
+\end{aligned}
+{&#37; endmath_block %}
 
 Count the number of prime numbers less than a non-negative number n.
 
