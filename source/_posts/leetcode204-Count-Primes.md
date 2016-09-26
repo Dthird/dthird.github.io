@@ -9,7 +9,6 @@ tags: [OJ, hash]
 ## Description:
 [Link](https://leetcode.com/problems/count-primes/)
 
-$$\sqrt(n)$$
 
 Count the number of prime numbers less than a non-negative number n.
 
