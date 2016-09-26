@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>hihoCoder1128: 二分·二分查找 | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -27,11 +27,11 @@ Nettle&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x73A9;&amp;#x300A;&amp;#x8266;&a
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 </head></html>
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -102,11 +102,10 @@ Nettle&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x73A9;&amp;#x300A;&amp;#x8266;&a
 <pre><code>9
 </code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>&#x975E;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF1F;&#x53EF;&#x4EE5;&#x4EC5;&#x904D;&#x5386;&#x4E00;&#x904D;&#x8BB0;&#x5F55;&#x5C0F;&#x4E8E;&#xFF2B;&#x7684;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(N),&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;in place&#x3002;&#x4F46;&#x8FD9;&#x4E0E;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x5C31;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#x4E86;&#x554A;&#x2026;</p>
 <h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(N, K) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line">a = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">a.sort()  <span class="comment"># distinguish sort() from sorted(): return value and their advance functions</span></div><div class="line"></div><div class="line">low = <span class="number">0</span></div><div class="line">high = N - <span class="number">1</span></div><div class="line"><span class="keyword">while</span> low &lt;= high:</div><div class="line">    mid = (low + high) / <span class="number">2</span></div><div class="line">    <span class="keyword">if</span> a[mid] == K:</div><div class="line">        <span class="keyword">print</span> mid + <span class="number">1</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">elif</span> a[mid] &gt; K:</div><div class="line">        high = mid - <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        low = mid + <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> low &gt; high:</div><div class="line">    <span class="keyword">print</span> <span class="number">-1</span></div></pre></td></tr></table></figure>
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="citjvv8ms000epza7436xvfad" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="citjx8ye5000en1a7ycrtg538" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li></ul>
     </footer>
@@ -220,5 +219,5 @@ Nettle&amp;#x6700;&amp;#x8FD1;&amp;#x5728;&amp;#x73A9;&amp;#x300A;&amp;#x8266;&a
 
 
 <script src="/js/script.js"></script>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>

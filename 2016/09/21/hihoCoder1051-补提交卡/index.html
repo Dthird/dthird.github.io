@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>hihoCoder1051: 补提交卡 | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -27,11 +27,11 @@
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 </head></html>
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -105,11 +105,10 @@
 <h2 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h2><p>&#x8981;&#x6D88;&#x9664;&#x8FDE;&#x7EED;&#x7684;m&#x624D;&#x80FD;&#x4F7F;&#x6536;&#x76CA;&#x6700;&#x5927;&#xFF0C;&#x6BCF;&#x4E2A;&#x533A;&#x95F4;&#x7684;a[i + m ] - a[ i - 1] - 1&#x7684;&#x6700;&#x5927;&#x503C;&#x5373;&#x6240;&#x6C42;&#x3002;</p>
 <hr>
 <h2 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">T = int(raw_input())</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(T):</div><div class="line">    (N, M) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line">    days = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">    <span class="keyword">if</span> N &lt;= M:</div><div class="line">        <span class="keyword">print</span> <span class="number">100</span></div><div class="line">        <span class="keyword">continue</span></div><div class="line">    maxSeq = days[<span class="number">0</span>+M] - <span class="number">1</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, N-M):</div><div class="line">        maxSeq = max(maxSeq, days[j+M] - days[j<span class="number">-1</span>] - <span class="number">1</span>) <span class="comment"># key point</span></div><div class="line">    <span class="keyword">print</span> maxSeq</div></pre></td></tr></table></figure>
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="citjvv8m60004pza7q5k7smgf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="citjx8ydl0004n1a7e3eb5dhu" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
     </footer>
@@ -218,5 +217,5 @@
 
 
 <script src="/js/script.js"></script>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>

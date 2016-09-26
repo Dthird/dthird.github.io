@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>hihoCoder1057: Performance Log | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -35,11 +35,11 @@ You are given a txt file, which is performance logs of a single-threaded program
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 </head></html>
 <body>
-  <div id="container">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <div id="wrap">
       <header id="header">
   <div id="banner"></div>
@@ -138,11 +138,10 @@ FuncC 00:00:01
 FuncD 00:00:01
 </code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Use stack to implement dfs. Push when &#x201C;START&#x201D; and pop when &#x201C;END&#x201D;.(Dealing with the boundary conditions)</p>
 <h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>&#x4F18;&#x5316;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x5373;&#x53EF;AC&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">funStack = list()</div><div class="line">res = list()</div><div class="line">i = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> i &lt; N:</div><div class="line">    data = raw_input().split()</div><div class="line">    <span class="keyword">if</span> data[<span class="number">2</span>] == <span class="string">&quot;START&quot;</span>:</div><div class="line">        funStack.append(data)</div><div class="line">        i += <span class="number">1</span></div><div class="line">    <span class="keyword">elif</span> data[<span class="number">2</span>] == <span class="string">&quot;END&quot;</span>:</div><div class="line">        <span class="keyword">if</span> len(funStack) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            tmp = funStack.pop()</div><div class="line">            <span class="keyword">if</span> tmp[<span class="number">0</span>] != data[<span class="number">0</span>]:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                startData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> tmp[<span class="number">1</span>].split(<span class="string">&quot;:&quot;</span>)]</div><div class="line">                startTime = startData[<span class="number">0</span>]*<span class="number">3600</span> + startData[<span class="number">1</span>]*<span class="number">60</span> + startData[<span class="number">2</span>]</div><div class="line">                endData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> data[<span class="number">1</span>].split(<span class="string">&quot;:&quot;</span>)]</div><div class="line">                endTime = endData[<span class="number">0</span>]*<span class="number">3600</span> + endData[<span class="number">1</span>]*<span class="number">60</span> + endData[<span class="number">2</span>]</div><div class="line">                <span class="keyword">if</span> endTime &lt; startTime:</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    resTime = list()</div><div class="line">                    seconds = endTime - startTime</div><div class="line">                    resTime.append(str(seconds%<span class="number">60</span>))</div><div class="line">                    mins = seconds/<span class="number">60</span></div><div class="line">                    resTime.append(str(mins%<span class="number">60</span>))</div><div class="line">                    hours = mins/<span class="number">60</span></div><div class="line">                    resTime.append(str(hours))</div><div class="line">                    res.append([data[<span class="number">0</span>], resTime[<span class="number">2</span>]+<span class="string">&quot;:&quot;</span>+resTime[<span class="number">1</span>]+<span class="string">&quot;:&quot;</span>+resTime[<span class="number">0</span>]])</div><div class="line">                    i += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> i == N:</div><div class="line">    <span class="keyword">print</span> res</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">&quot;Incorrect performance log&quot;</span></div></pre></td></tr></table></figure></p>
-
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citjvv8me0005pza7yniog93d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citjx8ydq0005n1a7kxd81i2y" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
     </footer>
@@ -256,5 +255,5 @@ FuncD 00:00:01
 
 
 <script src="/js/script.js"></script>
-  </div>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
