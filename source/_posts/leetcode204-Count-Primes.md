@@ -3,12 +3,14 @@ title: leetcode204. Count Primes
 date: 2016-09-25 11:20:35
 categories: Programming
 tags: [OJ, hash]
+mathjax: true
 ---
 
 # 1. Question
 ## Description:
 [Link](https://leetcode.com/problems/count-primes/)
 
+$$\sqrt(n)$$
 
 Count the number of prime numbers less than a non-negative number n.
 

@@ -27,4 +27,8 @@ hexo n "hexo: 插入图片"
 后，在`_posts`目录下，不仅会生成`hexo-插入图片.md`文件，还会生成一个同名的文件夹。如图所示：
 ![](/hexo-插入图片/Screenshot from 2016-09-26 17-49-08.png)
 
+使用图片时就用基本的markdown语法即可：
+```markdown
+![](/hexo-插入图片/Screenshot from 2016-09-26 17-49-08.png)
+```
 这样在本地编辑器可以正常预览，而且deploy之后网页也能正常显示了。
