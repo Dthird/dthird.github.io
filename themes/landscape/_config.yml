@@ -26,10 +26,9 @@ index_widgets:
 # - tagcloud
 # - archive
 
-# MathJax Support
-mathjax:
-    enable: true
-    cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+# MathJax
+plugins:
+- hexo-math
 
 # widget behavior
 archive_type: 'monthly'
