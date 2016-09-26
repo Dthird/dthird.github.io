@@ -61,6 +61,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hohoCoder1014-Trie树" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/26/hohoCoder1014-Trie树/" class="article-date">
+  <time datetime="2016-09-26T05:15:50.000Z" itemprop="datePublished">2016-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/26/hohoCoder1014-Trie树/">hohoCoder1014: Trie树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><a href="http://hihocoder.com/problemset/problem/1014?sid=894314" target="_blank" rel="external">Link</a></p>
+<p>小Hi和小Ho是一对好朋友，出生在信息化社会的他们对编程产生了莫大的兴趣，他们约定好互相帮助，在编程的学习道路上一同前进。</p>
+<p>这一天，他们遇到了一本词典，于是小Hi就向小Ho提出了那个经典的问题：“小Ho，你能不能<strong>对于每一个我给出的字符串，都在这个词典里面找到以这个字符串开头的所有单词呢</strong>？”</p>
+<p>身经百战的小Ho答道：“怎么会不能呢！你每给我一个字符串，我就依次遍历词典里的所有单词，检查你给我的字符串是不是这个单词的前缀不就是了？”</p>
+<p>小Hi笑道：“你啊，还是太年轻了！~假设这本词典里有10万个单词，我询问你一万次，你得要算到哪年哪月去？”</p>
+<p>小Ho低头算了一算，看着那一堆堆的0，顿时感觉自己这辈子都要花在上面了…</p>
+<p>小Hi看着小Ho的囧样，也是继续笑道：“让我来提高一下你的知识水平吧~你知道树这样一种数据结构么？”</p>
+<p>小Ho想了想，说道：“知道~它是一种基础的数据结构，就像这里说的一样！”</p>
+<p>小Hi满意的点了点头，说道：“那你知道我怎么样用一棵树来表示整个词典么？”</p>
+<p>小Ho摇摇头表示自己不清楚。</p>
+<p>“你看，我们现在得到了这样一棵树，那么你看，如果我给你一个字符串ap，你要怎么找到所有以ap开头的单词呢？”小Hi又开始考校小Ho。</p>
+<p>“唔…一个个遍历所有的单词？”小Ho还是不忘自己最开始提出来的算法。</p>
+<p>“笨！这棵树难道就白构建了！”小Hi教训完小Ho，继续道：“看好了！”</p>
+<p>“那么现在！赶紧去用代码实现吧！”小Hi如是说道</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>输入的第一行为一个正整数n，表示词典的大小，其后n行，每一行一个单词（不保证是英文单词，也有可能是火星文单词哦），单词由不超过10个的小写英文字母组成，可能存在相同的单词，此时应将其视作不同的单词。接下来的一行为一个正整数m，表示小Hi询问的次数，其后m行，每一行一个字符串，该字符串由不超过10个的小写英文字母组成，表示小Hi的一个询问。</p>
+<p>在20%的数据中n, m&lt;=10，词典的字母表大小&lt;=2.</p>
+<p>在60%的数据中n, m&lt;=1000，词典的字母表大小&lt;=5.</p>
+<p>在100%的数据中n, m&lt;=100000，词典的字母表大小&lt;=26.</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>对于小Hi的每一个询问，输出一个整数Ans,表示词典中以小Hi给出的字符串为前缀的单词的个数。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>5
+babaab
+babbbaaaa
+abba
+aaaaabaa
+babaababb
+5
+babb
+baabaaa
+bab
+bb
+bbabbaab
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>1
+0
+3
+0
+0
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><ol>
+<li>Hint1：Trie树的建立<br><img src="/home/jason/Pictures/14051554971354.jpg" alt=""></li>
+<li>Hint2：如何使用Trie树<br><img src="/home/jason/Pictures/14051555414053.jpg" alt=""></li>
+</ol>
+<p><img src="/home/jason/Pictures/14051555696936.jpg" alt=""></p>
+<ol>
+<li>Hint3：在建立Trie树时同时进行统计</li>
+</ol>
+<pre><code>“小Ho你有没有想过这样一个问题？不妨称以T为根的子树中标记节点的个数为L[T]，既然我要统计某个L[T1]，，而这个结点是不确定的，我有没有办法一次性把所有结点的L[T]求出来呢？”小Hi整理了下思绪，问道。
+
+“似乎是有的，老师以前说过，递归什么的。。”小Ho答道。
+
+“递归太复杂了！我们可以之后再说，你这么想，在你构建Trie树的时候，当你经过一个结点的时候，说明了什么？”小Hi撇了撇头，继续问道。
+
+“我想想，经过一个结点……标记结点……说明了以这个结点为根的子树中将要多出来一个标记结点？”
+
+“没错！那你有没有什么办法来记录这个改变呢？”
+
+“我想想，我在最开始置所有L[T]=0，然后每次添加一个新的单词的时候，都将它经过的所有结点的L[T]全部+1，这样我构建完这棵Trie树的时候，我也就能够同时统计到所有L[T]了，对么？”小Ho开心道。
+</code></pre><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, node)</span>:</span></div><div class="line">        self.node = node</div><div class="line">        self.children = []</div><div class="line">        self.L = <span class="number">0</span> <span class="comment">#num of subtree = num of words(prefix is "**")</span></div><div class="line">        self.isTerminal = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieTree</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.trieRoot = Tree(<span class="keyword">None</span>)</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addWord</span><span class="params">(self, word)</span>:</span></div><div class="line">        self.trieRoot.L += <span class="number">1</span></div><div class="line">        tmp = self.trieRoot</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> word:</div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children]:</div><div class="line">                tmp = tmp.children[[x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children].index(i)]</div><div class="line">                tmp.L += <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                tmp.children.append(Tree(i))</div><div class="line">                tmp = tmp.children[len(tmp.children)<span class="number">-1</span>]</div><div class="line">                tmp.L += <span class="number">1</span></div><div class="line">        tmp.isTerminal = <span class="keyword">True</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, prefix)</span>:</span></div><div class="line">        tmp = self.trieRoot</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> prefix:</div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children]:</div><div class="line">                tmp = tmp.children[[x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children].index(i)]</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> tmp.L</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    trie = TrieTree()</div><div class="line">    n = int(raw_input())</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">        trie.addWord(raw_input())</div><div class="line"></div><div class="line">    m = int(raw_input())</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</div><div class="line">        <span class="keyword">print</span> trie.search(raw_input())</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/26/hohoCoder1014-Trie树/" data-id="citjlz67k000evca7tppg8s2l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-leetcode204-Count-Primes" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/25/leetcode204-Count-Primes/" class="article-date">
@@ -88,7 +186,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="external">Link</a></p>
-<p>$$\sqrt(n)$$</p>
 <p>Count the number of prime numbers less than a non-negative number n.</p>
 <h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits:"></a>Credits:</h2><p>Special thanks to <a href="">@mithmatt</a> for adding this problem and creating all test cases.</p>
 <h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Hint:</p>
@@ -132,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="citi329v6000ehba7f4dh9fqd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="citjlz67n000hvca7ymhl8h9a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
@@ -192,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="citi329v1000bhba730nlosce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="citjlz67g000bvca7rf8x7lg8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li></ul>
@@ -257,7 +354,7 @@ Internet
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1086-Browser-Caching/" data-id="citi329uy0009hba7pf8ccure" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1086-Browser-Caching/" data-id="citjlz67d0009vca7wfryjcdj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
@@ -314,7 +411,7 @@ AfjxmlhxB
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/" data-id="citi329uu0006hba7n6dozfpb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/" data-id="citjlz67a0006vca79a2xfbbc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regular-expression/">regular_expression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
@@ -395,7 +492,7 @@ CMD 4 1 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1058-Combination-Lock/" data-id="citi329up0005hba7r3uihrlo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1058-Combination-Lock/" data-id="citjlz6750005vca7s9kpuk9y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
@@ -463,7 +560,7 @@ CMD 4 1 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="citi329uc0000hba7gefu6bjp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="citjlz66o0000vca7q5n4zaay" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -551,7 +648,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citi329uo0004hba73fn70gy3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="citjlz6710004vca7q50ahqaa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
@@ -614,7 +711,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="citi329ui0001hba7m8yhiub2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="citjlz66u0001vca7r5ijknnp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
@@ -655,7 +752,7 @@ FuncD 00:00:01
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 15px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 10px;">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px;">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px;">binary_search</a> <a href="/tags/dfs/" style="font-size: 10px;">dfs</a> <a href="/tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/greedy/" style="font-size: 10px;">greedy</a> <a href="/tags/hash/" style="font-size: 15px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/regular-expression/" style="font-size: 10px;">regular_expression</a> <a href="/tags/string/" style="font-size: 15px;">string</a> <a href="/tags/tree/" style="font-size: 15px;">tree</a>
     </div>
   </div>
 
@@ -677,6 +774,10 @@ FuncD 00:00:01
       <ul>
         
           <li>
+            <a href="/2016/09/26/hohoCoder1014-Trie树/">hohoCoder1014: Trie树</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/25/leetcode204-Count-Primes/">leetcode204. Count Primes</a>
           </li>
         
@@ -690,10 +791,6 @@ FuncD 00:00:01
         
           <li>
             <a href="/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/">hihoCoder1082: The Marshtomp has seen it all before</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/23/hihoCoder1058-Combination-Lock/">hihoCoder1058: Combination Lock</a>
           </li>
         
       </ul>
