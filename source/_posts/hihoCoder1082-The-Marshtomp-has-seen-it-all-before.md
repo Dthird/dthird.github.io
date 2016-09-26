@@ -10,7 +10,7 @@ tags: [OJ, string, regular_expression]
 ## Description
 [Link](http://hihocoder.com/problemset/problem/1082?sid=877409)
 
-![](/home/jason/Pictures/14184646038225.jpg)
+![](/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/14184646038225.jpg)
 
 fjxmlhx is fed up with endless marshtomps on the internet. So he turns to you to write a program to change all occurrence of “marshtomp” ( the name is **not case-sensitive**)  to “fjxmlhx”.
 ## Input
