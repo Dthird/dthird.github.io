@@ -78,7 +78,7 @@ tags: [OJ, tree]
 
 # 2. Analysis
 1. Hint1：Trie树的建立
-![](/img/14051554971354.jpg)
+<img src="/img/14051554971354.jpg" style="width: 300px;"/>
 2. Hint2：如何使用Trie树
 ![](/img/14051555414053.jpg)
 ![](/img/14051555696936.jpg)
