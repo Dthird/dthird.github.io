@@ -1,3 +1,6 @@
+# Specify the date when the site was setup
+since: 2016
+
 # Header
 menu:
   Home: /
@@ -23,9 +26,14 @@ index_widgets:
 # - tagcloud
 # - archive
 
+# MathJax Support
+mathjax:
+    enable: true
+    cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
 # widget behavior
 archive_type: 'monthly'
-show_count: false
+show_count: true
 
 # Miscellaneous
 google_analytics:
