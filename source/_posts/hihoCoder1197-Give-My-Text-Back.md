@@ -1,6 +1,6 @@
 ---
 title: 'hihoCoder1197: Give My Text Back'
-date: 2016-09-27 21:06:02
+date: 2016-09-28 21:06:02
 categories: Programming
 tags: [OJ, string]
 ---
