@@ -3,18 +3,18 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>hihoCoder1366: 逆序单词 | Memory</title>
+  <title>hihoCoder1144: 01-string | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta name="description" content="1. QuestionDescriptionLink&amp;#x5728;&amp;#x82F1;&amp;#x6587;&amp;#x4E2D;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x9006;&amp;#x5E8F;&amp;#x7684;&amp;#x5355;&amp;#x8BCD;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;dog&amp;#x548C;god&amp;#xFF0C;evil&amp;#x548C;live&amp;#x7B49;&amp;#x7B49;">
+  <meta name="description" content="1. QuestionDescriptionLinkGiven two integers n and m, is there a string containing exactly n &amp;#x201C;0&amp;#x201D;s and m &amp;#x201C;1&amp;#x201D;s while it doesn&amp;#x2019;t contain any substring of &amp;#x201C;001&amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hihoCoder1366: 逆序单词">
-<meta property="og:url" content="http://yoursite.com/2016/10/14/hihoCoder1366-逆序单词/index.html">
+<meta property="og:title" content="hihoCoder1144: 01-string">
+<meta property="og:url" content="http://yoursite.com/2016/10/17/hihoCoder1144-01-string/index.html">
 <meta property="og:site_name" content="Memory">
-<meta property="og:description" content="1. QuestionDescriptionLink&amp;#x5728;&amp;#x82F1;&amp;#x6587;&amp;#x4E2D;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x9006;&amp;#x5E8F;&amp;#x7684;&amp;#x5355;&amp;#x8BCD;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;dog&amp;#x548C;god&amp;#xFF0C;evil&amp;#x548C;live&amp;#x7B49;&amp;#x7B49;">
-<meta property="og:updated_time" content="2016-10-14T07:50:36.307Z">
+<meta property="og:description" content="1. QuestionDescriptionLinkGiven two integers n and m, is there a string containing exactly n &amp;#x201C;0&amp;#x201D;s and m &amp;#x201C;1&amp;#x201D;s while it doesn&amp;#x2019;t contain any substring of &amp;#x201C;001&amp;#x">
+<meta property="og:updated_time" content="2016-10-17T01:56:22.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hihoCoder1366: 逆序单词">
-<meta name="twitter:description" content="1. QuestionDescriptionLink&amp;#x5728;&amp;#x82F1;&amp;#x6587;&amp;#x4E2D;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x9006;&amp;#x5E8F;&amp;#x7684;&amp;#x5355;&amp;#x8BCD;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;dog&amp;#x548C;god&amp;#xFF0C;evil&amp;#x548C;live&amp;#x7B49;&amp;#x7B49;">
+<meta name="twitter:title" content="hihoCoder1144: 01-string">
+<meta name="twitter:description" content="1. QuestionDescriptionLinkGiven two integers n and m, is there a string containing exactly n &amp;#x201C;0&amp;#x201D;s and m &amp;#x201C;1&amp;#x201D;s while it doesn&amp;#x2019;t contain any substring of &amp;#x201C;001&amp;#x">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -61,10 +61,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hihoCoder1366-逆序单词" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1144-01-string" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/10/14/hihoCoder1366-逆序单词/" class="article-date">
-  <time datetime="2016-10-14T07:47:39.000Z" itemprop="datePublished">2016-10-14</time>
+    <a href="/2016/10/17/hihoCoder1144-01-string/" class="article-date">
+  <time datetime="2016-10-17T01:54:08.000Z" itemprop="datePublished">2016-10-17</time>
 </a>
     <div class="article-category">
     <a class="article-category-link" href="/categories/Programming/">Programming</a>
@@ -75,51 +75,34 @@
     
       <header class="article-header">
         <h1 class="article-title" itemprop="name">
-      hihoCoder1366: 逆序单词
+      hihoCoder1144: 01-string
     </h1>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="http://hihocoder.com/problemset/problem/1366?sid=943293" target="_blank" rel="external">Link</a><br>&#x5728;&#x82F1;&#x6587;&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x9006;&#x5E8F;&#x7684;&#x5355;&#x8BCD;&#xFF0C;&#x6BD4;&#x5982;dog&#x548C;god&#xFF0C;evil&#x548C;live&#x7B49;&#x7B49;&#x3002;</p>
-<p>&#x73B0;&#x5728;&#x7ED9;&#x51FA;&#x4E00;&#x4EFD;&#x5305;&#x542B;N&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x5355;&#x8BCD;&#x8868;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#xFF0C;&#x8BF7;&#x4F60;&#x627E;&#x51FA;&#x5176;&#x4E2D;&#x6709;&#x591A;&#x5C11;&#x5BF9;&#x9006;&#x5E8F;&#x5355;&#x8BCD;&#x3002;</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>&#x7B2C;1&#x884C;&#xFF1A;1&#x4E2A;&#x6574;&#x6570;&#xFF0C;N&#xFF0C;&#x8868;&#x793A;&#x5355;&#x8BCD;&#x6570;&#x91CF;&#x3002;2&#x2264;N&#x2264;50,000&#x3002;</p>
-<p>&#x7B2C;2..N+1&#x884C;&#xFF1A;&#x6BCF;&#x884C;1&#x4E2A;&#x5355;&#x8BCD;&#xFF0C;&#x53EA;&#x5305;&#x542B;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x957F;&#x5EA6;&#x4E0D;&#x8D85;&#x8FC7;16&#x4E2A;&#x5B57;&#x6BCD;&#x3002;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#xFF0C;&#x4E14;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x56DE;&#x6587;&#x5355;&#x8BCD;&#xFF08;&#x5373;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x5012;&#x5E8F;&#x8FD8;&#x662F;&#x5B83;&#x81EA;&#x5DF1;&#xFF0C;&#x6BD4;&#x5982;eye&#xFF09;&#x3002;</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>&#x7B2C;1&#x884C;&#xFF1A;1&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x5355;&#x8BCD;&#x8868;&#x4E2D;&#x9006;&#x5E8F;&#x5355;&#x8BCD;&#x7684;&#x5BF9;&#x6570;&#x3002;</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>6
-dog
-live
-hiho
-evil
-coder
-god
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>2
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Brute-Force solution:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">words = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</div><div class="line">    words.append(raw_input())</div><div class="line"></div><div class="line">count = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(words)):</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(words)):</div><div class="line">        <span class="keyword">if</span> words[j] == words[i][::<span class="number">-1</span>]:</div><div class="line">            count += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> count</div></pre></td></tr></table></figure></p>
-<p>Hash solution:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">words = {}</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</div><div class="line">    word = raw_input()</div><div class="line">    <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> words:</div><div class="line">        words[word] = <span class="number">1</span></div><div class="line">        words[word[::<span class="number">-1</span>]] = <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        words[word] += <span class="number">1</span></div><div class="line">        words[word[::<span class="number">-1</span>]] += <span class="number">1</span></div><div class="line">count = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> word <span class="keyword">in</span> words.keys():</div><div class="line">    <span class="keyword">if</span> words[word] == <span class="number">2</span>:</div><div class="line">        count += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> count/<span class="number">2</span></div></pre></td></tr></table></figure></p>
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="http://hihocoder.com/problemset/problem/1144?sid=944469" target="_blank" rel="external">Link</a><br>Given two integers n and m, is there a string containing exactly n &#x201C;0&#x201D;s and m &#x201C;1&#x201D;s while it doesn&#x2019;t contain any substring of &#x201C;001&#x201D; or &#x201C;11&#x201D;?</p>
+<p>If such strings exist output the lexicographically smallest one. Otherwise output NO.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>One line with two integers, determining n and m (0&lt;=n,m&lt;=100000,0&lt;n+m)</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>One line with the lexicographically smallest string which is the answer or NO.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>2 3
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>10101
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(n, m) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line"></div><div class="line"><span class="keyword">if</span> n &lt; m<span class="number">-1</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">&quot;NO&quot;</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    res = <span class="string">&quot;&quot;</span></div><div class="line">    <span class="keyword">if</span> n &gt;= m:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</div><div class="line">            res += <span class="string">&quot;01&quot;</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n-m):</div><div class="line">            res += <span class="string">&quot;0&quot;</span></div><div class="line">    <span class="keyword">elif</span> n == m<span class="number">-1</span>:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">            res += <span class="string">&quot;10&quot;</span></div><div class="line">        res += <span class="string">&quot;1&quot;</span></div><div class="line"></div><div class="line">    <span class="keyword">print</span> res</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/14/hihoCoder1366-逆序单词/" data-id="ciudeu6wa000ujua7qbn4usdz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/17/hihoCoder1144-01-string/" data-id="ciudeu6w0000jjua7igs58bkb" class="article-share-link">Share</a>
       
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
   </div>
   
     <nav id="article-nav">
   
-    <a href="/2016/10/15/hihoCoder1361-Playfair密码表/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hihoCoder1361: Playfair密码表
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/13/leetcode165-Compare-Version-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/10/15/hihoCoder1361-Playfair密码表/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">leetcode165: Compare Version Numbers</div>
+      <div class="article-nav-title">hihoCoder1361: Playfair密码表</div>
     </a>
   
 </nav>
