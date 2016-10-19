@@ -3,14 +3,21 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: hexo | Memory</title>
+  <title>Error: Android emulator problem | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Memory">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+  <meta name="description" content="1. ProblemGet error while running Android emulator in Android studio.
+Error msg:12345libGL error: unable to load driver: r600_dri.solibGL error: driver pointer missinglibGL error: failed to load drive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Error: Android emulator problem">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/Error-Android-emulator-problem/index.html">
 <meta property="og:site_name" content="Memory">
+<meta property="og:description" content="1. ProblemGet error while running Android emulator in Android studio.
+Error msg:12345libGL error: unable to load driver: r600_dri.solibGL error: driver pointer missinglibGL error: failed to load drive">
+<meta property="og:updated_time" content="2016-10-19T11:47:18.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Memory">
+<meta name="twitter:title" content="Error: Android emulator problem">
+<meta name="twitter:description" content="1. ProblemGet error while running Android emulator in Android studio.
+Error msg:12345libGL error: unable to load driver: r600_dri.solibGL error: driver pointer missinglibGL error: failed to load drive">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -57,57 +64,52 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/26/hexo-MathJax/" class="archive-article-date">
-  <time datetime="2016-09-26T10:51:46.000Z" itemprop="datePublished">Sep 26</time>
+        <section id="main"><article id="post-Error-Android-emulator-problem" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/19/Error-Android-emulator-problem/" class="article-date">
+  <time datetime="2016-10-19T11:42:32.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/26/hexo-MathJax/">hexo MathJax</a>
-    </h1>
-    </header>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Configuration/">Configuration</a>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/26/hexo-插入图片/" class="archive-article-date">
-  <time datetime="2016-09-26T09:46:33.000Z" itemprop="datePublished">Sep 26</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/26/hexo-插入图片/">hexo: 插入图片</a>
-    </h1>
-    </header>
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" class="archive-article-date">
-  <time datetime="2016-09-22T13:11:36.000Z" itemprop="datePublished">Sep 22</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/">github+hexo: 如何从已有的github仓库进行配置</a>
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Error: Android emulator problem
     </h1>
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Problem"><a href="#1-Problem" class="headerlink" title="1. Problem"></a>1. Problem</h1><p>Get error while running Android emulator in <a href="">Android studio</a>.</p>
+<p>Error msg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">libGL error: unable to load driver: r600_dri.so</div><div class="line">libGL error: driver pointer missing</div><div class="line">libGL error: failed to load driver: r600</div><div class="line">libGL error: unable to load driver: swrast_dri.so</div><div class="line">libGL error: failed to load driver: swrast</div></pre></td></tr></table></figure></p>
+<h1 id="2-Solution"><a href="#2-Solution" class="headerlink" title="2. Solution"></a>2. Solution</h1><p>Verify that you have installed in your system lib64stdc++6</p>
+<p>With a 32 bits operating system :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install lib64stdc++6</div></pre></td></tr></table></figure></p>
+<p>With a 64 bits operating system with multiarch enabled :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install lib64stdc++6:i386</div></pre></td></tr></table></figure></p>
+<p>Then link the new installed libraries to the android sdk tools path<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd $ANDROID_HOME/Sdk/tools/lib64/libstdc++</div><div class="line">$ mv libstdc++.so.6 libstdc++.so.6.bak</div><div class="line">$ ln -s /usr/lib64/libstdc++.so.6 $ANDROID_HOME/Sdk/tools/lib64/libstdc++</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/19/Error-Android-emulator-problem/" data-id="ciuguu2t80000asa76j56r62p" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+    </footer>
   </div>
-</article>
+  
+    <nav id="article-nav">
   
   
-    </div></section></section>
+    <a href="/2016/10/19/adb常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">adb常用命令</div>
+    </a>
+  
+</nav>
+  
+</article></section>
         
           <aside id="sidebar">
   
@@ -196,5 +198,21 @@
 
 
 <script src="/js/script.js"></script>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax --><!-- hexo-inject:end -->
 </body>
