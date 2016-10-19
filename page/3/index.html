@@ -57,7 +57,84 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hihoCoder1051-补提交卡" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1057-Performance-Log" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/22/hihoCoder1057-Performance-Log/" class="article-date">
+  <time datetime="2016-09-22T07:19:56.000Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/22/hihoCoder1057-Performance-Log/">hihoCoder1057: Performance Log</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1.Question"></a>1.Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="">&#x9898;&#x76EE;&#x94FE;&#x63A5;</a></p>
+<p>You are given a txt file, which is performance logs of a single-threaded program.Each line has three columns as follow:</p>
+<blockquote>
+<p>[Function Name] [TimeStamp] [Action]</p>
+<ul>
+<li>[FunctionName] is a string of length between 1~255</li>
+<li>[TimeStamp] format is hh:mm:ss</li>
+<li>Valid values for &#x201C;Action&#x201D; column are START or END, marking the start or end of a function call.</li>
+</ul>
+</blockquote>
+<p>Each function will only be called once.</p>
+<p>Output the depth-first traversal result of the call graph with the total time of each function call. However, sometimes the performance log isn&#x2019;t correct and at that time you just need to output &#x201C;Incorrect performance log&#x201D;.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input only contains 1 case, first line is a positive number N representing the number of logs(1 &lt;= N &lt;= 20000), then there are N lines in next, each line is the log info containing [Function Name] [TimeStamp] [Action], [Function Name] is a string, you can assume the [Function Name] is distinct and the length between 1~255.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Output the depth-first traversal result of the call graph with the total time of each function call for the correct performance, or output &#x201C;Incorrect performance log&#x201D;.</p>
+<p>A call graph is a directed graph that represents calling relationships between subroutines in a computer program.</p>
+<p>Call graph for the sample input is shown as below:</p>
+<p><img src="/2016/09/22/hihoCoder1057-Performance-Log/home/jason/Pictures/14136920697494.png" alt=""></p>
+<p>Another sample test case.<br>Sample Input</p>
+<pre><code>8
+FuncA 00:00:01 START
+FuncB 00:00:02 START
+FuncC 00:00:03 START
+FuncA 00:00:04 END
+FuncB 00:00:05 END
+FuncD 00:00:06 START
+FuncD 00:00:07 END
+FuncC 00:00:08 END
+</code></pre><p>Sample Output</p>
+<pre><code>Incorrect performance log
+</code></pre><p>Sample Input</p>
+<pre><code>8
+FuncA 00:00:01 START
+FuncB 00:00:02 START
+FuncC 00:00:03 START
+FuncC 00:00:04 END
+FuncB 00:00:05 END
+FuncD 00:00:06 START
+FuncD 00:00:07 END
+FuncA 00:00:08 END
+</code></pre><p>Sample Output</p>
+<pre><code>FuncA 00:00:07
+FuncB 00:00:03
+FuncC 00:00:01
+FuncD 00:00:01
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Use stack to implement dfs. Push when &#x201C;START&#x201D; and pop when &#x201C;END&#x201D;.(Dealing with the boundary conditions)</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>&#x4F18;&#x5316;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x5373;&#x53EF;AC&#x3002;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">funStack = list()</div><div class="line">res = list()</div><div class="line">i = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> i &lt; N:</div><div class="line">    data = raw_input().split()</div><div class="line">    <span class="keyword">if</span> data[<span class="number">2</span>] == <span class="string">&quot;START&quot;</span>:</div><div class="line">        funStack.append(data)</div><div class="line">        i += <span class="number">1</span></div><div class="line">    <span class="keyword">elif</span> data[<span class="number">2</span>] == <span class="string">&quot;END&quot;</span>:</div><div class="line">        <span class="keyword">if</span> len(funStack) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            tmp = funStack.pop()</div><div class="line">            <span class="keyword">if</span> tmp[<span class="number">0</span>] != data[<span class="number">0</span>]:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                startData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> tmp[<span class="number">1</span>].split(<span class="string">&quot;:&quot;</span>)]</div><div class="line">                startTime = startData[<span class="number">0</span>]*<span class="number">3600</span> + startData[<span class="number">1</span>]*<span class="number">60</span> + startData[<span class="number">2</span>]</div><div class="line">                endData = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> data[<span class="number">1</span>].split(<span class="string">&quot;:&quot;</span>)]</div><div class="line">                endTime = endData[<span class="number">0</span>]*<span class="number">3600</span> + endData[<span class="number">1</span>]*<span class="number">60</span> + endData[<span class="number">2</span>]</div><div class="line">                <span class="keyword">if</span> endTime &lt; startTime:</div><div class="line">                    <span class="keyword">break</span></div><div class="line">                <span class="keyword">else</span>:</div><div class="line">                    resTime = list()</div><div class="line">                    seconds = endTime - startTime</div><div class="line">                    resTime.append(str(seconds%<span class="number">60</span>))</div><div class="line">                    mins = seconds/<span class="number">60</span></div><div class="line">                    resTime.append(str(mins%<span class="number">60</span>))</div><div class="line">                    hours = mins/<span class="number">60</span></div><div class="line">                    resTime.append(str(hours))</div><div class="line">                    res.append([data[<span class="number">0</span>], resTime[<span class="number">2</span>]+<span class="string">&quot;:&quot;</span>+resTime[<span class="number">1</span>]+<span class="string">&quot;:&quot;</span>+resTime[<span class="number">0</span>]])</div><div class="line">                    i += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> i == N:</div><div class="line">    <span class="keyword">print</span> res</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">&quot;Incorrect performance log&quot;</span></div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="ciugth0tb000hf2a7mrxq8zps" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-hihoCoder1051-补提交卡" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/21/hihoCoder1051-补提交卡/" class="article-date">
   <time datetime="2016-09-21T07:44:17.000Z" itemprop="datePublished">2016-09-21</time>
@@ -101,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="ciudeu6vu000djua79fpkzew4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="ciugth0t7000ff2a7tbxafjd0" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
     </footer>
@@ -120,28 +197,28 @@
     <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">17</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">17</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/binary-search/" style="font-size: 10px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 10px">dfs</a> <a href="/tags/dp/" style="font-size: 12.5px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 15px">hash</a> <a href="/tags/hexo/" style="font-size: 15px">hexo</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 17.5px">string</a> <a href="/tags/tree/" style="font-size: 12.5px">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 10px">android</a> <a href="/tags/binary-search/" style="font-size: 10px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 10px">dfs</a> <a href="/tags/dp/" style="font-size: 12.5px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 15px">hash</a> <a href="/tags/hexo/" style="font-size: 15px">hexo</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 17.5px">string</a> <a href="/tags/tree/" style="font-size: 12.5px">tree</a>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
@@ -149,6 +226,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/10/19/adb常用命令/">adb常用命令</a>
+          </li>
         
           <li>
             <a href="/2016/10/17/hihoCoder1144-01-string/">hihoCoder1144: 01-string</a>
@@ -164,10 +245,6 @@
         
           <li>
             <a href="/2016/10/13/leetcode165-Compare-Version-Numbers/">leetcode165: Compare Version Numbers</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/12/hihoCoder1399-Shortening-Sequence/">hihoCoder1399:Shortening Sequence</a>
           </li>
         
       </ul>
