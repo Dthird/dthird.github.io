@@ -3,20 +3,42 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>hexo: 插入图片 | Memory</title>
+  <title>leetcode257: Binary Tree Paths | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta name="description" content="1. Problem(s)hexo &amp;#x63D2;&amp;#x5165;&amp;#x672C;&amp;#x5730;&amp;#x56FE;&amp;#x7247;&amp;#x65F6;&amp;#x4F1A;&amp;#x5F88;&amp;#x9EBB;&amp;#x70E6;&amp;#xFF0C;&amp;#x4E0D;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#x65E0;&amp;#x6CD5;&amp;#x6B63;&amp;#x5E3">
+  <meta name="description" content="1. QuestionGiven a binary tree, return all root-to-leaf paths.
+For example, given the following binary tree:
+###1
+#/   \
+2     3
+#\
+##5
+All root-to-leaf paths are:
+[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo: 插入图片">
-<meta property="og:url" content="http://yoursite.com/2016/09/26/hexo-插入图片/index.html">
+<meta property="og:title" content="leetcode257: Binary Tree Paths">
+<meta property="og:url" content="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/index.html">
 <meta property="og:site_name" content="Memory">
-<meta property="og:description" content="1. Problem(s)hexo &amp;#x63D2;&amp;#x5165;&amp;#x672C;&amp;#x5730;&amp;#x56FE;&amp;#x7247;&amp;#x65F6;&amp;#x4F1A;&amp;#x5F88;&amp;#x9EBB;&amp;#x70E6;&amp;#xFF0C;&amp;#x4E0D;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#x65E0;&amp;#x6CD5;&amp;#x6B63;&amp;#x5E3">
-<meta property="og:image" content="http://yoursite.com/2016/09/26/hexo-插入图片/Screenshot from 2016-09-26 17-49-08.png">
-<meta property="og:updated_time" content="2016-09-26T10:05:16.015Z">
+<meta property="og:description" content="1. QuestionGiven a binary tree, return all root-to-leaf paths.
+For example, given the following binary tree:
+###1
+#/   \
+2     3
+#\
+##5
+All root-to-leaf paths are:
+[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-">
+<meta property="og:updated_time" content="2016-10-20T12:04:35.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo: 插入图片">
-<meta name="twitter:description" content="1. Problem(s)hexo &amp;#x63D2;&amp;#x5165;&amp;#x672C;&amp;#x5730;&amp;#x56FE;&amp;#x7247;&amp;#x65F6;&amp;#x4F1A;&amp;#x5F88;&amp;#x9EBB;&amp;#x70E6;&amp;#xFF0C;&amp;#x4E0D;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#x65E0;&amp;#x6CD5;&amp;#x6B63;&amp;#x5E3">
-<meta name="twitter:image" content="http://yoursite.com/2016/09/26/hexo-插入图片/Screenshot from 2016-09-26 17-49-08.png">
+<meta name="twitter:title" content="leetcode257: Binary Tree Paths">
+<meta name="twitter:description" content="1. QuestionGiven a binary tree, return all root-to-leaf paths.
+For example, given the following binary tree:
+###1
+#/   \
+2     3
+#\
+##5
+All root-to-leaf paths are:
+[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -63,13 +85,13 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hexo-插入图片" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-leetcode257-Binary-Tree-Paths" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/09/26/hexo-插入图片/" class="article-date">
-  <time datetime="2016-09-26T09:46:33.000Z" itemprop="datePublished">2016-09-26</time>
+    <a href="/2016/10/20/leetcode257-Binary-Tree-Paths/" class="article-date">
+  <time datetime="2016-10-20T11:39:00.000Z" itemprop="datePublished">2016-10-20</time>
 </a>
     <div class="article-category">
-    <a class="article-category-link" href="/categories/Configuration/">Configuration</a>
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
   </div>
   </div>
   <div class="article-inner">
@@ -77,50 +99,38 @@
     
       <header class="article-header">
         <h1 class="article-title" itemprop="name">
-      hexo: 插入图片
+      leetcode257: Binary Tree Paths
     </h1>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Problem-s"><a href="#1-Problem-s" class="headerlink" title="1. Problem(s)"></a>1. Problem(s)</h1><p>hexo &#x63D2;&#x5165;&#x672C;&#x5730;&#x56FE;&#x7247;&#x65F6;&#x4F1A;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x4E0D;&#x662F;&#x672C;&#x5730;&#x7F16;&#x8F91;&#x5668;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x5C31;&#x662F;&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x7F51;&#x9875;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x3002;</p>
-<h1 id="2-Solution-s"><a href="#2-Solution-s" class="headerlink" title="2. Solution(s)"></a>2. Solution(s)</h1><p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;&#xFF1A;</p>
-<blockquote>
-<p>CodeFalling/hexo-asset-image</p>
-</blockquote>
-<h2 id="&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#xFF1A;"><a href="#&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#xFF1A;" class="headerlink" title="&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#xFF1A;"></a>&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#xFF1A;</h2><ul>
-<li>&#x9996;&#x5148;&#x786E;&#x8BA4; <code>_config.yml</code> &#x4E2D;&#x6709; <code>post_asset_folder:true</code>&#xFF1B;</li>
-<li>&#x5728;hexo&#x76EE;&#x5F55;&#xFF0C;&#x6267;&#x884C;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;"><a href="#&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;"></a>&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;</h2><p>&#x901A;&#x8FC7;&#x6267;&#x884C;&#x547D;&#x4EE4;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo n &quot;hexo: &#x63D2;&#x5165;&#x56FE;&#x7247;&quot;</div></pre></td></tr></table></figure></p>
-<p>&#x540E;&#xFF0C;&#x5728;<code>_posts</code>&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x4E0D;&#x4EC5;&#x4F1A;&#x751F;&#x6210;<code>hexo-&#x63D2;&#x5165;&#x56FE;&#x7247;.md</code>&#x6587;&#x4EF6;&#xFF0C;&#x8FD8;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x540C;&#x540D;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;<br><img src="/2016/09/26/hexo-&#x63D2;&#x5165;&#x56FE;&#x7247;/Screenshot from 2016-09-26 17-49-08.png" alt=""></p>
-<p>&#x4F7F;&#x7528;&#x56FE;&#x7247;&#x65F6;&#x5C31;&#x7528;&#x57FA;&#x672C;&#x7684;markdown&#x8BED;&#x6CD5;&#x5373;&#x53EF;&#xFF1A;<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/hexo-&#x63D2;&#x5165;&#x56FE;&#x7247;/Screenshot from 2016-09-26 17-49-08.png)</div></pre></td></tr></table></figure></p>
-<p>&#x8FD9;&#x6837;&#x5728;&#x672C;&#x5730;&#x7F16;&#x8F91;&#x5668;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x9884;&#x89C8;&#xFF0C;&#x800C;&#x4E14;deploy&#x4E4B;&#x540E;&#x7F51;&#x9875;&#x4E5F;&#x80FD;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x4E86;&#x3002;</p>
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p>Given a binary tree, return all root-to-leaf paths.</p>
+<p>For example, given the following binary tree:</p>
+<pre><code>###1
+#/   \
+2     3
+#\
+##5
+</code></pre><p>All root-to-leaf paths are:</p>
+<pre><code>[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Recursive implementation:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode:</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="comment"># @param {TreeNode} root</span></div><div class="line">    <span class="comment"># @return {string[]}</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> list()</div><div class="line">        result = [ str(root.val)+<span class="string">&quot;-&gt;&quot;</span> + path <span class="keyword">for</span> path <span class="keyword">in</span> self.binaryTreePaths(root.left)]</div><div class="line">        result += [ str(root.val)+<span class="string">&quot;-&gt;&quot;</span> + path <span class="keyword">for</span> path <span class="keyword">in</span> self.binaryTreePaths(root.right)]</div><div class="line">        <span class="keyword">return</span> result <span class="keyword">or</span> [str(root.val)]  <span class="comment"># if empty return leaf itself</span></div></pre></td></tr></table></figure></p>
+<p>Iterative implementation:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># unfinished: record the path of root to leaf</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> list()</div><div class="line">        res = []</div><div class="line">        stack = []</div><div class="line">        path_stack = []</div><div class="line">        stack.append(root)</div><div class="line">        <span class="keyword">while</span> len(stack)&gt;<span class="number">0</span>:</div><div class="line">            tmp = stack.pop()</div><div class="line">            <span class="keyword">if</span>(tmp.left):</div><div class="line">                <span class="keyword">print</span> <span class="string">&quot;D:&quot;</span>, tmp.val</div><div class="line">                stack.append(tmp.left)</div><div class="line">            <span class="keyword">if</span>(tmp.right):</div><div class="line">                <span class="keyword">print</span> <span class="string">&quot;D:&quot;</span>, tmp.val</div><div class="line">                stack.append(tmp.right)</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">not</span> tmp.left <span class="keyword">and</span> <span class="keyword">not</span> tmp.right):</div><div class="line">                <span class="keyword">print</span> <span class="string">&quot;leaf:&quot;</span>, tmp.val</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res</div></pre></td></tr></table></figure></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hexo-插入图片/" data-id="ciuiavv9800044ha72vpzremt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/" data-id="ciuiavvb3001f4ha77viwoy08" class="article-share-link">Share</a>
       
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
   </div>
   
     <nav id="article-nav">
   
-    <a href="/2016/09/26/hexo-MathJax/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hexo MathJax
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/26/hohoCoder1014-Trie树/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/10/19/Error-Android-emulator-problem/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">hohoCoder1014: Trie树</div>
+      <div class="article-nav-title">Error: Android emulator problem</div>
     </a>
   
 </nav>
