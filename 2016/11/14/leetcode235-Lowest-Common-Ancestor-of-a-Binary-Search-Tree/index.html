@@ -3,14 +3,24 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Tag: binary_search | Memory</title>
+  <title>leetcode235: Lowest Common Ancestor of a Binary Search Tree | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Memory">
-<meta property="og:url" content="http://yoursite.com/tags/binary-search/index.html">
+  <meta name="description" content="1. QuestionLink
+Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+According to the definition of LCA on Wikipedia: &amp;#x201C;The lowest common ancest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode235: Lowest Common Ancestor of a Binary Search Tree">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="Memory">
+<meta property="og:description" content="1. QuestionLink
+Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+According to the definition of LCA on Wikipedia: &amp;#x201C;The lowest common ancest">
+<meta property="og:updated_time" content="2016-11-14T06:00:19.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Memory">
+<meta name="twitter:title" content="leetcode235: Lowest Common Ancestor of a Binary Search Tree">
+<meta name="twitter:description" content="1. QuestionLink
+Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+According to the definition of LCA on Wikipedia: &amp;#x201C;The lowest common ancest">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -57,57 +67,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" class="archive-article-date">
-  <time datetime="2016-11-14T05:54:33.000Z" itemprop="datePublished">Nov 14</time>
+        <section id="main"><article id="post-leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" class="article-date">
+  <time datetime="2016-11-14T05:54:33.000Z" itemprop="datePublished">2016-11-14</time>
 </a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/">leetcode235: Lowest Common Ancestor of a Binary Search Tree</a>
-    </h1>
-    </header>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" class="archive-article-date">
-  <time datetime="2016-11-14T03:12:17.000Z" itemprop="datePublished">Nov 14</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/">leetcode173: Binary Search Tree Iterator</a>
-    </h1>
-    </header>
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/25/hihoCoder1128-二分·二分查找/" class="archive-article-date">
-  <time datetime="2016-09-25T02:31:24.000Z" itemprop="datePublished">Sep 25</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/25/hihoCoder1128-二分·二分查找/">hihoCoder1128: 二分·二分查找</a>
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      leetcode235: Lowest Common Ancestor of a Binary Search Tree
     </h1>
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="external">Link</a></p>
+<p>Given a binary search tree (<strong>BST</strong>), find the lowest common ancestor (<strong>LCA</strong>) of two given nodes in the BST.</p>
+<p>According to <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="external">the definition of LCA on Wikipedia</a>: &#x201C;The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (<strong>where we allow a node to be a descendant of itself</strong>).&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">````````______6______</div><div class="line">```````/             \</div><div class="line">````___2__          __8__</div><div class="line">```/      \        /     \</div><div class="line">``0       _4      7       9</div><div class="line">`````````/  \</div><div class="line">````````3    5</div></pre></td></tr></table></figure></p>
+<p>For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.</p>
+<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowestCommonAncestor</span><span class="params">(self, root, p, q)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :type p: TreeNode</div><div class="line">        :type q: TreeNode</div><div class="line">        :rtype: TreeNode</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        <span class="keyword">if</span> p.val &gt; q.val:</div><div class="line">            p, q = q, p</div><div class="line">        <span class="keyword">if</span> root.val &gt; p.val <span class="keyword">and</span> root.val &lt; q.val <span class="keyword">or</span> root.val == p.val <span class="keyword">or</span> root.val == q.val:</div><div class="line">            <span class="keyword">return</span> root</div><div class="line">        <span class="keyword">elif</span> root.val &gt; q.val:</div><div class="line">            <span class="keyword">return</span> self.lowestCommonAncestor(root.left, p, q)</div><div class="line">        <span class="keyword">elif</span> root.val &lt; p.val:</div><div class="line">            <span class="keyword">return</span> self.lowestCommonAncestor(root.right, p, q)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="civhq7bad001tk7a7vuph1t4n" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/recursion/">recursion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
+    </footer>
   </div>
-</article>
+  
+    <nav id="article-nav">
+  
+    <a href="/2016/11/14/leetcode384-Shuffle-an-Array/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          leetcode384: Shuffle an Array
+        
+      </div>
+    </a>
   
   
-    </div></section></section>
+    <a href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">leetcode173: Binary Search Tree Iterator</div>
+    </a>
+  
+</nav>
+  
+</article></section>
         
           <aside id="sidebar">
   

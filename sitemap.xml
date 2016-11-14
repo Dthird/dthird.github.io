@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/</loc>
+    
+    <lastmod>2016-11-14T06:47:44.303Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/</loc>
+    
+    <lastmod>2016-11-14T06:00:19.038Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/</loc>
     
     <lastmod>2016-11-14T03:16:42.065Z</lastmod>

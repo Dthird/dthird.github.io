@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>leetcode384: Shuffle an Array | Memory</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" content="1. QuestionLink
+Shuffle a set of numbers without duplicates.
+Example:123456789101112// Init an array with set 1, 2, and 3.int[] nums = {1,2,3};Solution solution = new Solution(nums);// Shuffle the arr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode384: Shuffle an Array">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/index.html">
+<meta property="og:site_name" content="Memory">
+<meta property="og:description" content="1. QuestionLink
+Shuffle a set of numbers without duplicates.
+Example:123456789101112// Init an array with set 1, 2, and 3.int[] nums = {1,2,3};Solution solution = new Solution(nums);// Shuffle the arr">
+<meta property="og:updated_time" content="2016-11-14T06:47:44.303Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode384: Shuffle an Array">
+<meta name="twitter:description" content="1. QuestionLink
+Shuffle a set of numbers without duplicates.
+Example:123456789101112// Init an array with set 1, 2, and 3.int[] nums = {1,2,3};Solution solution = new Solution(nums);// Shuffle the arr">
+  
+    <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head></html>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Memory</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-leetcode384-Shuffle-an-Array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/14/leetcode384-Shuffle-an-Array/" class="article-date">
+  <time datetime="2016-11-14T06:35:19.000Z" itemprop="datePublished">2016-11-14</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      leetcode384: Shuffle an Array
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/shuffle-an-array/" target="_blank" rel="external">Link</a></p>
+<p>Shuffle a set of numbers without duplicates.</p>
+<p>Example:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Init an array with set 1, 2, and 3.</span></div><div class="line"><span class="keyword">int</span>[] nums = {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>};</div><div class="line">Solution solution = <span class="keyword">new</span> Solution(nums);</div><div class="line"></div><div class="line"><span class="comment">// Shuffle the array [1,2,3] and return its result. Any permutation of [1,2,3] must equally likely to be returned.</span></div><div class="line">solution.shuffle();</div><div class="line"></div><div class="line"><span class="comment">// Resets the array back to its original configuration [1,2,3].</span></div><div class="line">solution.reset();</div><div class="line"></div><div class="line"><span class="comment">// Returns the random shuffling of array [1,2,3].</span></div><div class="line">solution.shuffle();</div></pre></td></tr></table></figure></p>
+<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Using python permutations and combinations package(<a href="https://docs.python.org/2/library/itertools.html" target="_blank" rel="external">itertools</a>) or random package(<a href="https://docs.python.org/2/library/random.html" target="_blank" rel="external">shuffle</a>)</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Permutations:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> itertools</div><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">        :type nums: List[int]</div><div class="line">        :type size: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array = nums</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Resets the array to its original configuration and return it.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Returns a random shuffling of the array.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        reslist = list(itertools.permutations(self.array, len(self.array)))</div><div class="line">        <span class="keyword">print</span> reslist</div><div class="line">        <span class="keyword">return</span> reslist[random.randint(<span class="number">0</span>, len(reslist)<span class="number">-1</span>)]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></div><div class="line"><span class="comment"># obj = Solution(nums)</span></div><div class="line"><span class="comment"># param_1 = obj.reset()</span></div><div class="line"><span class="comment"># param_2 = obj.shuffle()</span></div></pre></td></tr></table></figure></p>
+<p>random shuffle:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">        :type nums: List[int]</div><div class="line">        :type size: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array_original = self.array = nums</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Resets the array to its original configuration and return it.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array = self.array_original</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Returns a random shuffling of the array.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        random.shuffle(self.array)</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></div><div class="line"><span class="comment"># obj = Solution(nums)</span></div><div class="line"><span class="comment"># param_1 = obj.reset()</span></div><div class="line"><span class="comment"># param_2 = obj.shuffle()</span></div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/" data-id="civhq7bai0020k7a7rk6q4e35" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a></li></ul>
+    </footer>
+  </div>
+  
+    <nav id="article-nav">
+  
+  
+    <a href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">leetcode235: Lowest Common Ancestor of a Binary Search Tree</div>
+    </a>
+  
+</nav>
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">24</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 11.67px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 13.33px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 11.67px">dfs</a> <a href="/tags/dp/" style="font-size: 11.67px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 15px">hash</a> <a href="/tags/hexo/" style="font-size: 13.33px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/permutations-and-combinations/" style="font-size: 10px">permutations_and_combinations</a> <a href="/tags/recursion/" style="font-size: 10px">recursion</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18.33px">string</a> <a href="/tags/tree/" style="font-size: 16.67px">tree</a>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+    </div>
+  </div>
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/14/leetcode384-Shuffle-an-Array/">leetcode384: Shuffle an Array</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/">leetcode235: Lowest Common Ancestor of a Binary Search Tree</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/">leetcode173: Binary Search Tree Iterator</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/">leetcode199: Binary Tree Right Side View</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/04/leetcode445-Add-Two-Numbers-II/">leetcode445: Add Two Numbers II</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Jason Dong<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
