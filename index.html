@@ -57,7 +57,41 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-leetcode199-Binary-Tree-Right-Side-View" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-leetcode173-Binary-Search-Tree-Iterator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" class="article-date">
+  <time datetime="2016-11-14T03:12:17.000Z" itemprop="datePublished">2016-11-14</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/">leetcode173: Binary Search Tree Iterator</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/binary-search-tree-iterator/" target="_blank" rel="external">Link</a></p>
+<p>Implement an iterator over a binary search tree (<strong>BST</strong>). Your iterator will be initialized with the root node of a BST.</p>
+<p>Calling <figure class="highlight plain"><figcaption><span>will return the next smallest number in the BST.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Note: ```next()``` and ```hasNext()``` should run in average $O(1)$ time and uses $O(h)$ memory, where $h$ is the height of the tree.</div><div class="line"># 2. Analysis</div><div class="line">**Key:** Using two pointers.</div><div class="line"># 3. Solution(s)</div><div class="line">```python</div><div class="line"># Definition for a  binary tree node</div><div class="line"># class TreeNode(object):</div><div class="line">#     def __init__(self, x):</div><div class="line">#         self.val = x</div><div class="line">#         self.left = None</div><div class="line">#         self.right = None</div><div class="line"></div><div class="line">class BSTIterator(object):</div><div class="line">    def __init__(self, root):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type root: TreeNode</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.root = root</div><div class="line"></div><div class="line">    def hasNext(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :rtype: bool</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        return True if self.root else False</div><div class="line">    def next(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :rtype: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        res = self.root.val</div><div class="line">        p = self.root</div><div class="line">        if not p.left:</div><div class="line">            self.root = p.right</div><div class="line">            return res</div><div class="line">        cur = p.left</div><div class="line">        while cur.left:</div><div class="line">            cur = cur.left</div><div class="line">            p = p.left</div><div class="line">        res = cur.val</div><div class="line">        if cur.right:</div><div class="line">            p.left = cur.right</div><div class="line">        else:</div><div class="line">            p.left = None  # diff with &quot;cur = None&quot;</div><div class="line">        return res</div><div class="line"></div><div class="line"># Your BSTIterator will be called like this:</div><div class="line"># i, v = BSTIterator(root), []</div><div class="line"># while i.hasNext(): v.append(i.next())</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" data-id="civhi18qv002jq7a73kyl4d9t" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-leetcode199-Binary-Tree-Right-Side-View" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" class="article-date">
   <time datetime="2016-11-14T02:09:14.000Z" itemprop="datePublished">2016-11-14</time>
@@ -85,7 +119,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" data-id="civhfth4d001bkaa7dl5x1azo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" data-id="civhi18qx002mq7a7oonoxrm9" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -123,7 +157,7 @@ Output: 7 -&gt; 8 -&gt; 0 -&gt; 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/leetcode445-Add-Two-Numbers-II/" data-id="civhfth4k001lkaa7wa195zgh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/04/leetcode445-Add-Two-Numbers-II/" data-id="civhi18rf002wq7a7mfd9x5s6" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linked-list/">linked_list</a></li></ul>
     </footer>
@@ -167,7 +201,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" data-id="civhfth4m001nkaa72s37082g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" data-id="civhi18rh002zq7a7vhhacmvi" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
@@ -209,7 +243,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/" data-id="civhfth4h001ikaa78buqu4vc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/" data-id="civhi18re002tq7a7m1pmc2fd" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -246,7 +280,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/Error-Android-emulator-problem/" data-id="civhfth280000kaa7ymwg5htq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/Error-Android-emulator-problem/" data-id="civhi18mx0000q7a7ocpa7h5n" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
     </footer>
@@ -286,7 +320,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/adb常用命令/" data-id="civhfth2d0001kaa767oz866u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/adb常用命令/" data-id="civhi18n30001q7a7z25ibbvr" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
     </footer>
@@ -324,7 +358,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/17/hihoCoder1144-01-string/" data-id="civhfth3h000pkaa7degtja63" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/17/hihoCoder1144-01-string/" data-id="civhi18qc001wq7a7901jztyi" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -385,7 +419,7 @@ VWXYZ
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/15/hihoCoder1361-Playfair密码表/" data-id="civhfth3u000vkaa7b98a4ezj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/15/hihoCoder1361-Playfair密码表/" data-id="civhi18qn0022q7a7308omeid" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -431,46 +465,9 @@ god
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/14/hihoCoder1366-逆序单词/" data-id="civhfth3y000zkaa72yqurc6r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/14/hihoCoder1366-逆序单词/" data-id="civhi18qo0025q7a7qv08dyea" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-leetcode165-Compare-Version-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/13/leetcode165-Compare-Version-Numbers/" class="article-date">
-  <time datetime="2016-10-13T07:04:58.000Z" itemprop="datePublished">2016-10-13</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/13/leetcode165-Compare-Version-Numbers/">leetcode165: Compare Version Numbers</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/compare-version-numbers/" target="_blank" rel="external">Link</a></p>
-<p>Compare two version numbers version1 and version2.<br>If version1 &gt; version2 return 1, if version1 &lt; version2 return -1, otherwise return 0.</p>
-<p>You may assume that the version strings are non-empty and contain only digits and the . character.<br>The . character does not represent a decimal point and is used to separate number sequences.<br>For instance, 2.5 is not &#x201C;two and a half&#x201D; or &#x201C;half way to version three&#x201D;, it is the fifth second-level revision of the second first-level revision.</p>
-<p>Here is an example of version numbers ordering:</p>
-<pre><code>0.1 &lt; 1.1 &lt; 1.2 &lt; 13.37
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareVersion</span><span class="params">(String version1, String version2)</span> </span>{</div><div class="line">		String[] v1 = version1.split(<span class="string">&quot;\\.&quot;</span>); <span class="comment">// escape special characters</span></div><div class="line">		String[] v2 = version2.split(<span class="string">&quot;\\.&quot;</span>);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> len = Integer.min(v1.length, v2.length);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++){</div><div class="line">			<span class="keyword">if</span>(Integer.valueOf(v1[i]) &gt; Integer.valueOf(v2[i]))</div><div class="line">				<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(Integer.valueOf(v1[i]) &lt; Integer.valueOf(v2[i]))</div><div class="line">				<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">		}</div><div class="line">		<span class="keyword">if</span>(v1.length &gt; v2.length &amp;&amp; Integer.valueOf(v1[v1.length-<span class="number">1</span>]) != <span class="number">0</span>) <span class="comment">// compare 1.0 and 1</span></div><div class="line">			<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(v1.length &lt; v2.length &amp;&amp; Integer.valueOf(v2[v2.length-<span class="number">1</span>]) != <span class="number">0</span>)</div><div class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/13/leetcode165-Compare-Version-Numbers/" data-id="civhfth490019kaa7pawhbciz" class="article-share-link">Share</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
   </div>
   
@@ -487,28 +484,28 @@ god
     <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">21</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">22</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 12px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 10px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 12px">dfs</a> <a href="/tags/dp/" style="font-size: 12px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 16px">hash</a> <a href="/tags/hexo/" style="font-size: 14px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18px">string</a> <a href="/tags/tree/" style="font-size: 16px">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 11.67px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 11.67px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 11.67px">dfs</a> <a href="/tags/dp/" style="font-size: 11.67px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 15px">hash</a> <a href="/tags/hexo/" style="font-size: 13.33px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18.33px">string</a> <a href="/tags/tree/" style="font-size: 16.67px">tree</a>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
@@ -516,6 +513,10 @@ god
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/">leetcode173: Binary Search Tree Iterator</a>
+          </li>
         
           <li>
             <a href="/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/">leetcode199: Binary Tree Right Side View</a>
@@ -531,10 +532,6 @@ god
         
           <li>
             <a href="/2016/10/20/leetcode257-Binary-Tree-Paths/">leetcode257: Binary Tree Paths</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/19/Error-Android-emulator-problem/">Error: Android emulator problem</a>
           </li>
         
       </ul>

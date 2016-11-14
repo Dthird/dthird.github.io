@@ -3,14 +3,24 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Archives | Memory</title>
+  <title>leetcode173: Binary Search Tree Iterator | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Memory">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="1. QuestionLink
+Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
+Calling will return the next smallest number in the BST.1234567891">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode173: Binary Search Tree Iterator">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/index.html">
 <meta property="og:site_name" content="Memory">
+<meta property="og:description" content="1. QuestionLink
+Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
+Calling will return the next smallest number in the BST.1234567891">
+<meta property="og:updated_time" content="2016-11-14T03:16:42.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Memory">
+<meta name="twitter:title" content="leetcode173: Binary Search Tree Iterator">
+<meta name="twitter:description" content="1. QuestionLink
+Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
+Calling will return the next smallest number in the BST.1234567891">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -57,138 +67,49 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/25/leetcode204-Count-Primes/" class="archive-article-date">
-  <time datetime="2016-09-25T03:20:35.000Z" itemprop="datePublished">Sep 25</time>
+        <section id="main"><article id="post-leetcode173-Binary-Search-Tree-Iterator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" class="article-date">
+  <time datetime="2016-11-14T03:12:17.000Z" itemprop="datePublished">2016-11-14</time>
 </a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/25/leetcode204-Count-Primes/">leetcode204. Count Primes</a>
-    </h1>
-    </header>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/25/hihoCoder1128-二分·二分查找/" class="archive-article-date">
-  <time datetime="2016-09-25T02:31:24.000Z" itemprop="datePublished">Sep 25</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/25/hihoCoder1128-二分·二分查找/">hihoCoder1128: 二分·二分查找</a>
-    </h1>
-    </header>
   </div>
-</article>
-  
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/23/hihoCoder1086-Browser-Caching/" class="archive-article-date">
-  <time datetime="2016-09-23T12:08:09.000Z" itemprop="datePublished">Sep 23</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/23/hihoCoder1086-Browser-Caching/">hihoCoder1086: Browser Caching</a>
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      leetcode173: Binary Search Tree Iterator
     </h1>
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/binary-search-tree-iterator/" target="_blank" rel="external">Link</a></p>
+<p>Implement an iterator over a binary search tree (<strong>BST</strong>). Your iterator will be initialized with the root node of a BST.</p>
+<p>Calling <figure class="highlight plain"><figcaption><span>will return the next smallest number in the BST.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Note: ```next()``` and ```hasNext()``` should run in average $O(1)$ time and uses $O(h)$ memory, where $h$ is the height of the tree.</div><div class="line"># 2. Analysis</div><div class="line">**Key:** Using two pointers.</div><div class="line"># 3. Solution(s)</div><div class="line">```python</div><div class="line"># Definition for a  binary tree node</div><div class="line"># class TreeNode(object):</div><div class="line">#     def __init__(self, x):</div><div class="line">#         self.val = x</div><div class="line">#         self.left = None</div><div class="line">#         self.right = None</div><div class="line"></div><div class="line">class BSTIterator(object):</div><div class="line">    def __init__(self, root):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type root: TreeNode</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.root = root</div><div class="line"></div><div class="line">    def hasNext(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :rtype: bool</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        return True if self.root else False</div><div class="line">    def next(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :rtype: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        res = self.root.val</div><div class="line">        p = self.root</div><div class="line">        if not p.left:</div><div class="line">            self.root = p.right</div><div class="line">            return res</div><div class="line">        cur = p.left</div><div class="line">        while cur.left:</div><div class="line">            cur = cur.left</div><div class="line">            p = p.left</div><div class="line">        res = cur.val</div><div class="line">        if cur.right:</div><div class="line">            p.left = cur.right</div><div class="line">        else:</div><div class="line">            p.left = None  # diff with &quot;cur = None&quot;</div><div class="line">        return res</div><div class="line"></div><div class="line"># Your BSTIterator will be called like this:</div><div class="line"># i, v = BSTIterator(root), []</div><div class="line"># while i.hasNext(): v.append(i.next())</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" data-id="civhi18qv002jq7a73kyl4d9t" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
+    </footer>
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/" class="archive-article-date">
-  <time datetime="2016-09-23T10:56:45.000Z" itemprop="datePublished">Sep 23</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/23/hihoCoder1082-The-Marshtomp-has-seen-it-all-before/">hihoCoder1082: The Marshtomp has seen it all before</a>
-    </h1>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/23/hihoCoder1058-Combination-Lock/" class="archive-article-date">
-  <time datetime="2016-09-23T01:42:28.000Z" itemprop="datePublished">Sep 23</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/23/hihoCoder1058-Combination-Lock/">hihoCoder1058: Combination Lock</a>
-    </h1>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" class="archive-article-date">
-  <time datetime="2016-09-22T13:11:36.000Z" itemprop="datePublished">Sep 22</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/">github+hexo: 如何从已有的github仓库进行配置</a>
-    </h1>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/22/hihoCoder1057-Performance-Log/" class="archive-article-date">
-  <time datetime="2016-09-22T07:19:56.000Z" itemprop="datePublished">Sep 22</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/22/hihoCoder1057-Performance-Log/">hihoCoder1057: Performance Log</a>
-    </h1>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/21/hihoCoder1051-补提交卡/" class="archive-article-date">
-  <time datetime="2016-09-21T07:44:17.000Z" itemprop="datePublished">Sep 21</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/21/hihoCoder1051-补提交卡/">hihoCoder1051: 补提交卡</a>
-    </h1>
-    </header>
-  </div>
-</article>
+    <nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">leetcode199: Binary Tree Right Side View</div>
+    </a>
   
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/page/2/">&laquo; __('prev')</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav></section>
+</nav>
+  
+</article></section>
         
           <aside id="sidebar">
   
@@ -277,5 +198,21 @@
 
 
 <script src="/js/script.js"></script>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax --><!-- hexo-inject:end -->
 </body>
