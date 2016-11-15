@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/15/leetcode387-First-Unique-Character-in-a-String/</loc>
+    
+    <lastmod>2016-11-15T01:44:07.159Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/</loc>
     
     <lastmod>2016-11-14T06:47:44.303Z</lastmod>
