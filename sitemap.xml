@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/11/21/leetcode49-Group-Anagrams/</loc>
+    
+    <lastmod>2016-11-21T03:07:59.279Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/11/17/leetcode442-Find-All-Duplicates-in-an-Array/</loc>
     
     <lastmod>2016-11-17T02:23:43.283Z</lastmod>
