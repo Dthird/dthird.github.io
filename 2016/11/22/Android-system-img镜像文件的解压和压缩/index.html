@@ -3,14 +3,18 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Catégorie: Android | Memory</title>
+  <title>Android system.img镜像文件的解压和压缩 | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Memory">
-<meta property="og:url" content="http://yoursite.com/categories/Android/index.html">
+  <meta name="description" content="&amp;#x5224;&amp;#x65AD;&amp;#x6587;&amp;#x4EF6;&amp;#x7C7B;&amp;#x578B;Android &amp;#x4E2D;&amp;#x7684; system.img&amp;#x53EF;&amp;#x80FD;&amp;#x6709;&amp;#x662F;yaffs2&amp;#x6216;&amp;#x8005;ext&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x7CFB;&amp;#x7EDF;&amp;#x3002;&amp;#x53EF;&amp;#x4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android system.img镜像文件的解压和压缩">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/Android-system-img镜像文件的解压和压缩/index.html">
 <meta property="og:site_name" content="Memory">
+<meta property="og:description" content="&amp;#x5224;&amp;#x65AD;&amp;#x6587;&amp;#x4EF6;&amp;#x7C7B;&amp;#x578B;Android &amp;#x4E2D;&amp;#x7684; system.img&amp;#x53EF;&amp;#x80FD;&amp;#x6709;&amp;#x662F;yaffs2&amp;#x6216;&amp;#x8005;ext&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x7CFB;&amp;#x7EDF;&amp;#x3002;&amp;#x53EF;&amp;#x4">
+<meta property="og:updated_time" content="2016-11-22T12:17:24.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Memory">
+<meta name="twitter:title" content="Android system.img镜像文件的解压和压缩">
+<meta name="twitter:description" content="&amp;#x5224;&amp;#x65AD;&amp;#x6587;&amp;#x4EF6;&amp;#x7C7B;&amp;#x578B;Android &amp;#x4E2D;&amp;#x7684; system.img&amp;#x53EF;&amp;#x80FD;&amp;#x6709;&amp;#x662F;yaffs2&amp;#x6216;&amp;#x8005;ext&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x7CFB;&amp;#x7EDF;&amp;#x3002;&amp;#x53EF;&amp;#x4">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -57,42 +61,61 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/11/22/Android-system-img镜像文件的解压和压缩/" class="archive-article-date">
-  <time datetime="2016-11-22T08:18:24.000Z" itemprop="datePublished">Nov 22</time>
+        <section id="main"><article id="post-Android-system-img镜像文件的解压和压缩" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/22/Android-system-img镜像文件的解压和压缩/" class="article-date">
+  <time datetime="2016-11-22T08:18:24.000Z" itemprop="datePublished">2016-11-22</time>
 </a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/22/Android-system-img镜像文件的解压和压缩/">Android system.img镜像文件的解压和压缩</a>
-    </h1>
-    </header>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
   </div>
-</article>
-  
+  </div>
+  <div class="article-inner">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/10/19/adb常用命令/" class="archive-article-date">
-  <time datetime="2016-10-19T10:52:32.000Z" itemprop="datePublished">Oct 19</time>
-</a>
-      <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/19/adb常用命令/">adb常用命令</a>
+      <header class="article-header">
+        <h1 class="article-title" itemprop="name">
+      Android system.img镜像文件的解压和压缩
     </h1>
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x7C7B;&#x578B;"><a href="#&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x7C7B;&#x578B;" class="headerlink" title="&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x7C7B;&#x578B;"></a>&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x7C7B;&#x578B;</h1><p>Android &#x4E2D;&#x7684; system.img&#x53EF;&#x80FD;&#x6709;&#x662F;<strong>yaffs2</strong>&#x6216;&#x8005;<strong>ext</strong>&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">~$file system.img</div></pre></td></tr></table></figure></p>
+<p>&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x53EF;&#x80FD;&#x6709;&#x4E24;&#x79CD;&#xFF1A;</p>
+<ol>
+<li><figure class="highlight plain"><figcaption><span>Linux rev 1.0 ext4 filesystem data, UUID=...```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2. ```system.img: VMS Alpha executable</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#x4E3A;ext&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x4E3A;yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;</p>
+<h1 id="ext&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><a href="#ext&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;" class="headerlink" title="ext&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"></a>ext&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h1><p>&#x901A;&#x8FC7;mount&#x548C;unmount&#x6302;&#x8F7D;&#x548C;&#x5378;&#x8F7D;&#x3002;</p>
+<ul>
+<li>&#x6302;&#x8F7D;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#x5378;&#x8F7D;&#xFF1A;```unmount</div></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><a href="#yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;" class="headerlink" title="yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"></a>yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h1><p>&#x901A;&#x8FC7;&#x5B89;&#x88C5;<a href="https://code.google.com/archive/p/yaffs2utils/downloads" target="_blank" rel="external">yaffs2utils</a>&#x8FDB;&#x884C;&#x89E3;&#x538B;&#x548C;&#x538B;&#x7F29;&#x3002;</p>
+<ul>
+<li>&#x89E3;&#x538B;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#x538B;&#x7F29;&#xFF1A;```mkyaffs2```&#xFF0C;&#x6CE8;&#x610F;&#x53C2;&#x6570;```--yaffs-ecclayout</div></pre></td></tr></table></figure></li>
+</ul>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/22/Android-system-img镜像文件的解压和压缩/" data-id="civtgw86r000hmva7z1m9ddiz" class="article-share-link">Partager</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+    </footer>
   </div>
-</article>
+  
+    <nav id="article-nav">
   
   
-    </div></section></section>
+    <a href="/2016/11/21/leetcode49-Group-Anagrams/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">leetcode49: Group Anagrams</div>
+    </a>
+  
+</nav>
+  
+</article></section>
         
           <aside id="sidebar">
   

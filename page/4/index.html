@@ -46,9 +46,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -57,7 +57,77 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-github-hexo-如何从已有的github仓库进行配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1058-Combination-Lock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/23/hihoCoder1058-Combination-Lock/" class="article-date">
+  <time datetime="2016-09-23T01:42:28.000Z" itemprop="datePublished">2016-09-23</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/23/hihoCoder1058-Combination-Lock/">hihoCoder1058: Combination Lock</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="http://hihocoder.com/problemset/problem/1058?sid=877039" target="_blank" rel="external">Link</a></p>
+<p>Finally, you come to the interview room. You know that a Microsoft interviewer is in the room though the door is locked. There is a combination lock on the door. There are N rotators on the lock, each consists of 26 alphabetic characters, namely, &#x2018;A&#x2019;-&#x2018;Z&#x2019;. You need to unlock the door to meet the interviewer inside. There is a note besides the lock, which shows the steps to unlock it.</p>
+<p>Note: There are M steps totally; each step is one of the four kinds of operations shown below:</p>
+<p>Type1: CMD 1 i j X: (i and j are integers, 1 &lt;= i &lt;= j &lt;= N; X is a character, within &#x2018;A&#x2019;-&#x2018;Z&#x2019;)</p>
+<pre><code>This is a sequence operation: turn the ith to the jth rotators to character X (the left most rotator is defined as the 1st rotator)
+
+For example: ABCDEFG =&gt; CMD 1 2 3 Z =&gt; AZZDEFG
+</code></pre><p>Type2: CMD 2 i j K: (i, j, and K are all integers, 1 &lt;= i &lt;= j &lt;= N)</p>
+<pre><code>This is a sequence operation: turn the ith to the jth rotators up K times ( if character A is turned up once, it is B; if Z is turned up once, it is A now. )
+
+For example: ABCDEFG =&gt; CMD 2 2 3 1 =&gt; ACDDEFG
+</code></pre><p>Type3: CMD 3 K: (K is an integer, 1 &lt;= K &lt;= N)</p>
+<pre><code>This is a concatenation operation: move the K leftmost rotators to the rightmost end.
+
+For example: ABCDEFG =&gt; CMD 3 3 =&gt; DEFGABC
+</code></pre><p>Type4: CMD 4 i j(i, j are integers, 1 &lt;= i &lt;= j &lt;= N):</p>
+<pre><code>This is a recursive operation, which means:
+
+If i &gt; j:
+    Do Nothing
+Else:
+    CMD 4 i+1 j
+    CMD 2 i j 1
+
+For example: ABCDEFG =&gt; CMD 4 2 3 =&gt; ACEDEFG
+</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>1st line:  2 integers, N, M ( 1 &lt;= N &lt;= 50000, 1 &lt;= M &lt;= 50000 )</p>
+<p>2nd line: a string of N characters, standing for the original status of the lock.</p>
+<p>3rd ~ (3+M-1)th lines: each line contains a string, representing one step.<br>Output</p>
+<p>One line of N characters, showing the final status of the lock.</p>
+<pre><code>7 4
+ABCDEFG
+CMD 1 2 5 C
+CMD 2 3 7 4
+CMD 3 3
+CMD 4 1 7
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>HIMOFIN
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Just need to implement four CMD functions.</p>
+<p>Use segment tree can reduce time complexity. <a href="http://blog.csdn.net/playwfun/article/details/48102015" target="_blank" rel="external">Segment tree implementation</a></p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">CMD1</span><span class="params">(lock, i, j, X)</span>:</span></div><div class="line">    <span class="keyword">for</span> it <span class="keyword">in</span> range(i<span class="number">-1</span>, j):</div><div class="line">        lock[it] = X</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">CMD2</span><span class="params">(lock, i, j, K)</span>:</span></div><div class="line">    dictionary = list(<span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>)</div><div class="line">    <span class="keyword">for</span> it <span class="keyword">in</span> range(i<span class="number">-1</span>, j):</div><div class="line">        new = (dictionary.index(lock[it]) + K) % <span class="number">26</span></div><div class="line">        lock[it] = dictionary[new]</div><div class="line">    <span class="keyword">return</span> lock</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">CMD3</span><span class="params">(lock, K)</span>:</span></div><div class="line">    <span class="comment"># ABCDEF =&gt; CDEFAB: 1. AB =&gt; BA; 2. CDEF =&gt; FEDC; 3. BAFEDC =&gt; CDEFAB</span></div><div class="line">    left = lock[:K]</div><div class="line">    right = lock[K:]</div><div class="line">    lock_re = left[::<span class="number">-1</span>] + right[::<span class="number">-1</span>]</div><div class="line">    lock_re = lock_re[::<span class="number">-1</span>]</div><div class="line">    <span class="keyword">for</span> it <span class="keyword">in</span> range(len(lock)): <span class="comment"># modify lock in its address</span></div><div class="line">        lock[it] = lock_re[it]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">CMD4</span><span class="params">(lock, i, j)</span>:</span></div><div class="line">    <span class="keyword">if</span> i &gt; j:</div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        CMD4(lock, i+<span class="number">1</span>, j)</div><div class="line">        CMD2(lock, i, j, <span class="number">1</span>)</div><div class="line"></div><div class="line">(N, M) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line">lock = list(raw_input())</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(M):</div><div class="line">    data = raw_input().split()</div><div class="line">    <span class="keyword">if</span> data[<span class="number">1</span>] == <span class="string">&quot;1&quot;</span>:</div><div class="line">        CMD1(lock, int(data[<span class="number">2</span>]), int(data[<span class="number">3</span>]), data[<span class="number">4</span>])</div><div class="line">    <span class="keyword">elif</span> data[<span class="number">1</span>] == <span class="string">&quot;2&quot;</span>:</div><div class="line">        CMD2(lock, int(data[<span class="number">2</span>]), int(data[<span class="number">3</span>]), int(data[<span class="number">4</span>]))</div><div class="line">    <span class="keyword">elif</span> data[<span class="number">1</span>] == <span class="string">&quot;3&quot;</span>:</div><div class="line">        CMD3(lock, int(data[<span class="number">2</span>]))</div><div class="line">    <span class="keyword">elif</span> data[<span class="number">1</span>] == <span class="string">&quot;4&quot;</span>:</div><div class="line">        CMD4(lock, int(data[<span class="number">2</span>]), int(data[<span class="number">3</span>]))</div><div class="line"><span class="keyword">print</span> <span class="string">&quot;&quot;</span>.join(lock)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/23/hihoCoder1058-Combination-Lock/" data-id="civtgw87f0013mva7hayi5eif" class="article-share-link">Partager</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-github-hexo-如何从已有的github仓库进行配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" class="article-date">
   <time datetime="2016-09-22T13:11:36.000Z" itemprop="datePublished">2016-09-22</time>
@@ -106,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="civrht4cp0006rya72c2efsb4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/github-hexo-如何从已有的github仓库进行配置/" data-id="civtgw8610005mva75jdtya3l" class="article-share-link">Partager</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </footer>
@@ -183,7 +253,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="civrht4d4000jrya7qxvmkw0y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/hihoCoder1057-Performance-Log/" data-id="civtgw873000rmva792te3qwb" class="article-share-link">Partager</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
     </footer>
@@ -235,7 +305,7 @@ FuncD 00:00:01
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="civrht4d1000hrya7ez2q8eo9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/hihoCoder1051-补提交卡/" data-id="civtgw86x000kmva7a37q01xv" class="article-share-link">Partager</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/enumeration/">enumeration</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
     </footer>
@@ -252,37 +322,41 @@ FuncD 00:00:01
           <aside id="sidebar">
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">27</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">27</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 11.67px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 13.33px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 11.67px">dfs</a> <a href="/tags/dp/" style="font-size: 11.67px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 16.67px">hash</a> <a href="/tags/hexo/" style="font-size: 13.33px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/permutations-and-combinations/" style="font-size: 10px">permutations_and_combinations</a> <a href="/tags/recursion/" style="font-size: 10px">recursion</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18.33px">string</a> <a href="/tags/tree/" style="font-size: 15px">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 13.33px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 13.33px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 11.67px">dfs</a> <a href="/tags/dp/" style="font-size: 11.67px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 16.67px">hash</a> <a href="/tags/hexo/" style="font-size: 13.33px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/permutations-and-combinations/" style="font-size: 10px">permutations_and_combinations</a> <a href="/tags/recursion/" style="font-size: 10px">recursion</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18.33px">string</a> <a href="/tags/tree/" style="font-size: 15px">tree</a>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/22/Android-system-img镜像文件的解压和压缩/">Android system.img镜像文件的解压和压缩</a>
+          </li>
         
           <li>
             <a href="/2016/11/21/leetcode49-Group-Anagrams/">leetcode49: Group Anagrams</a>
@@ -300,10 +374,6 @@ FuncD 00:00:01
             <a href="/2016/11/14/leetcode384-Shuffle-an-Array/">leetcode384: Shuffle an Array</a>
           </li>
         
-          <li>
-            <a href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/">leetcode235: Lowest Common Ancestor of a Binary Search Tree</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -316,7 +386,7 @@ FuncD 00:00:01
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Jason Dong<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
