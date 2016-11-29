@@ -21,7 +21,7 @@ Android 中的 system.img可能有是**yaffs2**或者**ext**的文件系统。�
 通过mount和unmount挂载和卸载。
 * 挂载：```mount```
 * 卸载：```unmount```
-# yaffs2文件系统
+# yaffs2文件系统(?with some problems)
 通过安装[yaffs2utils](https://code.google.com/archive/p/yaffs2utils/downloads)进行解压和压缩。
 * 解压：```unyaffs2```
 * 压缩：```mkyaffs2```，注意参数```--yaffs-ecclayout```
