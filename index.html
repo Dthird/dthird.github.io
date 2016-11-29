@@ -46,9 +46,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -57,7 +57,74 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Android-system-img镜像文件的解压和压缩" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-巧妙运用位运算" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/29/巧妙运用位运算/" class="article-date">
+  <time datetime="2016-11-29T02:20:42.000Z" itemprop="datePublished">2016-11-29</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/29/巧妙运用位运算/">巧妙运用位运算</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="&#x4F4D;&#x8FD0;&#x7B97;"><a href="#&#x4F4D;&#x8FD0;&#x7B97;" class="headerlink" title="&#x4F4D;&#x8FD0;&#x7B97;"></a>&#x4F4D;&#x8FD0;&#x7B97;</h1><p>&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x6709;&#xFF14;&#x4E2D;&#x6700;&#x57FA;&#x672C;&#x7684;&#x4F4D;&#x8FD0;&#x7B97;&#xFF1A;<strong>&#x6216;</strong>&#xFF0C;<strong>&#x4E0E;</strong>&#xFF0C;<strong>&#x5F02;&#x6216;</strong>&#xFF0C;<strong>&#x975E;</strong>&#x3002;</p>
+<h2 id="&#x6216;-OR"><a href="#&#x6216;-OR" class="headerlink" title="| &#x6216;(OR)"></a>| &#x6216;(OR)</h2><p>&#x6309;&#x89C4;&#x5219; <figure class="highlight plain"><figcaption><span>| 1 = 1```&#xFF0C;```Y | 0 = Y``` &#x8FD0;&#x7B97;&#x3002;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">## &amp; &#x4E0E;(AND)</div><div class="line">&#x6309;&#x89C4;&#x5219; ```Y = 1 &#x65F6; Y &amp; 1 = 1```&#xFF0C;```Y=* &#x65F6; Y &amp; 0 = 0``` &#x8FD0;&#x7B97;&#x3002;</div><div class="line">## ^ &#x5F02;&#x6216;(XOR)</div><div class="line">&#x6309;&#x4F4D;&#x4E0D;&#x540C;&#x4E3A;1&#xFF0C;&#x76F8;&#x540C;&#x4E3A;0&#x3002;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x6CD5;&#x5219;&#xFF08;&#x90E8;&#x5206;&#xFF09;&#xFF1A;</div><div class="line">1. ```a ^ b = b ^ a</div></pre></td></tr></table></figure></p>
+<ol>
+<li><figure class="highlight plain"><figcaption><span>^ b ^ c = a ^ (b ^ c) = (a ^ b) ^ c```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">3. ```d = a ^ b ^ c &#x53EF;&#x4EE5;&#x63A8;&#x51FA; a = d ^ b ^ c</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>^ b ^ a = b```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ~ &#x975E;(NOT)</div><div class="line">&#x6309;&#x4F4D;&#x53D6;&#x53CD;&#x3002;</div><div class="line"># &#x63A9;&#x7801;&#x8FD0;&#x7B97;</div><div class="line">[Bitwise Operators and Bit Masks](http://www.vipan.com/htdocs/bitwisehelp.html)</div><div class="line"></div><div class="line">&#x73B0;&#x5728;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;:</div><div class="line">```java</div><div class="line">public static final int FLAG_FOCUSABLE = 0X0001; // 0001</div><div class="line">public static final int FLAG_CLICKABLE = 0X0002; // 0010</div><div class="line">public static final int FLAG_ENABLE = 0X0004; // 0100</div><div class="line">public final int flags = 0;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>&#x8BB0;&#x5F55;&#x4E86;&#x67D0;&#x4E9B;&#x72B6;&#x6001;&#x4F4D;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x5411; ```flags``` &#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x72B6;&#x6001; ```FLAG_ENABLE``` &#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A; :</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">```java</div><div class="line">// &#x5411;flags&#x4E0A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x8BC6;&#x4F4D;</div><div class="line">flags |= FLAG_ENABLE; // flags = 0100;</div><div class="line">// &#x5728;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x4F4D;</div><div class="line">flags |= FLAG_FOCUSABLE; // flags = 0101;</div></pre></td></tr></table></figure>
+<p>&#x68C0;&#x67E5;<figure class="highlight plain"><figcaption><span>&#x662F;&#x5426;&#x542B;&#x6709; ```FLAG_ENABLE``` :</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">```java</div><div class="line">boolean containEnableFlag;</div><div class="line">containEnableFlag = (flags &amp; FLAG_ENABLE) == FLAG_ENABLE</div><div class="line">// &#x6216;&#x8005;   </div><div class="line">containEnableFlag = (flags &amp; FLAG_ENABLE) != 0</div></pre></td></tr></table></figure></p>
+<p>&#x79FB;&#x9664; <figure class="highlight plain"><figcaption><span>&#x4E2D;&#x7684; ```FLAG_ENABLE``` :</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">```java</div><div class="line">flags &amp;= ~FLAG_ENABLE; // flags = 0001</div></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x51E0;&#x79CD;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x4E3A;&#x63A9;&#x7801;&#x8FD0;&#x7B97;&#xFF0C;&#x603B;&#x7ED3;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x91CA;&#x4E49;</th>
+<th>&#x8FD0;&#x7B97;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&#x8BBE;&#x7F6E;&#x6216;&#x8986;&#x76D6;&#x6807;&#x5FD7;&#x4F4D;</td>
+<td><figure class="highlight plain"><figcaption><span>or flagBit```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#x79FB;&#x9664;&#x6807;&#x5FD7;&#x4F4D;	|```flags &amp; ~flagBit</div></pre></td></tr></table></figure></td>
+</tr>
+</tbody>
+</table>
+<p>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x542B;&#x6709;&#x6807;&#x5FD7;&#x4F4D;|    <figure class="highlight plain"><figcaption><span>&amp; flagBit) == flagBit```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#x6807;&#x5FD7;&#x4F4D;&#x53D6;&#x53CD;	|```~flags</div></pre></td></tr></table></figure></p>
+<p>&#x63A9;&#x7801;&#x8FD0;&#x7B97;&#x5E76;&#x4E0D;&#x76F4;&#x89C2;&#xFF0C;&#x4E5F;&#x4E0D;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x7F16;&#x7A0B;&#x65F6;&#x5E76;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8003;&#x8651;&#x6027;&#x80FD;&#x8981;&#x6C42;&#x7684;&#x8BDD;&#xFF0C;&#x4F7F;&#x7528;&#x63A9;&#x7801;&#x8FD0;&#x7B97;&#x8FD8;&#x662F;&#x5F88;&#x5212;&#x7B97;&#x7684;&#x3002;</p>
+<h1 id="&#x53D8;&#x91CF;&#x7F6E;&#x6362;"><a href="#&#x53D8;&#x91CF;&#x7F6E;&#x6362;" class="headerlink" title="&#x53D8;&#x91CF;&#x7F6E;&#x6362;"></a>&#x53D8;&#x91CF;&#x7F6E;&#x6362;</h1><p>&#x6709;&#x53D8;&#x91CF; a = 4; b = 7 , &#x5C06; a,b &#x503C;&#x4E92;&#x6362;&#xFF0C;&#x901A;&#x5E38;&#x8FD9;&#x4E48;&#x5199;:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a = <span class="number">4</span>;</div><div class="line"><span class="keyword">int</span> b = <span class="number">7</span>;</div><div class="line"><span class="keyword">int</span> temp = a;</div><div class="line">a = b;</div><div class="line">b = temp;</div></pre></td></tr></table></figure></p>
+<p>&#x5229;&#x7528; &#x5F02;&#x6216;^ &#x8FD0;&#x7B97;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x5199;&#xFF0C;&#x5229;&#x7528;&#x516C;&#x5F0F;<figure class="highlight plain"><figcaption><span>^ y ^ x = y```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">```C</div><div class="line">int a = 4;</div><div class="line">int b = 7;</div><div class="line">a&#x3000;^=&#x3000;b;</div><div class="line">b&#x3000;^=&#x3000;a;</div><div class="line">a&#x3000;^=&#x3000;b;</div></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7701;&#x53BB;&#x4E86; <figure class="highlight plain"><figcaption><span>32&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x5185;&#x5B58;&#x6D88;&#x8017;&#xFF0C;&#x4E14;&#x8BA1;&#x7B97;&#x66F4;&#x5FEB;&#x3002;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># &#x5728;Android&#x4E2D;&#x7684;&#x5E94;&#x7528;</div><div class="line">**View** &#x7C7B;&#x4E2D;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5176;&#x662F;&#x5426;&#x53EF;&#x89C1;&#xFF0C;&#x53EF;&#x70B9;&#x51FB;&#x7B49;&#xFF0C;</div></pre></td></tr></table></figure></p>
+<p>setFocusable(focusable);<br>setClickable(clickable);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&#x67E5;&#x770B; **View** &#x7684;&#x6E90;&#x4EE3;&#x7801;&#x7247;&#x6BB5;</div><div class="line">```java</div><div class="line"> /**</div><div class="line"> * The view flags hold various views states.</div><div class="line"> */</div><div class="line">int mViewFlags;</div><div class="line"></div><div class="line"> /**</div><div class="line"> * This view wants keystrokes. Use with TAKES_FOCUS_MASK when calling</div><div class="line"> * setFlags.</div><div class="line"> */</div><div class="line">static final int FOCUSABLE = 0x00000001;</div><div class="line"></div><div class="line"> /**</div><div class="line"> * &lt;p&gt;Indicates this view can be clicked. When clickable, a View reacts</div><div class="line"> * to clicks by notifying the OnClickListener.&lt;p&gt;</div><div class="line"> */</div><div class="line">static final int CLICKABLE = 0x00004000;</div><div class="line"></div><div class="line"> /**</div><div class="line"> * Set flags controlling behavior of this view.</div><div class="line"> *</div><div class="line"> * @param flags Constant indicating the value which should be set</div><div class="line"> * @param mask Constant indicating the bit range that should be changed</div><div class="line"> */</div><div class="line">void setFlags(int flags, int mask) {</div><div class="line">    ...     </div><div class="line">    int old = mViewFlags;</div><div class="line">    mViewFlags = (mViewFlags &amp; ~mask) | (flags &amp; mask);</div><div class="line"></div><div class="line">    int changed = mViewFlags ^ old;</div><div class="line">    if (changed == 0) {</div><div class="line">        return;</div><div class="line">    }</div><div class="line">    int privateFlags = mPrivateFlags;</div><div class="line">    ...</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230; <figure class="highlight plain"><figcaption><span>&#x8BB0;&#x5F55; **View** &#x7684; states&#xFF0C;&#x5F53;&#x8C03;&#x7528; ```setFocusable() , setClickable()``` &#x65F6;,&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x8C03;&#x7528; ```setFlags()``` &#x6765;&#x8BBE;&#x7F6E; ```mViewFlags``` &#x7684;&#x503C;&#xFF0C;&#x50CF;&#x8FD9;&#x79CD; &#x63A9;&#x7801;&#x8FD0;&#x7B97; &#x7684;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x5728; **Android FrameWork** &#x5C42;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x770B;&#x5230;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># permissions on linux</div><div class="line">&#x518D;&#x7EC8;&#x7AEF;&#x8F93;&#x5165;```ls -l```&#x4F1A;&#x663E;&#x793A;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x7684;&#x7ED3;&#x679C;&#xFF1A;</div></pre></td></tr></table></figure></p>
+<p>total 48<br>-rw-rw-r&#x2013;   1 jason jason  1577 Sep 26 13:41 _config.yml<br>-rw-rw-r&#x2013;   1 jason jason   174 Nov 29 10:20 db.json<br>-rw-rw-r&#x2013;   1 jason jason   180 Sep 22 21:01 init.sh<br>drwxrwxr-x 334 jason jason 12288 Sep 26 18:37 node_modules<br>-rw-rw-r&#x2013;   1 jason jason   803 Sep 26 18:37 package.json<br>drwxrwxr-x  12 jason jason  4096 Sep 26 18:57 public<br>-rwxrwxr-x   1 jason jason   165 Sep 22 21:07 run.sh<br>drwxrwxr-x   2 jason jason  4096 Sep 22 21:00 scaffolds<br>drwxrwxr-x   3 jason jason  4096 Sep 26 14:09 source<br>drwxrwxr-x   3 jason jason  4096 Sep 22 21:00 themes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#x7B2C;&#x4E00;&#x5217;&#x7531; ```d rwx rwx rwx``` &#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x6784;&#x6210;, d &#x6807;&#x8BC6;&#x6587;&#x4EF6;&#x5939;&#xFF0C;rwx &#x4EE3;&#x8868;&#x7528;&#x6237;&#x6216;&#x7528;&#x6237;&#x7EC4;&#x7684; read write excute &#x6743;&#x9650;&#xFF0C;&#x5176;&#x4E2D;</div></pre></td></tr></table></figure></p>
+<p>r=4; // 0100<br>w=2; // 0010<br>x=1; // 0001<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#x5982;&#x679C;&#x60F3;&#x8981;&#x66F4;&#x6539; Readme.txt &#x6587;&#x4EF6; &#x4E3A;&#x53EF;&#x5199;&#x3001;&#x53EF;&#x8BFB;&#x3001;&#x53EF;&#x6267;&#x884C;&#xFF0C;&#x952E;&#x5165;</div></pre></td></tr></table></figure></p>
+<p>chmod 777 ./Readme.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#x6B64;&#x5904;&#x7684; 777 &#x5373;&#x4E3A; r + w + x ,&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x8FD0;&#x7B97;&#x8868;&#x793A; &#x5C31;&#x662F; ```0100 | 0010 | 0001</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/29/巧妙运用位运算/" data-id="ciw2x3ric002hs0a7r820gl11" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitwise/">bitwise</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-Android-system-img镜像文件的解压和压缩" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/22/Android-system-img镜像文件的解压和压缩/" class="article-date">
   <time datetime="2016-11-22T08:18:24.000Z" itemprop="datePublished">2016-11-22</time>
@@ -88,14 +155,14 @@
 <ul>
 <li>&#x6302;&#x8F7D;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#x5378;&#x8F7D;&#xFF1A;```unmount</div></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"><a href="#yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;" class="headerlink" title="yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;"></a>yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h1><p>&#x901A;&#x8FC7;&#x5B89;&#x88C5;<a href="https://code.google.com/archive/p/yaffs2utils/downloads" target="_blank" rel="external">yaffs2utils</a>&#x8FDB;&#x884C;&#x89E3;&#x538B;&#x548C;&#x538B;&#x7F29;&#x3002;</p>
+<h1 id="yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;-with-some-problems"><a href="#yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;-with-some-problems" class="headerlink" title="yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;(?with some problems)"></a>yaffs2&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;(?with some problems)</h1><p>&#x901A;&#x8FC7;&#x5B89;&#x88C5;<a href="https://code.google.com/archive/p/yaffs2utils/downloads" target="_blank" rel="external">yaffs2utils</a>&#x8FDB;&#x884C;&#x89E3;&#x538B;&#x548C;&#x538B;&#x7F29;&#x3002;</p>
 <ul>
 <li>&#x89E3;&#x538B;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* &#x538B;&#x7F29;&#xFF1A;```mkyaffs2```&#xFF0C;&#x6CE8;&#x610F;&#x53C2;&#x6570;```--yaffs-ecclayout</div></pre></td></tr></table></figure></li>
 </ul>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/Android-system-img镜像文件的解压和压缩/" data-id="civtgw86r000hmva7z1m9ddiz" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/22/Android-system-img镜像文件的解压和压缩/" data-id="ciw2x3res0000s0a7qtz6opn6" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
     </footer>
@@ -130,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/leetcode49-Group-Anagrams/" data-id="civtgw88i002cmva7kh0wt1lm" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/21/leetcode49-Group-Anagrams/" data-id="ciw2x3ri7002bs0a7l30yg4xa" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -167,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/17/leetcode442-Find-All-Duplicates-in-an-Array/" data-id="civtgw887001zmva7hxglm447" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/17/leetcode442-Find-All-Duplicates-in-an-Array/" data-id="ciw2x3rhz0021s0a70m4je0mp" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
@@ -203,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/15/leetcode387-First-Unique-Character-in-a-String/" data-id="civtgw8880021mva7sn6c9u5f" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/15/leetcode387-First-Unique-Character-in-a-String/" data-id="ciw2x3rhx001ys0a73sso2wjh" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -240,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/" data-id="civtgw885001wmva7kli97d2w" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/" data-id="ciw2x3rhv001ws0a71kmsk2ef" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a></li></ul>
     </footer>
@@ -276,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="civtgw883001tmva75xo7ce65" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="ciw2x3rhs001rs0a78excf6jj" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/recursion/">recursion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -310,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" data-id="civtgw87w001kmva7x5ugyp3r" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" data-id="ciw2x3rhn001is0a7mnryvwda" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -346,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" data-id="civtgw87z001nmva7nlmn1y2k" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" data-id="ciw2x3rho001ls0a73956x5yw" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -384,53 +451,9 @@ Output: 7 -&gt; 8 -&gt; 0 -&gt; 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/leetcode445-Add-Two-Numbers-II/" data-id="civtgw88n002jmva7atl74bzf" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/04/leetcode445-Add-Two-Numbers-II/" data-id="ciw2x3ri10024s0a7asfrlz7k" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linked-list/">linked_list</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-leetcode448-Find-All-Number-Disappeared-in-an-Array" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" class="article-date">
-  <time datetime="2016-11-01T01:46:55.000Z" itemprop="datePublished">2016-11-01</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/">leetcode448: Find All Number Disappeared in an Array</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/" target="_blank" rel="external">Link</a></p>
-<p>Given an array of integers where 1 &#x2264; a[i] &#x2264; n (n = size of array), some elements appear twice and others appear once.</p>
-<p>Find all the elements of [1, n] inclusive that do not appear in this array.</p>
-<p>Could you do it without extra space and in $O(n)$ runtime? You may assume the returned list does not count as extra space.</p>
-<p>Example:</p>
-<pre><code>Input:
-[4,3,2,7,8,2,3,1]
-
-Output:
-[5,6]
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Mark the according index with negative flag. Similar to hash solution.</p>
-<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>One line solution:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findDisappearedNumbers</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        <span class="keyword">return</span> list(set([x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)+<span class="number">1</span>)]) - set(nums))</div></pre></td></tr></table></figure></p>
-<p>Without extra space and in $O(n)$ runtime:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findDisappearedNumbers</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        res = []</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line">            index = abs(nums[i]) - <span class="number">1</span></div><div class="line">            <span class="keyword">if</span> nums[index] &gt; <span class="number">0</span>:</div><div class="line">                nums[index] *= <span class="number">-1</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="keyword">if</span> nums[i] &gt; <span class="number">0</span>:</div><div class="line">                res.append(i+<span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> res</div></pre></td></tr></table></figure></p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" data-id="civtgw88q002omva7bi6c4gvt" class="article-share-link">Partager</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
   </div>
   
@@ -445,37 +468,41 @@ Output:
           <aside id="sidebar">
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">27</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">27</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 13.33px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 13.33px">binary_search</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 11.67px">dfs</a> <a href="/tags/dp/" style="font-size: 11.67px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 16.67px">hash</a> <a href="/tags/hexo/" style="font-size: 13.33px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/permutations-and-combinations/" style="font-size: 10px">permutations_and_combinations</a> <a href="/tags/recursion/" style="font-size: 10px">recursion</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18.33px">string</a> <a href="/tags/tree/" style="font-size: 15px">tree</a>
+      <a href="/tags/OJ/" style="font-size: 20px">OJ</a> <a href="/tags/android/" style="font-size: 13.33px">android</a> <a href="/tags/bfs/" style="font-size: 10px">bfs</a> <a href="/tags/binary-search/" style="font-size: 13.33px">binary_search</a> <a href="/tags/bitwise/" style="font-size: 10px">bitwise</a> <a href="/tags/compress/" style="font-size: 10px">compress</a> <a href="/tags/dfs/" style="font-size: 11.67px">dfs</a> <a href="/tags/dp/" style="font-size: 11.67px">dp</a> <a href="/tags/enumeration/" style="font-size: 10px">enumeration</a> <a href="/tags/github/" style="font-size: 10px">github</a> <a href="/tags/greedy/" style="font-size: 10px">greedy</a> <a href="/tags/hash/" style="font-size: 16.67px">hash</a> <a href="/tags/hexo/" style="font-size: 13.33px">hexo</a> <a href="/tags/linked-list/" style="font-size: 10px">linked_list</a> <a href="/tags/math/" style="font-size: 10px">math</a> <a href="/tags/permutations-and-combinations/" style="font-size: 10px">permutations_and_combinations</a> <a href="/tags/recursion/" style="font-size: 10px">recursion</a> <a href="/tags/regular-expression/" style="font-size: 10px">regular_expression</a> <a href="/tags/sort/" style="font-size: 10px">sort</a> <a href="/tags/string/" style="font-size: 18.33px">string</a> <a href="/tags/tree/" style="font-size: 15px">tree</a>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/29/巧妙运用位运算/">巧妙运用位运算</a>
+          </li>
         
           <li>
             <a href="/2016/11/22/Android-system-img镜像文件的解压和压缩/">Android system.img镜像文件的解压和压缩</a>
@@ -493,10 +520,6 @@ Output:
             <a href="/2016/11/15/leetcode387-First-Unique-Character-in-a-String/">leetcode387: First Unique Character in a String</a>
           </li>
         
-          <li>
-            <a href="/2016/11/14/leetcode384-Shuffle-an-Array/">leetcode384: Shuffle an Array</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -509,7 +532,7 @@ Output:
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Jason Dong<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
