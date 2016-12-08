@@ -57,7 +57,54 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-leetcode6-ZigZag-Conversion" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1399-Shortening-Sequence" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/12/hihoCoder1399-Shortening-Sequence/" class="article-date">
+  <time datetime="2016-10-12T11:07:55.000Z" itemprop="datePublished">2016-10-12</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/12/hihoCoder1399-Shortening-Sequence/">hihoCoder1399:Shortening Sequence</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="http://hihocoder.com/problemset/problem/1399?sid=942054" target="_blank" rel="external">Link</a></p>
+<p>There is an integer array A1, A2 &#x2026;AN. Each round you may choose two adjacent integers. If their sum is an odd number, the two adjacent integers can be deleted.</p>
+<p>Can you work out the minimum length of the final array after elaborate deletions?</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains one integer N, indicating the length of the initial array.</p>
+<p>The second line contains N integers, indicating A1, A2 &#x2026;AN.</p>
+<p>For 30% of the data&#xFF1A;1 &#x2264; N &#x2264; 10</p>
+<p>For 60% of the data&#xFF1A;1 &#x2264; N &#x2264; 1000</p>
+<p>For 100% of the data&#xFF1A;1 &#x2264; N &#x2264; 1000000, 0 &#x2264; Ai &#x2264; 1000000000</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>One line with an integer indicating the minimum length of the final array.</p>
+<h2 id="Sample-Hint"><a href="#Sample-Hint" class="headerlink" title="Sample Hint"></a>Sample Hint</h2><p>(1,2) (3,4) (4,5) are deleted.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>7
+1 1 2 3 4 4 5
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>1
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>&#x89C2;&#x5BDF;&#x5230;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x5947;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x5947;&#x6570;&#x548C;&#x4E4B;&#x524D;&#x7684;&#x6240;&#x6709;&#x8FDE;&#x7EED;&#x5076;&#x6570;&#x90FD;&#x53EF;&#x4EE5;&#x4E00;&#x540C;&#x6D88;&#x53BB;&#x3002;</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Brute-Force solution:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">a = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">a_last = []</div><div class="line"></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">if</span> len(a) == <span class="number">0</span> <span class="keyword">or</span> len(a) == <span class="number">1</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">if</span> len(a) == len(a_last):</div><div class="line">        <span class="keyword">break</span></div><div class="line">    a_last = [x <span class="keyword">for</span> x <span class="keyword">in</span> a]</div><div class="line">    tmp = []</div><div class="line">    i = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> i &lt; len(a):</div><div class="line">        <span class="keyword">if</span> (a[i] + a[i<span class="number">-1</span>]) % <span class="number">2</span> == <span class="number">1</span>:</div><div class="line">            tmp.append(i<span class="number">-1</span>)</div><div class="line">            tmp.append(i)</div><div class="line">            i += <span class="number">2</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            i += <span class="number">1</span></div><div class="line">    <span class="comment">#print tmp</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(len(tmp)<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</div><div class="line">        <span class="keyword">del</span> a[tmp[j]]</div><div class="line">    <span class="comment">#print a</span></div><div class="line">    <span class="comment">#print a_last</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> len(a)</div></pre></td></tr></table></figure></p>
+<p>A better one:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">a = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">s = <span class="string">&quot;&quot;</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</div><div class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">        s += <span class="string">&apos;0&apos;</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        s += <span class="string">&apos;1&apos;</span></div><div class="line">x = s.split(<span class="string">&apos;0&apos;</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> len(x) == len(s):</div><div class="line">    <span class="keyword">print</span> len(x)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    x = [value <span class="keyword">for</span> value <span class="keyword">in</span> x <span class="keyword">if</span> (value != <span class="string">&apos;1&apos;</span> <span class="keyword">and</span> value != <span class="string">&apos;&apos;</span>)]</div><div class="line">    <span class="keyword">print</span> len(x)</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/12/hihoCoder1399-Shortening-Sequence/" data-id="ciwfrxcbr00145da7e24y46ze" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compress/">compress</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-leetcode6-ZigZag-Conversion" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/10/11/leetcode6-ZigZag-Conversion/" class="article-date">
   <time datetime="2016-10-11T02:20:00.000Z" itemprop="datePublished">2016-10-11</time>
@@ -103,7 +150,7 @@ nRows = 4
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/11/leetcode6-ZigZag-Conversion/" data-id="ciw5v8tf3002qj9a7v57ou8xq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/11/leetcode6-ZigZag-Conversion/" data-id="ciwfrxcd1002k5da7hra9cipo" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
     </footer>
@@ -173,7 +220,7 @@ nRows = 4
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/09/排序算法總結/" data-id="ciw5v8tf6002xj9a7t1x9nbdy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/09/排序算法總結/" data-id="ciwfrxcd5002q5da7asudmzo8" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sort/">sort</a></li></ul>
     </footer>
@@ -232,7 +279,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/28/hihoCoder1197-Give-My-Text-Back/" data-id="ciw5v8tdv0014j9a7ei6kl8kx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/28/hihoCoder1197-Give-My-Text-Back/" data-id="ciwfrxcbb000u5da7t1bgabxd" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -313,7 +360,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1038-01背包/" data-id="ciw5v8td3000gj9a7hjese0dk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1038-01背包/" data-id="ciwfrxcaq000g5da72c2t4rke" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </footer>
@@ -362,7 +409,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1037-数字三角形/" data-id="ciw5v8tcz000cj9a7cczedlq4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1037-数字三角形/" data-id="ciwfrxcan000c5da7b8bz1hvc" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </footer>
@@ -415,7 +462,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hexo-MathJax/" data-id="ciw5v8tcs0006j9a79s96bhyo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/26/hexo-MathJax/" data-id="ciwfrxca500065da7l7lu8ixo" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </footer>
@@ -460,7 +507,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hexo-插入图片/" data-id="ciw5v8tcw000aj9a7oz8i8h1a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/26/hexo-插入图片/" data-id="ciwfrxca300055da7eo8hkjrj" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </footer>
@@ -544,7 +591,7 @@ bbabbaab
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hohoCoder1014-Trie树/" data-id="ciw5v8te7001ij9a7ura2kmlx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/26/hohoCoder1014-Trie树/" data-id="ciwfrxcf800625da79g6c0gcy" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -615,58 +662,9 @@ bbabbaab
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="ciw5v8teg001vj9a75h5ee1n3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="ciwfrxcc9001k5da7x7j8hryn" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-hihoCoder1128-二分·二分查找" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/25/hihoCoder1128-二分·二分查找/" class="article-date">
-  <time datetime="2016-09-25T02:31:24.000Z" itemprop="datePublished">2016-09-25</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/25/hihoCoder1128-二分·二分查找/">hihoCoder1128: 二分·二分查找</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="&#x63CF;&#x8FF0;"><a href="#&#x63CF;&#x8FF0;" class="headerlink" title="&#x63CF;&#x8FF0;"></a>&#x63CF;&#x8FF0;</h2><p><a href="http://hihocoder.com/problemset/problem/1128" target="_blank" rel="external">Link</a></p>
-<p>Nettle&#x6700;&#x8FD1;&#x5728;&#x73A9;&#x300A;&#x8266;&#x3053;&#x308C;&#x300B;&#xFF0C;&#x56E0;&#x6B64;Nettle&#x6536;&#x96C6;&#x4E86;&#x5F88;&#x591A;&#x5F88;&#x591A;&#x7684;&#x8239;(&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5047;&#x8BBE;Nettle&#x6C2A;&#x4E86;&#x5F88;&#x591A;&#x91D1;&#xFF0C;&#x5F00;&#x4E86;&#x65E0;&#x6570;&#x4E2A;&#x8239;&#x4F4D;)&#x3002;&#x53BB;&#x9664;&#x6389;&#x91CD;&#x590D;&#x7684;&#x8239;&#x4E4B;&#x540E;&#xFF0C;&#x8FD8;&#x5269;&#x4E0B;N(1&#x2264;N&#x2264;1,000,000)&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x8239;&#x3002;&#x6BCF;&#x4E00;&#x8258;&#x8239;&#x6709;&#x4E00;&#x4E2A;&#x7A00;&#x6709;&#x503C;&#xFF0C;&#x4EFB;&#x610F;&#x4E24;&#x8258;&#x8239;&#x7684;&#x7A00;&#x6709;&#x503C;&#x90FD;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x7A00;&#x6709;&#x503C;&#x8D8A;&#x5C0F;&#x7684;&#x8239;&#x8D8A;&#x7A00;&#x6709;&#xFF0C;&#x4EF7;&#x503C;&#x4E5F;&#x5C31;&#x8D8A;&#x9AD8;&#x3002;<br>Nettle&#x73B0;&#x5728;&#x901A;&#x8FC7;&#x5927;&#x5EFA;&#x53C8;&#x9020;&#x51FA;&#x4E86;&#x4E00;&#x8258;&#x8239;&#xFF0C;&#x4ED6;&#x60F3;&#x77E5;&#x9053;&#x8FD9;&#x8258;&#x8239;&#x662F;&#x4E0D;&#x662F;&#x91CD;&#x590D;&#x7684;&#x3002;&#x5982;&#x679C;&#x662F;&#x91CD;&#x590D;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x8258;&#x8239;&#x5728;Nettle&#x6240;&#x6709;&#x7684;&#x8239;&#x91CC;&#x9762;&#x7A00;&#x6709;&#x503C;&#x6392;&#x591A;&#x5C11;&#x4F4D;&#x3002;</p>
-<h3 id="&#x95EE;&#x9898;&#x4E00;"><a href="#&#x95EE;&#x9898;&#x4E00;" class="headerlink" title="&#x95EE;&#x9898;&#x4E00;"></a>&#x95EE;&#x9898;&#x4E00;</h3><p>Nettle&#x5DF2;&#x7ECF;&#x5148;&#x628A;&#x81EA;&#x5DF1;&#x6240;&#x6709;&#x8239;&#x6309;&#x7167;&#x7A00;&#x6709;&#x503C;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x6392;&#x5217;&#x597D;&#x4E86;(a[1..N])&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x662F;&#x770B;&#x770B;&#x65B0;&#x5F97;&#x5230;&#x7684;&#x8239;(&#x5047;&#x8BBE;&#x7A00;&#x6709;&#x503C;&#x4E3A;K)&#x662F;&#x5426;&#x5728;&#x8FD9;&#x4E2A;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x4E14;&#x6709;&#x5BF9;&#x5E94;&#x7684;a[i]=K&#x65F6;&#xFF0C;i&#x4E3A;&#x591A;&#x5C11;&#xFF1F;</p>
-<blockquote>
-<p>&#x63D0;&#x793A;&#x4E00;&#xFF1A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E8C;&#x5206;&#x67E5;&#x627E;</p>
-</blockquote>
-<h3 id="&#x95EE;&#x9898;&#x4E8C;"><a href="#&#x95EE;&#x9898;&#x4E8C;" class="headerlink" title="&#x95EE;&#x9898;&#x4E8C;"></a>&#x95EE;&#x9898;&#x4E8C;</h3><p>&#x56E0;&#x4E3A;Nettle&#x7684;&#x8239;&#x592A;&#x591A;&#x4E86;&#xFF0C;&#x4ED6;&#x4E0D;&#x613F;&#x610F;&#x53BB;&#x7ED9;&#x6240;&#x6709;&#x8239;&#x6309;&#x7167;&#x7A00;&#x6709;&#x503C;&#x6392;&#x5E8F;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x544A;&#x8BC9;&#x4E86;&#x6211;&#x4EEC;&#x6BCF;&#x4E00;&#x8258;&#x8239;&#x7684;&#x7A00;&#x6709;&#x503C;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x8BE5;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5462;&#xFF1F;</p>
-<blockquote>
-<p>&#x63D0;&#x793A;&#x4E8C;&#xFF1A;&#x975E;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E8C;&#x5206;&#x67E5;&#x627E;</p>
-</blockquote>
-<h2 id="&#x8F93;&#x5165;"><a href="#&#x8F93;&#x5165;" class="headerlink" title="&#x8F93;&#x5165;"></a>&#x8F93;&#x5165;</h2><p>&#x7B2C;1&#x884C;&#xFF1A;2&#x4E2A;&#x6574;&#x6570;N,K&#x3002;N&#x8868;&#x793A;&#x6570;&#x7EC4;&#x957F;&#x5EA6;&#xFF0C;K&#x8868;&#x793A;&#x9700;&#x8981;&#x67E5;&#x627E;&#x7684;&#x6570;&#xFF1B;<br>&#x7B2C;2&#x884C;&#xFF1A;N&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x8868;&#x793A;a[1..N]&#xFF0C;&#x4FDD;&#x8BC1;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x7684;&#x6570;&#xFF0C;1&#x2264;a[i]&#x2264;2,000,000,000&#x3002;</p>
-<h2 id="&#x8F93;&#x51FA;"><a href="#&#x8F93;&#x51FA;" class="headerlink" title="&#x8F93;&#x51FA;"></a>&#x8F93;&#x51FA;</h2><p>&#x7B2C;1&#x884C;&#xFF1A;&#x4E00;&#x4E2A;&#x6574;&#x6570;t&#xFF0C;&#x8868;&#x793A;K&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x662F;&#x7B2C;t&#x5C0F;&#x7684;&#x6570;&#xFF0C;&#x82E5;K&#x4E0D;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x8F93;&#x51FA;-1&#x3002;<br>Sample Input</p>
-<pre><code>10 5180
-2970 663 5480 4192 4949 1 1387 4428 5180 2761
-</code></pre><p>Sample Output</p>
-<pre><code>9
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>&#x975E;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF1F;&#x53EF;&#x4EE5;&#x4EC5;&#x904D;&#x5386;&#x4E00;&#x904D;&#x8BB0;&#x5F55;&#x5C0F;&#x4E8E;&#xFF2B;&#x7684;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(N),&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;in place&#x3002;&#x4F46;&#x8FD9;&#x4E0E;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x5C31;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#x4E86;&#x554A;&#x2026;</p>
-<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(N, K) = (int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split())</div><div class="line">a = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> raw_input().split()]</div><div class="line">a.sort()  <span class="comment"># distinguish sort() from sorted(): return value and their advance functions</span></div><div class="line"></div><div class="line">low = <span class="number">0</span></div><div class="line">high = N - <span class="number">1</span></div><div class="line"><span class="keyword">while</span> low &lt;= high:</div><div class="line">    mid = (low + high) / <span class="number">2</span></div><div class="line">    <span class="keyword">if</span> a[mid] == K:</div><div class="line">        <span class="keyword">print</span> mid + <span class="number">1</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">elif</span> a[mid] &gt; K:</div><div class="line">        high = mid - <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        low = mid + <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> low &gt; high:</div><div class="line">    <span class="keyword">print</span> <span class="number">-1</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/hihoCoder1128-二分·二分查找/" data-id="ciw5v8tdo000xj9a75s7onekl" class="article-share-link">Share</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li></ul>
     </footer>
   </div>
   
@@ -683,14 +681,14 @@ bbabbaab
     <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">28</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">29</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">28</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
   
@@ -704,7 +702,7 @@ bbabbaab
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
@@ -712,6 +710,10 @@ bbabbaab
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/08/leetcode447-Number-of-Boomerangs/">leetcode447: Number of Boomerangs</a>
+          </li>
         
           <li>
             <a href="/2016/12/01/leetcode221-Maximal-Square/">leetcode221: Maximal Square</a>
@@ -727,10 +729,6 @@ bbabbaab
         
           <li>
             <a href="/2016/11/21/leetcode49-Group-Anagrams/">leetcode49: Group Anagrams</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/17/leetcode442-Find-All-Duplicates-in-an-Array/">leetcode442: Find All Duplicates in an Array</a>
           </li>
         
       </ul>

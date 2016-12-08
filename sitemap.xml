@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/12/08/leetcode447-Number-of-Boomerangs/</loc>
+    
+    <lastmod>2016-12-08T02:57:36.309Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/12/01/leetcode221-Maximal-Square/</loc>
     
     <lastmod>2016-12-01T04:33:01.627Z</lastmod>
