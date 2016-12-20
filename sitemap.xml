@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/12/20/leetcode459-Repeated-Substring-Pattern/</loc>
+    
+    <lastmod>2016-12-20T09:03:03.116Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/12/20/leetcode28-Implement-strStr/</loc>
+    
+    <lastmod>2016-12-20T08:35:51.476Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/12/08/leetcode447-Number-of-Boomerangs/</loc>
     
     <lastmod>2016-12-08T02:57:36.309Z</lastmod>

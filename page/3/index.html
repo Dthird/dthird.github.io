@@ -57,7 +57,90 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hihoCoder1399-Shortening-Sequence" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1366-逆序单词" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/14/hihoCoder1366-逆序单词/" class="article-date">
+  <time datetime="2016-10-14T07:47:39.000Z" itemprop="datePublished">2016-10-14</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/14/hihoCoder1366-逆序单词/">hihoCoder1366: 逆序单词</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="http://hihocoder.com/problemset/problem/1366?sid=943293" target="_blank" rel="external">Link</a><br>&#x5728;&#x82F1;&#x6587;&#x4E2D;&#x6709;&#x5F88;&#x591A;&#x9006;&#x5E8F;&#x7684;&#x5355;&#x8BCD;&#xFF0C;&#x6BD4;&#x5982;dog&#x548C;god&#xFF0C;evil&#x548C;live&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x7ED9;&#x51FA;&#x4E00;&#x4EFD;&#x5305;&#x542B;N&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x5355;&#x8BCD;&#x8868;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#xFF0C;&#x8BF7;&#x4F60;&#x627E;&#x51FA;&#x5176;&#x4E2D;&#x6709;&#x591A;&#x5C11;&#x5BF9;&#x9006;&#x5E8F;&#x5355;&#x8BCD;&#x3002;</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>&#x7B2C;1&#x884C;&#xFF1A;1&#x4E2A;&#x6574;&#x6570;&#xFF0C;N&#xFF0C;&#x8868;&#x793A;&#x5355;&#x8BCD;&#x6570;&#x91CF;&#x3002;2&#x2264;N&#x2264;50,000&#x3002;</p>
+<p>&#x7B2C;2..N+1&#x884C;&#xFF1A;&#x6BCF;&#x884C;1&#x4E2A;&#x5355;&#x8BCD;&#xFF0C;&#x53EA;&#x5305;&#x542B;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x957F;&#x5EA6;&#x4E0D;&#x8D85;&#x8FC7;16&#x4E2A;&#x5B57;&#x6BCD;&#x3002;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#xFF0C;&#x4E14;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x56DE;&#x6587;&#x5355;&#x8BCD;&#xFF08;&#x5373;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x5012;&#x5E8F;&#x8FD8;&#x662F;&#x5B83;&#x81EA;&#x5DF1;&#xFF0C;&#x6BD4;&#x5982;eye&#xFF09;&#x3002;</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>&#x7B2C;1&#x884C;&#xFF1A;1&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x5355;&#x8BCD;&#x8868;&#x4E2D;&#x9006;&#x5E8F;&#x5355;&#x8BCD;&#x7684;&#x5BF9;&#x6570;&#x3002;</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>6
+dog
+live
+hiho
+evil
+coder
+god
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>2
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Brute-Force solution:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">words = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</div><div class="line">    words.append(raw_input())</div><div class="line"></div><div class="line">count = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(words)):</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(words)):</div><div class="line">        <span class="keyword">if</span> words[j] == words[i][::<span class="number">-1</span>]:</div><div class="line">            count += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> count</div></pre></td></tr></table></figure></p>
+<p>Hash solution:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">N = int(raw_input())</div><div class="line">words = {}</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</div><div class="line">    word = raw_input()</div><div class="line">    <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> words:</div><div class="line">        words[word] = <span class="number">1</span></div><div class="line">        words[word[::<span class="number">-1</span>]] = <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        words[word] += <span class="number">1</span></div><div class="line">        words[word[::<span class="number">-1</span>]] += <span class="number">1</span></div><div class="line">count = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> word <span class="keyword">in</span> words.keys():</div><div class="line">    <span class="keyword">if</span> words[word] == <span class="number">2</span>:</div><div class="line">        count += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> count/<span class="number">2</span></div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/14/hihoCoder1366-逆序单词/" data-id="ciwxac9xf000zt6a7wa6nupmy" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-leetcode165-Compare-Version-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/13/leetcode165-Compare-Version-Numbers/" class="article-date">
+  <time datetime="2016-10-13T07:04:58.000Z" itemprop="datePublished">2016-10-13</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/13/leetcode165-Compare-Version-Numbers/">leetcode165: Compare Version Numbers</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/compare-version-numbers/" target="_blank" rel="external">Link</a></p>
+<p>Compare two version numbers version1 and version2.<br>If version1 &gt; version2 return 1, if version1 &lt; version2 return -1, otherwise return 0.</p>
+<p>You may assume that the version strings are non-empty and contain only digits and the . character.<br>The . character does not represent a decimal point and is used to separate number sequences.<br>For instance, 2.5 is not &#x201C;two and a half&#x201D; or &#x201C;half way to version three&#x201D;, it is the fifth second-level revision of the second first-level revision.</p>
+<p>Here is an example of version numbers ordering:</p>
+<pre><code>0.1 &lt; 1.1 &lt; 1.2 &lt; 13.37
+</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareVersion</span><span class="params">(String version1, String version2)</span> </span>{</div><div class="line">		String[] v1 = version1.split(<span class="string">&quot;\\.&quot;</span>); <span class="comment">// escape special characters</span></div><div class="line">		String[] v2 = version2.split(<span class="string">&quot;\\.&quot;</span>);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> len = Integer.min(v1.length, v2.length);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++){</div><div class="line">			<span class="keyword">if</span>(Integer.valueOf(v1[i]) &gt; Integer.valueOf(v2[i]))</div><div class="line">				<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(Integer.valueOf(v1[i]) &lt; Integer.valueOf(v2[i]))</div><div class="line">				<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">		}</div><div class="line">		<span class="keyword">if</span>(v1.length &gt; v2.length &amp;&amp; Integer.valueOf(v1[v1.length-<span class="number">1</span>]) != <span class="number">0</span>) <span class="comment">// compare 1.0 and 1</span></div><div class="line">			<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(v1.length &lt; v2.length &amp;&amp; Integer.valueOf(v2[v2.length-<span class="number">1</span>]) != <span class="number">0</span>)</div><div class="line">			<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/13/leetcode165-Compare-Version-Numbers/" data-id="ciwxac9xr001bt6a7c8t4q1ie" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-hihoCoder1399-Shortening-Sequence" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/10/12/hihoCoder1399-Shortening-Sequence/" class="article-date">
   <time datetime="2016-10-12T11:07:55.000Z" itemprop="datePublished">2016-10-12</time>
@@ -96,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/hihoCoder1399-Shortening-Sequence/" data-id="ciwfrxcbr00145da7e24y46ze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/12/hihoCoder1399-Shortening-Sequence/" data-id="ciwxac9xk0013t6a7yuursyr5" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compress/">compress</a></li></ul>
     </footer>
@@ -150,7 +233,7 @@ nRows = 4
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/11/leetcode6-ZigZag-Conversion/" data-id="ciwfrxcd1002k5da7hra9cipo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/11/leetcode6-ZigZag-Conversion/" data-id="ciwxac9yo002qt6a7erpcntas" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
     </footer>
@@ -220,7 +303,7 @@ nRows = 4
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/09/排序算法總結/" data-id="ciwfrxcd5002q5da7asudmzo8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/09/排序算法總結/" data-id="ciwxac9yr002xt6a73h5kt2tb" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sort/">sort</a></li></ul>
     </footer>
@@ -279,7 +362,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/28/hihoCoder1197-Give-My-Text-Back/" data-id="ciwfrxcbb000u5da7t1bgabxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/28/hihoCoder1197-Give-My-Text-Back/" data-id="ciwxac9x5000ut6a7975wksys" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -360,7 +443,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1038-01背包/" data-id="ciwfrxcaq000g5da72c2t4rke" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1038-01背包/" data-id="ciwxac9w9000ct6a7yx68fjal" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </footer>
@@ -409,7 +492,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1037-数字三角形/" data-id="ciwfrxcan000c5da7b8bz1hvc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/27/hihoCoder1037-数字三角形/" data-id="ciwxac9vz000at6a7ccz6tg7z" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </footer>
@@ -462,7 +545,7 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hexo-MathJax/" data-id="ciwfrxca500065da7l7lu8ixo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/26/hexo-MathJax/" data-id="ciwxac9wp000gt6a7bu9ostst" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
     </footer>
@@ -507,164 +590,9 @@ His name is little ho, we are friends.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hexo-插入图片/" data-id="ciwfrxca300055da7eo8hkjrj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/26/hexo-插入图片/" data-id="ciwxac9vr0005t6a75xy2zjam" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-hohoCoder1014-Trie树" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/26/hohoCoder1014-Trie树/" class="article-date">
-  <time datetime="2016-09-26T05:15:50.000Z" itemprop="datePublished">2016-09-26</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/26/hohoCoder1014-Trie树/">hohoCoder1014: Trie树</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="&#x63CF;&#x8FF0;"><a href="#&#x63CF;&#x8FF0;" class="headerlink" title="&#x63CF;&#x8FF0;"></a>&#x63CF;&#x8FF0;</h2><p><a href="http://hihocoder.com/problemset/problem/1014?sid=894314" target="_blank" rel="external">Link</a></p>
-<p>&#x5C0F;Hi&#x548C;&#x5C0F;Ho&#x662F;&#x4E00;&#x5BF9;&#x597D;&#x670B;&#x53CB;&#xFF0C;&#x51FA;&#x751F;&#x5728;&#x4FE1;&#x606F;&#x5316;&#x793E;&#x4F1A;&#x7684;&#x4ED6;&#x4EEC;&#x5BF9;&#x7F16;&#x7A0B;&#x4EA7;&#x751F;&#x4E86;&#x83AB;&#x5927;&#x7684;&#x5174;&#x8DA3;&#xFF0C;&#x4ED6;&#x4EEC;&#x7EA6;&#x5B9A;&#x597D;&#x4E92;&#x76F8;&#x5E2E;&#x52A9;&#xFF0C;&#x5728;&#x7F16;&#x7A0B;&#x7684;&#x5B66;&#x4E60;&#x9053;&#x8DEF;&#x4E0A;&#x4E00;&#x540C;&#x524D;&#x8FDB;&#x3002;</p>
-<p>&#x8FD9;&#x4E00;&#x5929;&#xFF0C;&#x4ED6;&#x4EEC;&#x9047;&#x5230;&#x4E86;&#x4E00;&#x672C;&#x8BCD;&#x5178;&#xFF0C;&#x4E8E;&#x662F;&#x5C0F;Hi&#x5C31;&#x5411;&#x5C0F;Ho&#x63D0;&#x51FA;&#x4E86;&#x90A3;&#x4E2A;&#x7ECF;&#x5178;&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x201C;&#x5C0F;Ho&#xFF0C;&#x4F60;&#x80FD;&#x4E0D;&#x80FD;<strong>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x6211;&#x7ED9;&#x51FA;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x90FD;&#x5728;&#x8FD9;&#x4E2A;&#x8BCD;&#x5178;&#x91CC;&#x9762;&#x627E;&#x5230;&#x4EE5;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5F00;&#x5934;&#x7684;&#x6240;&#x6709;&#x5355;&#x8BCD;&#x5462;</strong>&#xFF1F;&#x201D;</p>
-<p>&#x8EAB;&#x7ECF;&#x767E;&#x6218;&#x7684;&#x5C0F;Ho&#x7B54;&#x9053;&#xFF1A;&#x201C;&#x600E;&#x4E48;&#x4F1A;&#x4E0D;&#x80FD;&#x5462;&#xFF01;&#x4F60;&#x6BCF;&#x7ED9;&#x6211;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6211;&#x5C31;&#x4F9D;&#x6B21;&#x904D;&#x5386;&#x8BCD;&#x5178;&#x91CC;&#x7684;&#x6240;&#x6709;&#x5355;&#x8BCD;&#xFF0C;&#x68C0;&#x67E5;&#x4F60;&#x7ED9;&#x6211;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x524D;&#x7F00;&#x4E0D;&#x5C31;&#x662F;&#x4E86;&#xFF1F;&#x201D;</p>
-<p>&#x5C0F;Hi&#x7B11;&#x9053;&#xFF1A;&#x201C;&#x4F60;&#x554A;&#xFF0C;&#x8FD8;&#x662F;&#x592A;&#x5E74;&#x8F7B;&#x4E86;&#xFF01;~&#x5047;&#x8BBE;&#x8FD9;&#x672C;&#x8BCD;&#x5178;&#x91CC;&#x6709;10&#x4E07;&#x4E2A;&#x5355;&#x8BCD;&#xFF0C;&#x6211;&#x8BE2;&#x95EE;&#x4F60;&#x4E00;&#x4E07;&#x6B21;&#xFF0C;&#x4F60;&#x5F97;&#x8981;&#x7B97;&#x5230;&#x54EA;&#x5E74;&#x54EA;&#x6708;&#x53BB;&#xFF1F;&#x201D;</p>
-<p>&#x5C0F;Ho&#x4F4E;&#x5934;&#x7B97;&#x4E86;&#x4E00;&#x7B97;&#xFF0C;&#x770B;&#x7740;&#x90A3;&#x4E00;&#x5806;&#x5806;&#x7684;0&#xFF0C;&#x987F;&#x65F6;&#x611F;&#x89C9;&#x81EA;&#x5DF1;&#x8FD9;&#x8F88;&#x5B50;&#x90FD;&#x8981;&#x82B1;&#x5728;&#x4E0A;&#x9762;&#x4E86;&#x2026;</p>
-<p>&#x5C0F;Hi&#x770B;&#x7740;&#x5C0F;Ho&#x7684;&#x56E7;&#x6837;&#xFF0C;&#x4E5F;&#x662F;&#x7EE7;&#x7EED;&#x7B11;&#x9053;&#xFF1A;&#x201C;&#x8BA9;&#x6211;&#x6765;&#x63D0;&#x9AD8;&#x4E00;&#x4E0B;&#x4F60;&#x7684;&#x77E5;&#x8BC6;&#x6C34;&#x5E73;&#x5427;~&#x4F60;&#x77E5;&#x9053;&#x6811;&#x8FD9;&#x6837;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E48;&#xFF1F;&#x201D;</p>
-<p>&#x5C0F;Ho&#x60F3;&#x4E86;&#x60F3;&#xFF0C;&#x8BF4;&#x9053;&#xFF1A;&#x201C;&#x77E5;&#x9053;~&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x7840;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5C31;&#x50CF;&#x8FD9;&#x91CC;&#x8BF4;&#x7684;&#x4E00;&#x6837;&#xFF01;&#x201D;</p>
-<p>&#x5C0F;Hi&#x6EE1;&#x610F;&#x7684;&#x70B9;&#x4E86;&#x70B9;&#x5934;&#xFF0C;&#x8BF4;&#x9053;&#xFF1A;&#x201C;&#x90A3;&#x4F60;&#x77E5;&#x9053;&#x6211;&#x600E;&#x4E48;&#x6837;&#x7528;&#x4E00;&#x68F5;&#x6811;&#x6765;&#x8868;&#x793A;&#x6574;&#x4E2A;&#x8BCD;&#x5178;&#x4E48;&#xFF1F;&#x201D;</p>
-<p>&#x5C0F;Ho&#x6447;&#x6447;&#x5934;&#x8868;&#x793A;&#x81EA;&#x5DF1;&#x4E0D;&#x6E05;&#x695A;&#x3002;</p>
-<p>&#x201C;&#x4F60;&#x770B;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x5F97;&#x5230;&#x4E86;&#x8FD9;&#x6837;&#x4E00;&#x68F5;&#x6811;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x770B;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;ap&#xFF0C;&#x4F60;&#x8981;&#x600E;&#x4E48;&#x627E;&#x5230;&#x6240;&#x6709;&#x4EE5;ap&#x5F00;&#x5934;&#x7684;&#x5355;&#x8BCD;&#x5462;&#xFF1F;&#x201D;&#x5C0F;Hi&#x53C8;&#x5F00;&#x59CB;&#x8003;&#x6821;&#x5C0F;Ho&#x3002;</p>
-<p>&#x201C;&#x5514;&#x2026;&#x4E00;&#x4E2A;&#x4E2A;&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;&#x5355;&#x8BCD;&#xFF1F;&#x201D;&#x5C0F;Ho&#x8FD8;&#x662F;&#x4E0D;&#x5FD8;&#x81EA;&#x5DF1;&#x6700;&#x5F00;&#x59CB;&#x63D0;&#x51FA;&#x6765;&#x7684;&#x7B97;&#x6CD5;&#x3002;</p>
-<p>&#x201C;&#x7B28;&#xFF01;&#x8FD9;&#x68F5;&#x6811;&#x96BE;&#x9053;&#x5C31;&#x767D;&#x6784;&#x5EFA;&#x4E86;&#xFF01;&#x201D;&#x5C0F;Hi&#x6559;&#x8BAD;&#x5B8C;&#x5C0F;Ho&#xFF0C;&#x7EE7;&#x7EED;&#x9053;&#xFF1A;&#x201C;&#x770B;&#x597D;&#x4E86;&#xFF01;&#x201D;</p>
-<p>&#x201C;&#x90A3;&#x4E48;&#x73B0;&#x5728;&#xFF01;&#x8D76;&#x7D27;&#x53BB;&#x7528;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5427;&#xFF01;&#x201D;&#x5C0F;Hi&#x5982;&#x662F;&#x8BF4;&#x9053;</p>
-<h2 id="&#x8F93;&#x5165;"><a href="#&#x8F93;&#x5165;" class="headerlink" title="&#x8F93;&#x5165;"></a>&#x8F93;&#x5165;</h2><p>&#x8F93;&#x5165;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x4E3A;&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;n&#xFF0C;&#x8868;&#x793A;&#x8BCD;&#x5178;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5176;&#x540E;n&#x884C;&#xFF0C;&#x6BCF;&#x4E00;&#x884C;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#xFF08;&#x4E0D;&#x4FDD;&#x8BC1;&#x662F;&#x82F1;&#x6587;&#x5355;&#x8BCD;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x706B;&#x661F;&#x6587;&#x5355;&#x8BCD;&#x54E6;&#xFF09;&#xFF0C;&#x5355;&#x8BCD;&#x7531;&#x4E0D;&#x8D85;&#x8FC7;10&#x4E2A;&#x7684;&#x5C0F;&#x5199;&#x82F1;&#x6587;&#x5B57;&#x6BCD;&#x7EC4;&#x6210;&#xFF0C;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x76F8;&#x540C;&#x7684;&#x5355;&#x8BCD;&#xFF0C;&#x6B64;&#x65F6;&#x5E94;&#x5C06;&#x5176;&#x89C6;&#x4F5C;&#x4E0D;&#x540C;&#x7684;&#x5355;&#x8BCD;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x4E00;&#x884C;&#x4E3A;&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;m&#xFF0C;&#x8868;&#x793A;&#x5C0F;Hi&#x8BE2;&#x95EE;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x5176;&#x540E;m&#x884C;&#xFF0C;&#x6BCF;&#x4E00;&#x884C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x7531;&#x4E0D;&#x8D85;&#x8FC7;10&#x4E2A;&#x7684;&#x5C0F;&#x5199;&#x82F1;&#x6587;&#x5B57;&#x6BCD;&#x7EC4;&#x6210;&#xFF0C;&#x8868;&#x793A;&#x5C0F;Hi&#x7684;&#x4E00;&#x4E2A;&#x8BE2;&#x95EE;&#x3002;</p>
-<p>&#x5728;20%&#x7684;&#x6570;&#x636E;&#x4E2D;n, m&lt;=10&#xFF0C;&#x8BCD;&#x5178;&#x7684;&#x5B57;&#x6BCD;&#x8868;&#x5927;&#x5C0F;&lt;=2.</p>
-<p>&#x5728;60%&#x7684;&#x6570;&#x636E;&#x4E2D;n, m&lt;=1000&#xFF0C;&#x8BCD;&#x5178;&#x7684;&#x5B57;&#x6BCD;&#x8868;&#x5927;&#x5C0F;&lt;=5.</p>
-<p>&#x5728;100%&#x7684;&#x6570;&#x636E;&#x4E2D;n, m&lt;=100000&#xFF0C;&#x8BCD;&#x5178;&#x7684;&#x5B57;&#x6BCD;&#x8868;&#x5927;&#x5C0F;&lt;=26.</p>
-<h2 id="&#x8F93;&#x51FA;"><a href="#&#x8F93;&#x51FA;" class="headerlink" title="&#x8F93;&#x51FA;"></a>&#x8F93;&#x51FA;</h2><p>&#x5BF9;&#x4E8E;&#x5C0F;Hi&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x8BE2;&#x95EE;&#xFF0C;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x6574;&#x6570;Ans,&#x8868;&#x793A;&#x8BCD;&#x5178;&#x4E2D;&#x4EE5;&#x5C0F;Hi&#x7ED9;&#x51FA;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E3A;&#x524D;&#x7F00;&#x7684;&#x5355;&#x8BCD;&#x7684;&#x4E2A;&#x6570;&#x3002;</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>5
-babaab
-babbbaaaa
-abba
-aaaaabaa
-babaababb
-5
-babb
-baabaaa
-bab
-bb
-bbabbaab
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>1
-0
-3
-0
-0
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><ol>
-<li>Hint1&#xFF1A;Trie&#x6811;&#x7684;&#x5EFA;&#x7ACB;<br><img src="/2016/09/26/hohoCoder1014-Trie&#x6811;/14051554971354.jpg" alt=""></li>
-<li>Hint2&#xFF1A;&#x5982;&#x4F55;&#x4F7F;&#x7528;Trie&#x6811;<br><img src="/2016/09/26/hohoCoder1014-Trie&#x6811;/14051555414053.jpg" alt=""><br><img src="/2016/09/26/hohoCoder1014-Trie&#x6811;/14051555696936.jpg" alt=""></li>
-<li>Hint3&#xFF1A;&#x5728;&#x5EFA;&#x7ACB;Trie&#x6811;&#x65F6;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;</li>
-</ol>
-<pre><code>&#x201C;&#x5C0F;Ho&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x60F3;&#x8FC7;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF1F;&#x4E0D;&#x59A8;&#x79F0;&#x4EE5;T&#x4E3A;&#x6839;&#x7684;&#x5B50;&#x6811;&#x4E2D;&#x6807;&#x8BB0;&#x8282;&#x70B9;&#x7684;&#x4E2A;&#x6570;&#x4E3A;L[T]&#xFF0C;&#x65E2;&#x7136;&#x6211;&#x8981;&#x7EDF;&#x8BA1;&#x67D0;&#x4E2A;L[T1]&#xFF0C;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x7ED3;&#x70B9;&#x662F;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x6211;&#x6709;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x4E00;&#x6B21;&#x6027;&#x628A;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x7684;L[T]&#x6C42;&#x51FA;&#x6765;&#x5462;&#xFF1F;&#x201D;&#x5C0F;Hi&#x6574;&#x7406;&#x4E86;&#x4E0B;&#x601D;&#x7EEA;&#xFF0C;&#x95EE;&#x9053;&#x3002;
-
-&#x201C;&#x4F3C;&#x4E4E;&#x662F;&#x6709;&#x7684;&#xFF0C;&#x8001;&#x5E08;&#x4EE5;&#x524D;&#x8BF4;&#x8FC7;&#xFF0C;&#x9012;&#x5F52;&#x4EC0;&#x4E48;&#x7684;&#x3002;&#x3002;&#x201D;&#x5C0F;Ho&#x7B54;&#x9053;&#x3002;
-
-&#x201C;&#x9012;&#x5F52;&#x592A;&#x590D;&#x6742;&#x4E86;&#xFF01;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E4B;&#x540E;&#x518D;&#x8BF4;&#xFF0C;&#x4F60;&#x8FD9;&#x4E48;&#x60F3;&#xFF0C;&#x5728;&#x4F60;&#x6784;&#x5EFA;Trie&#x6811;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F53;&#x4F60;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8BF4;&#x660E;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;&#x201D;&#x5C0F;Hi&#x6487;&#x4E86;&#x6487;&#x5934;&#xFF0C;&#x7EE7;&#x7EED;&#x95EE;&#x9053;&#x3002;
-
-&#x201C;&#x6211;&#x60F3;&#x60F3;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x2026;&#x2026;&#x6807;&#x8BB0;&#x7ED3;&#x70B9;&#x2026;&#x2026;&#x8BF4;&#x660E;&#x4E86;&#x4EE5;&#x8FD9;&#x4E2A;&#x7ED3;&#x70B9;&#x4E3A;&#x6839;&#x7684;&#x5B50;&#x6811;&#x4E2D;&#x5C06;&#x8981;&#x591A;&#x51FA;&#x6765;&#x4E00;&#x4E2A;&#x6807;&#x8BB0;&#x7ED3;&#x70B9;&#xFF1F;&#x201D;
-
-&#x201C;&#x6CA1;&#x9519;&#xFF01;&#x90A3;&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x529E;&#x6CD5;&#x6765;&#x8BB0;&#x5F55;&#x8FD9;&#x4E2A;&#x6539;&#x53D8;&#x5462;&#xFF1F;&#x201D;
-
-&#x201C;&#x6211;&#x60F3;&#x60F3;&#xFF0C;&#x6211;&#x5728;&#x6700;&#x5F00;&#x59CB;&#x7F6E;&#x6240;&#x6709;L[T]=0&#xFF0C;&#x7136;&#x540E;&#x6BCF;&#x6B21;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5355;&#x8BCD;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x5C06;&#x5B83;&#x7ECF;&#x8FC7;&#x7684;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x7684;L[T]&#x5168;&#x90E8;+1&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x6784;&#x5EFA;&#x5B8C;&#x8FD9;&#x68F5;Trie&#x6811;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4E5F;&#x5C31;&#x80FD;&#x591F;&#x540C;&#x65F6;&#x7EDF;&#x8BA1;&#x5230;&#x6240;&#x6709;L[T]&#x4E86;&#xFF0C;&#x5BF9;&#x4E48;&#xFF1F;&#x201D;&#x5C0F;Ho&#x5F00;&#x5FC3;&#x9053;&#x3002;
-</code></pre><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, node)</span>:</span></div><div class="line">        self.node = node</div><div class="line">        self.children = []</div><div class="line">        self.L = <span class="number">0</span> <span class="comment">#num of subtree = num of words(prefix is &quot;**&quot;)</span></div><div class="line">        self.isTerminal = <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieTree</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.trieRoot = Tree(<span class="keyword">None</span>)</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addWord</span><span class="params">(self, word)</span>:</span></div><div class="line">        self.trieRoot.L += <span class="number">1</span></div><div class="line">        tmp = self.trieRoot</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> word:</div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children]:</div><div class="line">                tmp = tmp.children[[x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children].index(i)]</div><div class="line">                tmp.L += <span class="number">1</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                tmp.children.append(Tree(i))</div><div class="line">                tmp = tmp.children[len(tmp.children)<span class="number">-1</span>]</div><div class="line">                tmp.L += <span class="number">1</span></div><div class="line">        tmp.isTerminal = <span class="keyword">True</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, prefix)</span>:</span></div><div class="line">        tmp = self.trieRoot</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> prefix:</div><div class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> [x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children]:</div><div class="line">                tmp = tmp.children[[x.node <span class="keyword">for</span> x <span class="keyword">in</span> tmp.children].index(i)]</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> tmp.L</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">&apos;__main__&apos;</span>:</div><div class="line">    trie = TrieTree()</div><div class="line">    n = int(raw_input())</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">        trie.addWord(raw_input())</div><div class="line"></div><div class="line">    m = int(raw_input())</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</div><div class="line">        <span class="keyword">print</span> trie.search(raw_input())</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/26/hohoCoder1014-Trie树/" data-id="ciwfrxcf800625da79g6c0gcy" class="article-share-link">Share</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-leetcode204-Count-Primes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/25/leetcode204-Count-Primes/" class="article-date">
-  <time datetime="2016-09-25T03:20:35.000Z" itemprop="datePublished">2016-09-25</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/25/leetcode204-Count-Primes/">leetcode204. Count Primes</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="external">Link</a></p>
-<p>Count the number of prime numbers less than a non-negative number n.</p>
-<h2 id="Credits"><a href="#Credits" class="headerlink" title="Credits:"></a>Credits:</h2><p>Special thanks to <a href="">@mithmatt</a> for adding this problem and creating all test cases.</p>
-<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Hint:</p>
-<ol>
-<li>Let&#x2019;s start with a isPrime function. To determine if a number is prime, we need to check if it is not divisible by any number less than n. The runtime complexity of isPrime function would be O(n) and hence counting the total prime numbers up to n would be $O(n^{2})$. Could we do better?</li>
-</ol>
-<ol>
-<li><p>As we know the number must not be divisible by any number &gt; $n / 2$, we can immediately cut the total iterations half by dividing only up to $n / 2$. Could we still do better?</p>
-</li>
-<li><p>Let&#x2019;s write down all of 12&#x2019;s factors:</p>
-<blockquote>
-<p>2 &#xD7; 6 = 12</p>
-<p>3 &#xD7; 4 = 12</p>
-<p>4 &#xD7; 3 = 12</p>
-<p>6 &#xD7; 2 = 12</p>
-</blockquote>
-<p> As you can see, calculations of 4 &#xD7; 3 and 6 &#xD7; 2 are not necessary. Therefore, we only need to consider factors up to &#x221A;n because, if n is divisible by some number p, then n = p &#xD7; q and since p &#x2264; q, we could derive that p &#x2264; &#x221A;n.</p>
-<p> Our total runtime has now improved to $O(n^{1.5})$, which is slightly better. Is there a faster approach?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">countPrimes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{</div><div class="line">   <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) {</div><div class="line">      <span class="keyword">if</span> (isPrime(i)) count++;</div><div class="line">   }</div><div class="line">   <span class="keyword">return</span> count;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> num)</span> </span>{</div><div class="line">   <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">   <span class="comment">// Loop&apos;s ending condition is i * i &lt;= num instead of i &lt;= sqrt(num)</span></div><div class="line">   <span class="comment">// to avoid repeatedly calling an expensive function sqrt().</span></div><div class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= num; i++) {</div><div class="line">      <span class="keyword">if</span> (num % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">   }</div><div class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-</li>
-<li><p>The Sieve of Eratosthenes is one of the most efficient ways to find all prime numbers up to n. But don&#x2019;t let that name scare you, I promise that the concept is surprisingly simple.</p>
-</li>
-</ol>
-<p><img src="/2016/09/25/leetcode204-Count-Primes/Sieve_of_Eratosthenes_animation.gif" alt=""></p>
-<blockquote>
-<p>Sieve of Eratosthenes: algorithm steps for primes below 121. &#x201C;Sieve of Eratosthenes Animation&#x201D; by SKopp is licensed under CC BY 2.0.</p>
-</blockquote>
-<ol>
-<li><p>4 is not a prime because it is divisible by 2, which means all multiples of 4 must also be divisible by 2 and were already marked off. So we can skip 4 immediately and go to the next number, 5. Now, all multiples of 5 such as 5 &#xD7; 2 = 10, 5 &#xD7; 3 = 15, 5 &#xD7; 4 = 20, 5 &#xD7; 5 = 25, &#x2026; can be marked off. There is a slight optimization here, we do not need to start from 5 &#xD7; 2 = 10. Where should we start marking off?</p>
-</li>
-<li><p>In fact, we can mark off multiples of 5 starting at 5 &#xD7; 5 = 25, because 5 &#xD7; 2 = 10 was already marked off by multiple of 2, similarly 5 &#xD7; 3 = 15 was already marked off by multiple of 3. Therefore, if the current number is p, we can always mark off multiples of p starting at $p^{2}$, then in increments of p: $p^{2}$ + p, $p^{2}$ + 2p, &#x2026; Now what should be the terminating loop condition?</p>
-</li>
-<li><p>It is easy to say that the terminating loop condition is p &lt; n, which is certainly correct but not efficient. Do you still remember Hint #3?</p>
-</li>
-<li><p>Yes, the terminating loop condition can be p &lt; &#x221A;n, as all non-primes &#x2265; &#x221A;n must have already been marked off. When the loop terminates, all the numbers in the table that are non-marked are prime.</p>
-<p> The Sieve of Eratosthenes uses an extra $O(n)$ memory and its runtime complexity is $O(n log log n)$. For the more mathematically inclined readers, you can read more about its algorithm complexity on <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Algorithm_complexity" target="_blank" rel="external">Wikipedia</a>.</p>
-<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">countPrimes</span><span class="params">(self, n)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        :type n: int</div><div class="line">        :rtype: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        <span class="keyword">if</span> n &lt; <span class="number">2</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        isPrime = [<span class="keyword">True</span>] * n  <span class="comment"># hint 4. space complexity = O(n)</span></div><div class="line">        i = <span class="number">2</span></div><div class="line">        <span class="keyword">while</span> i*i &lt; n: <span class="comment"># hint 3</span></div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> isPrime[i]: <span class="comment"># hint 4</span></div><div class="line">                i += <span class="number">1</span></div><div class="line">                <span class="keyword">continue</span></div><div class="line">            j = i*i</div><div class="line">            <span class="keyword">while</span> j &lt; n:</div><div class="line">                isPrime[j] = <span class="keyword">False</span></div><div class="line">                j += i</div><div class="line">            i += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> isPrime.count(<span class="keyword">True</span>) - <span class="number">2</span> <span class="comment"># remove the isPrime[0] and isPrime[1]</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/leetcode204-Count-Primes/" data-id="ciwfrxcc9001k5da7x7j8hryn" class="article-share-link">Share</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
   </div>
   
@@ -681,14 +609,14 @@ bbabbaab
     <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">29</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">31</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">29</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
   
@@ -702,7 +630,7 @@ bbabbaab
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
@@ -710,6 +638,14 @@ bbabbaab
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/20/leetcode459-Repeated-Substring-Pattern/">leetcode459: Repeated Substring Pattern</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/20/leetcode28-Implement-strStr/">leetcode28: Implement strStr()</a>
+          </li>
         
           <li>
             <a href="/2016/12/08/leetcode447-Number-of-Boomerangs/">leetcode447: Number of Boomerangs</a>
@@ -721,14 +657,6 @@ bbabbaab
         
           <li>
             <a href="/2016/11/29/巧妙运用位运算/">巧妙运用位运算</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/22/Android-system-img镜像文件的解压和压缩/">Android system.img镜像文件的解压和压缩</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/21/leetcode49-Group-Anagrams/">leetcode49: Group Anagrams</a>
           </li>
         
       </ul>
