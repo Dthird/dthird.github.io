@@ -57,7 +57,44 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-leetcode384-Shuffle-an-Array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/14/leetcode384-Shuffle-an-Array/" class="article-date">
+  <time datetime="2016-11-14T06:35:19.000Z" itemprop="datePublished">2016-11-14</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/leetcode384-Shuffle-an-Array/">leetcode384: Shuffle an Array</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/shuffle-an-array/" target="_blank" rel="external">Link</a></p>
+<p>Shuffle a set of numbers without duplicates.</p>
+<p>Example:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Init an array with set 1, 2, and 3.</span></div><div class="line"><span class="keyword">int</span>[] nums = {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>};</div><div class="line">Solution solution = <span class="keyword">new</span> Solution(nums);</div><div class="line"></div><div class="line"><span class="comment">// Shuffle the array [1,2,3] and return its result. Any permutation of [1,2,3] must equally likely to be returned.</span></div><div class="line">solution.shuffle();</div><div class="line"></div><div class="line"><span class="comment">// Resets the array back to its original configuration [1,2,3].</span></div><div class="line">solution.reset();</div><div class="line"></div><div class="line"><span class="comment">// Returns the random shuffling of array [1,2,3].</span></div><div class="line">solution.shuffle();</div></pre></td></tr></table></figure></p>
+<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Using python permutations and combinations package(<a href="https://docs.python.org/2/library/itertools.html" target="_blank" rel="external">itertools</a>) or random package(<a href="https://docs.python.org/2/library/random.html" target="_blank" rel="external">shuffle</a>)</p>
+<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Permutations:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> itertools</div><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">        :type nums: List[int]</div><div class="line">        :type size: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array = nums</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Resets the array to its original configuration and return it.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Returns a random shuffling of the array.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        reslist = list(itertools.permutations(self.array, len(self.array)))</div><div class="line">        <span class="keyword">print</span> reslist</div><div class="line">        <span class="keyword">return</span> reslist[random.randint(<span class="number">0</span>, len(reslist)<span class="number">-1</span>)]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></div><div class="line"><span class="comment"># obj = Solution(nums)</span></div><div class="line"><span class="comment"># param_1 = obj.reset()</span></div><div class="line"><span class="comment"># param_2 = obj.shuffle()</span></div></pre></td></tr></table></figure></p>
+<p>random shuffle:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">        :type nums: List[int]</div><div class="line">        :type size: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array_original = self.array = nums</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Resets the array to its original configuration and return it.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array = self.array_original</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Returns a random shuffling of the array.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        random.shuffle(self.array)</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></div><div class="line"><span class="comment"># obj = Solution(nums)</span></div><div class="line"><span class="comment"># param_1 = obj.reset()</span></div><div class="line"><span class="comment"># param_2 = obj.shuffle()</span></div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/" data-id="ciwykcwlu0027fza7bosoyf16" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" class="article-date">
   <time datetime="2016-11-14T05:54:33.000Z" itemprop="datePublished">2016-11-14</time>
@@ -85,7 +122,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="ciwxac9xz001rt6a7brfiw6ce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="ciwykcwlk001vfza7e6x4wroi" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/recursion/">recursion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -119,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" data-id="ciwxac9xt001dt6a7oqkpsle5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode173-Binary-Search-Tree-Iterator/" data-id="ciwykcwl3001ifza71a5yjjp6" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/binary-search/">binary_search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -155,7 +192,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" data-id="ciwxac9xu001gt6a7xgwwiubv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/14/leetcode199-Binary-Tree-Right-Side-View/" data-id="ciwykcwl5001kfza77zfw20kz" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -193,7 +230,7 @@ Output: 7 -&gt; 8 -&gt; 0 -&gt; 7
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/leetcode445-Add-Two-Numbers-II/" data-id="ciwxac9yi002dt6a7d38vc64m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/04/leetcode445-Add-Two-Numbers-II/" data-id="ciwykcwm1002ffza7c1zgjbgk" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linked-list/">linked_list</a></li></ul>
     </footer>
@@ -237,7 +274,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" data-id="ciwxac9yk002it6a7pw94x51e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" data-id="ciwykcwm5002kfza7hds3ktr4" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
@@ -279,7 +316,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/" data-id="ciwxac9y4001vt6a7yk2okxrp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/" data-id="ciwykcwln001zfza73nc443t7" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
     </footer>
@@ -316,7 +353,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/Error-Android-emulator-problem/" data-id="ciwxac9ve0001t6a7vbuqbfpu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/Error-Android-emulator-problem/" data-id="ciwykcwi10001fza7x49npdsi" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
     </footer>
@@ -356,7 +393,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/adb常用命令/" data-id="ciwxac9vn0004t6a7ejmynecm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/adb常用命令/" data-id="ciwykcwic0004fza7ja05b2qj" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
     </footer>
@@ -394,68 +431,7 @@ Output:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/17/hihoCoder1144-01-string/" data-id="ciwxac9x3000st6a7o9w7pmhe" class="article-share-link">Share</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-hihoCoder1361-Playfair密码表" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/15/hihoCoder1361-Playfair密码表/" class="article-date">
-  <time datetime="2016-10-15T02:56:57.000Z" itemprop="datePublished">2016-10-15</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/hihoCoder1361-Playfair密码表/">hihoCoder1361: Playfair密码表</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="http://hihocoder.com/problemset/problem/1361?sid=943634" target="_blank" rel="external">Link</a></p>
-<p>&#x5C0F;Hi&#x548C;&#x5C0F;Ho&#x7ECF;&#x5E38;&#x7528;Playfair&#x5BC6;&#x7801;&#x8868;&#x52A0;&#x5BC6;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x3002; &#x5BC6;&#x7801;&#x8868;&#x662F;&#x6309;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x751F;&#x6210;&#x7684;&#x3002;</p>
-<ol>
-<li><p>&#x968F;&#x673A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x53EA;&#x5305;&#x542B;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x7684;&#x5355;&#x8BCD;S&#x4F5C;&#x4E3A;&#x5BC6;&#x94A5;&#x3002;  </p>
-</li>
-<li><p>&#x5C06;S&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B57;&#x6BCD;J&#x66FF;&#x6362;&#x4E3A;&#x5B57;&#x6BCD;I&#x3002;  </p>
-</li>
-<li><p>&#x5C06;S&#x4E2D;&#x7684;&#x5B57;&#x6BCD;&#x4F9D;&#x6B21;&#x586B;&#x5199;&#x8FDB;&#x4E00;&#x4E2A;5x5&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x6309;&#x7167;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x3001;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x7684;&#x987A;&#x5E8F;&#x586B;&#x5145;&#x683C;&#x5B50;&#x3002;&#x586B;&#x5145;&#x8FC7;&#x7A0B;&#x4E2D;&#x7565;&#x8FC7;&#x5DF2;&#x7ECF;&#x5728;&#x5BC6;&#x7801;&#x8868;&#x4E2D;&#x7684;&#x5B57;&#x6BCD;&#x3002;  </p>
-</li>
-<li><p>&#x5C06;&#x2019;A&#x2019;-&#x2018;I&#x2019;, &#x2018;K&#x2019;-&#x2018;Z&#x2019;(&#x9664;&#x53BB;J&#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x5927;&#x5199;&#x5B57;&#x6BCD;)&#x4E2D;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x5BC6;&#x7801;&#x8868;&#x4E2D;&#x7684;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x6309;&#x7167;&#x5B57;&#x6BCD;&#x8868;&#x987A;&#x5E8F;&#x586B;&#x5165;&#x77E9;&#x9635;&#x5269;&#x4F59;&#x7684;&#x683C;&#x5B50;&#x4E2D;&#x3002;</p>
-</li>
-</ol>
-<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;&#x5355;&#x8BCD;DIJSTRA&#xFF0C;&#x66FF;&#x6362;&#x5B57;&#x6BCD;&#x5F97;&#x5230;DIISTRA&#xFF1B;&#x5C06;DIISTRA&#x586B;&#x5165;&#x77E9;&#x9635;&#x5F97;&#x5230;&#x7684;&#x5BC6;&#x7801;&#x8868;&#x4E3A;(&#x6CE8;&#x610F;&#x7B2C;&#x4E8C;&#x4E2A;I&#x88AB;&#x7565;&#x8FC7;&#x4E86;)&#xFF1A;</p>
-<pre><code>DISTR
-A....
-.....
-.....
-.....
-</code></pre><p>&#x6700;&#x540E;&#x5C06;&#x5269;&#x4F59;&#x5B57;&#x6BCD;&#x586B;&#x5165;&#xFF0C;&#x5F97;&#x5230;&#x5BC6;&#x7801;&#x8868;&#xFF1A;</p>
-<pre><code>DISTR
-ABCEF
-GHKLM
-NOPQU
-VWXYZ
-</code></pre><p>&#x7ED9;&#x5B9A;&#x4F5C;&#x4E3A;&#x5BC6;&#x94A5;&#x7684;&#x5355;&#x8BCD;&#xFF0C;&#x4F60;&#x80FD;&#x6C42;&#x51FA;&#x5BC6;&#x7801;&#x8868;&#x5417;&#xFF1F;</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>&#x7B2C;1&#x884C;&#xFF1A;&#x4E00;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53EA;&#x5305;&#x542B;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x957F;&#x5EA6;&#x4E0D;&#x8D85;&#x8FC7;200</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>&#x5171;5&#x884C;&#xFF0C;&#x6BCF;&#x884C;5&#x4E2A;&#x5B57;&#x6BCD;&#xFF0C;&#x8868;&#x793A;&#x5BC6;&#x7801;&#x8868;&#x3002;</p>
-<p>##Sample Input<br>    HIHOCODER</p>
-<p>##Sample Output<br>    HIOCD<br>    ERABF<br>    GKLMN<br>    PQSTU<br>    VWXYZ</p>
-<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">word = list(raw_input())</div><div class="line">part1 = [chr(i).upper() <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">97</span>,<span class="number">106</span>)]</div><div class="line">part2 = [chr(i).upper() <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">107</span>,<span class="number">123</span>)]</div><div class="line">in_list = []</div><div class="line">res = [<span class="string">&quot;&quot;</span>] * <span class="number">5</span></div><div class="line">i = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(len(word)):</div><div class="line">    <span class="keyword">if</span> word[j] == <span class="string">&apos;J&apos;</span>:</div><div class="line">        word[j] = <span class="string">&apos;I&apos;</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> word</div><div class="line"></div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> word:</div><div class="line">    <span class="keyword">if</span> i &gt;= <span class="number">25</span>: <span class="keyword">break</span></div><div class="line">    <span class="keyword">if</span> j <span class="keyword">not</span> <span class="keyword">in</span> in_list:</div><div class="line">        in_list.append(j)</div><div class="line">        res[i/<span class="number">5</span>] += j</div><div class="line">        i += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> part1:</div><div class="line">    <span class="keyword">if</span> i &gt;= <span class="number">25</span>: <span class="keyword">break</span></div><div class="line">    <span class="keyword">if</span> j <span class="keyword">not</span> <span class="keyword">in</span> in_list:</div><div class="line">        in_list.append(j)</div><div class="line">        res[i/<span class="number">5</span>] += j</div><div class="line">        i += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> part2:</div><div class="line">    <span class="keyword">if</span> i &gt;= <span class="number">25</span>: <span class="keyword">break</span></div><div class="line">    <span class="keyword">if</span> j <span class="keyword">not</span> <span class="keyword">in</span> in_list:</div><div class="line">        in_list.append(j)</div><div class="line">        res[i/<span class="number">5</span>] += j</div><div class="line">        i += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> res:</div><div class="line">    <span class="keyword">print</span> j</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/15/hihoCoder1361-Playfair密码表/" data-id="ciwxac9xb000yt6a78qwmkxf6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/17/hihoCoder1144-01-string/" data-id="ciwykcwk0000sfza7qdcyo6xv" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -474,14 +450,14 @@ VWXYZ
     <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">31</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">32</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
   
@@ -495,7 +471,7 @@ VWXYZ
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
@@ -503,6 +479,10 @@ VWXYZ
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/21/hihoCoder1440-Keywords-Filter/">hihoCoder1440 : Keywords Filter</a>
+          </li>
         
           <li>
             <a href="/2016/12/20/leetcode459-Repeated-Substring-Pattern/">leetcode459: Repeated Substring Pattern</a>
@@ -518,10 +498,6 @@ VWXYZ
         
           <li>
             <a href="/2016/12/01/leetcode221-Maximal-Square/">leetcode221: Maximal Square</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/29/巧妙运用位运算/">巧妙运用位运算</a>
           </li>
         
       </ul>

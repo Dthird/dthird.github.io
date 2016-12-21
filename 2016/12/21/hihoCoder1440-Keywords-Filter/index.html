@@ -3,42 +3,18 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>leetcode257: Binary Tree Paths | Memory</title>
+  <title>hihoCoder1440 : Keywords Filter | Memory</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-  <meta name="description" content="1. QuestionGiven a binary tree, return all root-to-leaf paths.
-For example, given the following binary tree:
-###1
-#/   \
-2     3
-#\
-##5
-All root-to-leaf paths are:
-[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-">
+  <meta name="description" content="1. QuestionDescriptionYou are given a string S which consists of only lower case letters and N keyword W1, W2, &amp;#x2026; WN which also consists of only lower case letters. For each appearance of a keyw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode257: Binary Tree Paths">
-<meta property="og:url" content="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/index.html">
+<meta property="og:title" content="hihoCoder1440 : Keywords Filter">
+<meta property="og:url" content="http://yoursite.com/2016/12/21/hihoCoder1440-Keywords-Filter/index.html">
 <meta property="og:site_name" content="Memory">
-<meta property="og:description" content="1. QuestionGiven a binary tree, return all root-to-leaf paths.
-For example, given the following binary tree:
-###1
-#/   \
-2     3
-#\
-##5
-All root-to-leaf paths are:
-[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-">
-<meta property="og:updated_time" content="2016-10-20T12:04:35.914Z">
+<meta property="og:description" content="1. QuestionDescriptionYou are given a string S which consists of only lower case letters and N keyword W1, W2, &amp;#x2026; WN which also consists of only lower case letters. For each appearance of a keyw">
+<meta property="og:updated_time" content="2016-12-21T06:33:17.648Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode257: Binary Tree Paths">
-<meta name="twitter:description" content="1. QuestionGiven a binary tree, return all root-to-leaf paths.
-For example, given the following binary tree:
-###1
-#/   \
-2     3
-#\
-##5
-All root-to-leaf paths are:
-[&amp;quot;1-&amp;gt;2-&amp;gt;5&amp;quot;, &amp;quot;1-">
+<meta name="twitter:title" content="hihoCoder1440 : Keywords Filter">
+<meta name="twitter:description" content="1. QuestionDescriptionYou are given a string S which consists of only lower case letters and N keyword W1, W2, &amp;#x2026; WN which also consists of only lower case letters. For each appearance of a keyw">
   
     <link rel="alternate" href="/atom.xml" title="Memory" type="application/atom+xml">
   
@@ -85,10 +61,10 @@ All root-to-leaf paths are:
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-leetcode257-Binary-Tree-Paths" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1440-Keywords-Filter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/10/20/leetcode257-Binary-Tree-Paths/" class="article-date">
-  <time datetime="2016-10-20T11:39:00.000Z" itemprop="datePublished">2016-10-20</time>
+    <a href="/2016/12/21/hihoCoder1440-Keywords-Filter/" class="article-date">
+  <time datetime="2016-12-21T06:29:25.000Z" itemprop="datePublished">2016-12-21</time>
 </a>
     <div class="article-category">
     <a class="article-category-link" href="/categories/Programming/">Programming</a>
@@ -99,47 +75,31 @@ All root-to-leaf paths are:
     
       <header class="article-header">
         <h1 class="article-title" itemprop="name">
-      leetcode257: Binary Tree Paths
+      hihoCoder1440 : Keywords Filter
     </h1>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p>Given a binary tree, return all root-to-leaf paths.</p>
-<p>For example, given the following binary tree:</p>
-<pre><code>###1
-#/   \
-2     3
-#\
-##5
-</code></pre><p>All root-to-leaf paths are:</p>
-<pre><code>[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
-</code></pre><h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Recursive implementation:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode:</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="comment"># @param {TreeNode} root</span></div><div class="line">    <span class="comment"># @return {string[]}</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> list()</div><div class="line">        result = [ str(root.val)+<span class="string">&quot;-&gt;&quot;</span> + path <span class="keyword">for</span> path <span class="keyword">in</span> self.binaryTreePaths(root.left)]</div><div class="line">        result += [ str(root.val)+<span class="string">&quot;-&gt;&quot;</span> + path <span class="keyword">for</span> path <span class="keyword">in</span> self.binaryTreePaths(root.right)]</div><div class="line">        <span class="keyword">return</span> result <span class="keyword">or</span> [str(root.val)]  <span class="comment"># if empty return leaf itself</span></div></pre></td></tr></table></figure></p>
-<p>Iterative implementation:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># unfinished: record the path of root to leaf</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> list()</div><div class="line">        res = []</div><div class="line">        stack = []</div><div class="line">        path_stack = []</div><div class="line">        stack.append(root)</div><div class="line">        <span class="keyword">while</span> len(stack)&gt;<span class="number">0</span>:</div><div class="line">            tmp = stack.pop()</div><div class="line">            <span class="keyword">if</span>(tmp.left):</div><div class="line">                <span class="keyword">print</span> <span class="string">&quot;D:&quot;</span>, tmp.val</div><div class="line">                stack.append(tmp.left)</div><div class="line">            <span class="keyword">if</span>(tmp.right):</div><div class="line">                <span class="keyword">print</span> <span class="string">&quot;D:&quot;</span>, tmp.val</div><div class="line">                stack.append(tmp.right)</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">not</span> tmp.left <span class="keyword">and</span> <span class="keyword">not</span> tmp.right):</div><div class="line">                <span class="keyword">print</span> <span class="string">&quot;leaf:&quot;</span>, tmp.val</div><div class="line"></div><div class="line">        <span class="keyword">return</span> res</div></pre></td></tr></table></figure></p>
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a string S which consists of only lower case letters and N keyword W1, W2, &#x2026; WN which also consists of only lower case letters. For each appearance of a keyword in S you need to change the letters matching the keyword into &#x2018;*&#x2018;.</p>
+<p>Assume <figure class="highlight plain"><figcaption><span>= &quot;abcxyzabcd&quot;``` and keywords are {&quot;abc&quot;, &quot;cd&quot;}, the filtered S&apos; will be ```&quot;***xyz****&quot;```.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Input</div><div class="line">The first line contains an integer N. (1 &lt;= N &lt;= 1000)</div><div class="line"></div><div class="line">The following N lines each contains a keyword. The total length of the keywords is no more than 100000.</div><div class="line"></div><div class="line">The last line contains the string S. The length of S is no more than 100000.</div><div class="line"></div><div class="line">## Output</div><div class="line">The filtered string.</div><div class="line"></div><div class="line">## Sample Input</div></pre></td></tr></table></figure></p>
+<p>2<br>abc<br>cd<br>abcxyzabcd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">##Sample Output</div></pre></td></tr></table></figure></p>
+<p><strong><em>xyz*</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># 2. Analysis</div><div class="line"># 3. Solution(s)</div><div class="line">```python</div><div class="line">N  = int(raw_input())</div><div class="line">keywords = list()</div><div class="line">for i in xrange(N):</div><div class="line">    keywords.append(raw_input())</div><div class="line">S = raw_input()</div><div class="line"></div><div class="line">flag = [0] * len(S)</div><div class="line"></div><div class="line">for word in keywords:</div><div class="line">    tmp = 0</div><div class="line">    while S.count(word, tmp) != 0:</div><div class="line">        index = S.find(word, tmp)</div><div class="line">        for i in xrange(len(word)):</div><div class="line">            flag[index + i] = 1</div><div class="line">        tmp = index + 1</div><div class="line">res = &quot;&quot;</div><div class="line">for i in xrange(len(flag)):</div><div class="line">    if flag[i]:</div><div class="line">        res += S[i]</div><div class="line">    else:</div><div class="line">        res += &quot;*&quot;</div><div class="line">print res</div></pre></td></tr></table></figure></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/20/leetcode257-Binary-Tree-Paths/" data-id="ciwykcwln001zfza73nc443t7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/21/hihoCoder1440-Keywords-Filter/" data-id="ciwykcwkx0016fza782ncekka" class="article-share-link">Share</a>
       
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tree/">tree</a></li></ul>
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
   </div>
   
     <nav id="article-nav">
   
-    <a href="/2016/11/01/leetcode448-Find-All-Number-Disappeared-in-an-Array/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          leetcode448: Find All Number Disappeared in an Array
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/19/Error-Android-emulator-problem/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/12/20/leetcode459-Repeated-Substring-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Error: Android emulator problem</div>
+      <div class="article-nav-title">leetcode459: Repeated Substring Pattern</div>
     </a>
   
 </nav>

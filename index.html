@@ -57,7 +57,42 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-leetcode459-Repeated-Substring-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hihoCoder1440-Keywords-Filter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/21/hihoCoder1440-Keywords-Filter/" class="article-date">
+  <time datetime="2016-12-21T06:29:25.000Z" itemprop="datePublished">2016-12-21</time>
+</a>
+    <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">Programming</a>
+  </div>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/21/hihoCoder1440-Keywords-Filter/">hihoCoder1440 : Keywords Filter</a>
+    </h1>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a string S which consists of only lower case letters and N keyword W1, W2, &#x2026; WN which also consists of only lower case letters. For each appearance of a keyword in S you need to change the letters matching the keyword into &#x2018;*&#x2018;.</p>
+<p>Assume <figure class="highlight plain"><figcaption><span>= &quot;abcxyzabcd&quot;``` and keywords are {&quot;abc&quot;, &quot;cd&quot;}, the filtered S&apos; will be ```&quot;***xyz****&quot;```.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Input</div><div class="line">The first line contains an integer N. (1 &lt;= N &lt;= 1000)</div><div class="line"></div><div class="line">The following N lines each contains a keyword. The total length of the keywords is no more than 100000.</div><div class="line"></div><div class="line">The last line contains the string S. The length of S is no more than 100000.</div><div class="line"></div><div class="line">## Output</div><div class="line">The filtered string.</div><div class="line"></div><div class="line">## Sample Input</div></pre></td></tr></table></figure></p>
+<p>2<br>abc<br>cd<br>abcxyzabcd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">##Sample Output</div></pre></td></tr></table></figure></p>
+<p><strong><em>xyz*</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># 2. Analysis</div><div class="line"># 3. Solution(s)</div><div class="line">```python</div><div class="line">N  = int(raw_input())</div><div class="line">keywords = list()</div><div class="line">for i in xrange(N):</div><div class="line">    keywords.append(raw_input())</div><div class="line">S = raw_input()</div><div class="line"></div><div class="line">flag = [0] * len(S)</div><div class="line"></div><div class="line">for word in keywords:</div><div class="line">    tmp = 0</div><div class="line">    while S.count(word, tmp) != 0:</div><div class="line">        index = S.find(word, tmp)</div><div class="line">        for i in xrange(len(word)):</div><div class="line">            flag[index + i] = 1</div><div class="line">        tmp = index + 1</div><div class="line">res = &quot;&quot;</div><div class="line">for i in xrange(len(flag)):</div><div class="line">    if flag[i]:</div><div class="line">        res += S[i]</div><div class="line">    else:</div><div class="line">        res += &quot;*&quot;</div><div class="line">print res</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/21/hihoCoder1440-Keywords-Filter/" data-id="ciwykcwkx0016fza782ncekka" class="article-share-link">Share</a>
+      
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+  
+    <article id="post-leetcode459-Repeated-Substring-Pattern" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/20/leetcode459-Repeated-Substring-Pattern/" class="article-date">
   <time datetime="2016-12-20T09:00:14.000Z" itemprop="datePublished">2016-12-20</time>
@@ -95,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/20/leetcode459-Repeated-Substring-Pattern/" data-id="ciwxac9yl002kt6a780au9qdy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/20/leetcode459-Repeated-Substring-Pattern/" data-id="ciwykcwm8002nfza7m1wtyjpp" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -130,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/20/leetcode28-Implement-strStr/" data-id="ciwxac9y6001zt6a7eyvbv0v9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/20/leetcode28-Implement-strStr/" data-id="ciwykcwlr0023fza7vcgazr9m" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -168,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/08/leetcode447-Number-of-Boomerangs/" data-id="ciwxac9yj002ft6a7x1vike0p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/08/leetcode447-Number-of-Boomerangs/" data-id="ciwykcwm3002ifza7jewtjsih" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
@@ -204,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/01/leetcode221-Maximal-Square/" data-id="ciwxac9xy001ot6a77c0dg6ur" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/01/leetcode221-Maximal-Square/" data-id="ciwykcwlh001rfza7blart0ih" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
     </footer>
@@ -271,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/29/巧妙运用位运算/" data-id="ciwxac9yq002ut6a7drl2hzw7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/29/巧妙运用位运算/" data-id="ciwykcwmd002xfza7r2enz6nt" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitwise/">bitwise</a></li></ul>
     </footer>
@@ -317,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/Android-system-img镜像文件的解压和压缩/" data-id="ciwxac9v70000t6a7tc0fzoq3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/Android-system-img镜像文件的解压和压缩/" data-id="ciwykcwhm0000fza7464kdgmy" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
     </footer>
@@ -352,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/leetcode49-Group-Anagrams/" data-id="ciwxac9yn002nt6a7npaf20lp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/leetcode49-Group-Anagrams/" data-id="ciwykcwm9002qfza7coj831bc" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
     </footer>
@@ -389,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/17/leetcode442-Find-All-Duplicates-in-an-Array/" data-id="ciwxac9yg002at6a714qia9xt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/17/leetcode442-Find-All-Duplicates-in-an-Array/" data-id="ciwykcwlz002dfza796p85r93" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li></ul>
     </footer>
@@ -425,46 +460,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/15/leetcode387-First-Unique-Character-in-a-String/" data-id="ciwxac9yd0027t6a701pg1xnm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/15/leetcode387-First-Unique-Character-in-a-String/" data-id="ciwykcwlw002afza7slslcrie" class="article-share-link">Share</a>
       
       <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/string/">string</a></li></ul>
-    </footer>
-  </div>
-  
-</article>
-  
-    <article id="post-leetcode384-Shuffle-an-Array" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/14/leetcode384-Shuffle-an-Array/" class="article-date">
-  <time datetime="2016-11-14T06:35:19.000Z" itemprop="datePublished">2016-11-14</time>
-</a>
-    <div class="article-category">
-    <a class="article-category-link" href="/categories/Programming/">Programming</a>
-  </div>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/14/leetcode384-Shuffle-an-Array/">leetcode384: Shuffle an Array</a>
-    </h1>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Question"><a href="#1-Question" class="headerlink" title="1. Question"></a>1. Question</h1><p><a href="https://leetcode.com/problems/shuffle-an-array/" target="_blank" rel="external">Link</a></p>
-<p>Shuffle a set of numbers without duplicates.</p>
-<p>Example:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Init an array with set 1, 2, and 3.</span></div><div class="line"><span class="keyword">int</span>[] nums = {<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>};</div><div class="line">Solution solution = <span class="keyword">new</span> Solution(nums);</div><div class="line"></div><div class="line"><span class="comment">// Shuffle the array [1,2,3] and return its result. Any permutation of [1,2,3] must equally likely to be returned.</span></div><div class="line">solution.shuffle();</div><div class="line"></div><div class="line"><span class="comment">// Resets the array back to its original configuration [1,2,3].</span></div><div class="line">solution.reset();</div><div class="line"></div><div class="line"><span class="comment">// Returns the random shuffling of array [1,2,3].</span></div><div class="line">solution.shuffle();</div></pre></td></tr></table></figure></p>
-<h1 id="2-Analysis"><a href="#2-Analysis" class="headerlink" title="2. Analysis"></a>2. Analysis</h1><p>Using python permutations and combinations package(<a href="https://docs.python.org/2/library/itertools.html" target="_blank" rel="external">itertools</a>) or random package(<a href="https://docs.python.org/2/library/random.html" target="_blank" rel="external">shuffle</a>)</p>
-<h1 id="3-Solution-s"><a href="#3-Solution-s" class="headerlink" title="3. Solution(s)"></a>3. Solution(s)</h1><p>Permutations:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> itertools</div><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">        :type nums: List[int]</div><div class="line">        :type size: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array = nums</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Resets the array to its original configuration and return it.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Returns a random shuffling of the array.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        reslist = list(itertools.permutations(self.array, len(self.array)))</div><div class="line">        <span class="keyword">print</span> reslist</div><div class="line">        <span class="keyword">return</span> reslist[random.randint(<span class="number">0</span>, len(reslist)<span class="number">-1</span>)]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></div><div class="line"><span class="comment"># obj = Solution(nums)</span></div><div class="line"><span class="comment"># param_1 = obj.reset()</span></div><div class="line"><span class="comment"># param_2 = obj.shuffle()</span></div></pre></td></tr></table></figure></p>
-<p>random shuffle:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line"></div><div class="line">        :type nums: List[int]</div><div class="line">        :type size: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array_original = self.array = nums</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Resets the array to its original configuration and return it.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.array = self.array_original</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shuffle</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">&quot;&quot;&quot;</span></div><div class="line">        Returns a random shuffling of the array.</div><div class="line">        :rtype: List[int]</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        random.shuffle(self.array)</div><div class="line">        <span class="keyword">return</span> self.array</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></div><div class="line"><span class="comment"># obj = Solution(nums)</span></div><div class="line"><span class="comment"># param_1 = obj.reset()</span></div><div class="line"><span class="comment"># param_2 = obj.shuffle()</span></div></pre></td></tr></table></figure></p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/14/leetcode384-Shuffle-an-Array/" data-id="ciwxac9ya0023t6a7ugpa6e3m" class="article-share-link">Share</a>
-      
-      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OJ/">OJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a></li></ul>
     </footer>
   </div>
   
@@ -481,14 +479,14 @@
     <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">31</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Configuration/">Configuration</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">32</span></li></ul>
     </div>
   </div>
   
     <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OJ/">OJ</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binary-search/">binary_search</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitwise/">bitwise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/compress/">compress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dfs/">dfs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dp/">dp</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enumeration/">enumeration</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/greedy/">greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hash/">hash</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linked-list/">linked_list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/math/">math</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permutations-and-combinations/">permutations_and_combinations</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regular-expression/">regular_expression</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/">string</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tree/">tree</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </div>
   
@@ -502,7 +500,7 @@
     <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
   
@@ -510,6 +508,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/21/hihoCoder1440-Keywords-Filter/">hihoCoder1440 : Keywords Filter</a>
+          </li>
         
           <li>
             <a href="/2016/12/20/leetcode459-Repeated-Substring-Pattern/">leetcode459: Repeated Substring Pattern</a>
@@ -525,10 +527,6 @@
         
           <li>
             <a href="/2016/12/01/leetcode221-Maximal-Square/">leetcode221: Maximal Square</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/29/巧妙运用位运算/">巧妙运用位运算</a>
           </li>
         
       </ul>
