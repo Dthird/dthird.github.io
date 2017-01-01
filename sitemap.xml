@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/01/01/ERROR-Android-emulator-use-gpu-xxx-problem/</loc>
+    
+    <lastmod>2017-01-01T07:32:14.512Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/12/30/leetcode392-Is-Subsequence/</loc>
     
     <lastmod>2016-12-30T02:35:49.115Z</lastmod>
@@ -128,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/10/19/Error-Android-emulator-problem/</loc>
+    <loc>http://yoursite.com/2016/10/19/ERROR-Android-emulator-problem/</loc>
     
     <lastmod>2016-10-19T11:47:18.633Z</lastmod>
     
